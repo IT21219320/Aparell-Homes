@@ -1,6 +1,7 @@
 //Change theme
 var theme = localStorage.getItem("Light");
 light(theme);
+
 function light(val){
     if(val == 'OFF'){
         document.getElementById("stylesheet").href = "style/darkstyle.css";
