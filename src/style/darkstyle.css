@@ -6,8 +6,9 @@ body{
 nav{
     position:sticky;
     top:0;
-    background-color:whitesmoke;
+    background-color:rgb(34 54 58);
     height: 80px;
+    box-shadow: 0px 3px 20px 1px #84818154;
 }
 
 /*Logo*/
@@ -37,16 +38,16 @@ li a{
     text-decoration: none;
     display:block;
     font-size:medium;
-    color:black;
+    color:rgb(255, 255, 255);
     padding: 30px 20px;
 }
 
 .active{
-    color:#1e99be;
+    color:#289abe;
 }
 
 .active .hov{
-    border-bottom: 2px solid #114554;
+    border-bottom: 2px solid #289abe;
 }
 
 .hov{
@@ -54,8 +55,8 @@ li a{
 }
 
 .hov:hover{
-    color:#289abe;
-    border-bottom: 2px solid #289abe;
+    color:#64cff0;
+    border-bottom: 2px solid #64cff0;
 }
 
 /*Login & Signup*/
@@ -114,16 +115,10 @@ li a{
     padding: 5px;
 }
 
-#light{
+#dark{
     display: none;
 }
-#dark{
-    
-}
 
-#dark:hover{
-    background-color: #63dbff;
-}
 #light:hover{
     background-color: #05566e;
 }

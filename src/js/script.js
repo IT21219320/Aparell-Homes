@@ -1,16 +1,11 @@
+//Change theme
 function light(val){
     if(val == 'ON'){
-        document.getElementById("dark").style.display = "none";
-        document.getElementById("light").style.display = "inherit";
-        
-        
         document.getElementById("stylesheet").href = "style/darkstyle.css";
+        document.getElementById("logo").src = "images/Logo(dark).png";
     }
     else if(val == 'OFF'){
-        document.getElementById("light").style.display = "none";
-        document.getElementById("dark").style.display = "inherit";
-        
-        
         document.getElementById("stylesheet").href = "style/lightstyle.css";
+        document.getElementById("logo").src = "images/Logo(light).png";
     }
 }
