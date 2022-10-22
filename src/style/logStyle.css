@@ -30,13 +30,14 @@ nav{
 }
 
 form{
-    padding: 20px;
-    margin-top: 60px;
-    padding-bottom: 0;
+    padding: 50px;
+    margin-top: 140px;
+    padding-bottom: 40px;
     background-color: #093d728c;
     border-radius: 5px;
     box-shadow: #00000047 0px 3px 10px 2px;
     color: white;
+    width: 270px;
 }
 
 #form h2{
@@ -45,11 +46,7 @@ form{
     color: #260075;
 }
 
-form .name{
-    width: 43%;
-}
-
-form input, form textarea{
+form input{
     margin: 0px 10px 15px 0px;
     padding: 7px;
     border-radius: 5px;
@@ -57,20 +54,17 @@ form input, form textarea{
     box-shadow: #00000047 2px 2px 5px 0px;
 }
 
-form input[type=radio], form input[type=checkbox]{
-    box-shadow: none;
-}
-
-#email, #phone{
-    width: 65%;
+#email, #pwd{
+    width: 93%;
 }
 
 #passwrd{
     display: inline-block;
+    width: 100%;
 }
 
-#confirmPasswrd{
-    display: inline-block;
+form input[type=radio]{
+    box-shadow: none;
 }
 
 .show{
@@ -79,19 +73,19 @@ form input[type=radio], form input[type=checkbox]{
     background: white;
     position: absolute;
     display: inline-block;
-    margin-left: -45px;
-    margin-top: 5px;
+    margin-left: 234px;
+    margin-top: -39px;
     cursor: pointer;
 }
 
-#pwdIco, #cPwdIco{
+#pwdIco{
     padding: 0px 5px;
     background: white;
     display: none;
 }
 
 form #submitBtn{
-    padding: 10px;
+    padding: 10px 25px;
     background: rgb(5, 163, 13);
     color: white;
     border-radius: 3px;
@@ -102,10 +96,6 @@ form #submitBtn{
 
 form #submitBtn:hover{
     background: rgb(4 148 11)
-}
-
-form #submitBtn[disabled]{
-    background: #4f5752;
 }
 
 a{

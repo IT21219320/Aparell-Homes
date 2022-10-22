@@ -4,9 +4,9 @@
 <?php
 
     //put the values from the reg form into variables
-    $firstName = $_POST['fName'];
-    $lastName = $_POST['lName'];
-    $address = $_POST['addrs'];
+    $firstName = htmlspecialchars($_POST['fName']);
+    $lastName = htmlspecialchars($_POST['lName']);
+    $address = htmlspecialchars($_POST['addrs']);
     $accType = $_POST['accType'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
@@ -23,7 +23,7 @@
             if($row['email'] == $email && $row['accType'] == $accType){
                 echo "<script>let confirmation = confirm('Account already exists! Login?');
                               if(confirmation){
-                                window.location.replace('login.html');
+                                window.location.replace('loginHTML.php');
                               }
                               else{
                                 window.location.replace('register.html');
@@ -38,14 +38,19 @@
     $sqlInsert = "INSERT INTO users VALUES('$email','$firstName','$lastName','$address','$accType','$phone','$pwd');";
 
     if(mysqli_query($conn,$sqlInsert)){
-        echo "<script>alert('Successfully Registered');</script>";
-        header("location:login.html");
+        echo "<script>
+                alert('Successfully Registered!');
+                window.location.replace('loginHTML.php');
+              </script>";
+        
     }
     else{
-        echo "<script>alert('Registration Unsuccessful');</script>";
-        header("location:registration.html");
+        echo "<script>
+                alert('Registration Unsuccessful!');
+                window.location.replace('register.html');
+              </script>";
     }
 
 
-    mysqli_close($conn)
+    mysqli_close($conn);
 ?>

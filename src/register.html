@@ -51,14 +51,14 @@
                 <div id="passwrd">
                     <!-- Password -->
                     <label for="pwd">Password</label><br>
-                    <input type="password" name="pwd" id="pwd" minlength="8" placeholder="Password" required>
-                    <div class="show" onclick="show('pwd','pwdIco')"><img src="images/show.png" width="20px" height="20px" id="pwdIco"></div>
+                    <input type="password" name="pwd" id="pwd" minlength="8" placeholder="Password" required onkeyup="showImg('pwd','pwdIco');">
+                    <div class="show" onclick="showPwd('pwd','pwdIco')"><img src="images/show.png" width="20px" height="20px" id="pwdIco"></div>
                 </div>
                 <div id="confirmPasswrd">    
                     <!-- Confirm Password -->
                     <label for="cPwd">Confirm Password</label><br>
-                    <input type="password" name="cPwd" id="cPwd" placeholder="Confirm" required>
-                    <div class="show" onclick="show('cPwd','cPwdIco')"><img src="images/show.png" width="20px" height="20px" id="cPwdIco"></div>
+                    <input type="password" name="cPwd" id="cPwd" placeholder="Confirm" required onkeyup="showImg('cPwd','cPwdIco');">
+                    <div class="show" onclick="showPwd('cPwd','cPwdIco')"><img src="images/show.png" width="20px" height="20px" id="cPwdIco"></div>
                 </div>    
 
                 <br>
@@ -73,7 +73,7 @@
                     <button id="submitBtn" disabled>Create Account</button>
 
                     <!-- login -->
-                    <p>Already have an account? <a href="login.html">sign in</a></p>
+                    <p>Already have an account? <a href="loginHTML.php">sign in</a></p>
                 </center>
             </form>
         </div>
@@ -90,6 +90,6 @@
             </center>
         </footer>
 
-        <script src="js/formScript.js"></script>
+        <script src="js/regScript.js"></script>
     </body>
 </html>
