@@ -89,7 +89,7 @@ form input[type=radio], form input[type=checkbox]{
     background: white;
 }
 
-form #submit{
+form #submitBtn{
     padding: 10px;
     background: rgb(5, 163, 13);
     color: white;
@@ -99,11 +99,11 @@ form #submit{
     cursor: pointer;
 }
 
-form #submit:hover{
+form #submitBtn:hover{
     background: rgb(4 148 11)
 }
 
-form #submit[disabled]{
+form #submitBtn[disabled]{
     background: #4f5752;
 }
 

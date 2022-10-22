@@ -33,9 +33,9 @@ regForm.addEventListener('submit', function (event) {
 function enableButton(){
     let chk = document.getElementById("terms");
     if(chk.checked){
-        document.getElementById("submit").disabled = false;
+        document.getElementById("submitBtn").disabled = false;
     }
     else{
-        document.getElementById("submit").disabled = true;}
+        document.getElementById("submitBtn").disabled = true;}
 }
 
