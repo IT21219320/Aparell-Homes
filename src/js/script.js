@@ -1,3 +1,4 @@
+/*
 //Change theme
 var theme = localStorage.getItem("Light");
 light(theme);
@@ -14,3 +15,4 @@ function light(val){
         localStorage.setItem("Light","ON");
     }
 }
+*/

@@ -52,6 +52,7 @@ li a{
 
 .hov{
     border-bottom: 0px solid black;
+    width: 100%;
 }
 
 .hov:hover{
@@ -103,7 +104,7 @@ li a{
     display: none;
 }
 
-/*Dark mode*/
+/*Dark mode
 #drkmode{
     float: right;
     margin: 25px 0px;
@@ -121,25 +122,27 @@ li a{
 
 #dark:hover{
     background-color: #63dbff;
-}
+}*/
 
     /*Footer*/
 footer{
     background-color: #cdf4ff;
-    position: absolute;
-    bottom: 0;
     width: 100%;
     color: #323031;
     box-shadow: 0 -2px 20px 0px #8080804d;
 }    
 
 footer div{
-    margin-bottom: 10px;
+    padding: 10px 0px;
 }
 
 #icons img{
-    margin: 15px 10px 0px 10px;
+    margin: 5px 10px 0px 10px;
 } 
+
+#icons img:hover {
+    transform: scale(1.1);
+}
 
 #links a{
     padding: 0px 5px;
