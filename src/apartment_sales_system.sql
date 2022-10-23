@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 -- Database: `apartment sales system`
 --
 
+CREATE DATABASE `apartment sales system`;
+
 -- --------------------------------------------------------
 
 --
