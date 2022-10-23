@@ -200,8 +200,55 @@ footer div{
     height:600px;
     
 }
+.pos70{
+    width:70%;
+
+
+}
 .Welcome{
-    margin-top:50px;
-    margin-left: 200px;
-    font-size: 50px;
+    margin-top:60px;
+    margin-left: 15%;
+    font-size: 45px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.welcometxt{
+    margin-left: 15%;
+    margin-bottom: 60px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size:18px;
+    text-align: justify;
+}
+.findButton{
+    margin-left:15%;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color:#246af0;
+    text-decoration:none;
+    padding:12px;
+    background-color:white;
+    border:1px solid #246af0;
+    border-radius: 5px;
+
+}
+.findButton:hover{
+    color:#174eb6;
+    border:1px solid #174eb6;
+    background-color:#dfe9fd;
+}
+.sellButton{
+    margin-left:20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color:white;
+    text-decoration:none;
+    padding:12px;
+    background-color:#3373ee;
+    border:2px solid #3373ee;
+    border-radius: 5px;
+}
+.sellButton:hover{
+    color:white;
+    border:2px solid #0741ad;
+    background-color:#0741ad;
+}
+.textPadding{
+    line-height: 10px;
 }

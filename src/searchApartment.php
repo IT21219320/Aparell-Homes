@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home | Aparell</title>
+        <title>Search | Aparell</title>
         <link rel="icon" type="image" href="images/Favicon.png">
         <link rel="stylesheet" href="style/lightstyle.css" id="stylesheet">
     </head>
@@ -26,8 +26,8 @@
 
             <!-- Nav buttons -->
             <ul>
-                <li><a href="index.php" class="active"><font class="hov">Home</font></a></li>
-                <li><a href="searchApartment.php"><font class="hov">Apartments</font></a></li>
+                <li><a href="index.php" ><font class="hov">Home</font></a></li>
+                <li><a href="searchApartment.php" class="active"><font class="hov">Apartments</font></a></li>
                 <li><a href="aboutus.html"><font class="hov">About Us</font></a></li>
                 <li><a href="contacts.html" ><font class="hov">Contact Us</font></a></li>
             </ul>
@@ -56,15 +56,7 @@
             </div> -->
 
         </nav>
-        <!--background image and text-->
-        <div class="home">
-            <div class="pos70">
-            <h2 class="Welcome">Wellcome to Aparell Homes</h2>
-            <p class="welcometxt"><font class="textPadding">Your new Apartment is here. Do not waste your<br> time just go and find your dream Apartment with <br>fantastic features.</font></p>
-            <a href="searchApartment.php" class="findButton">Find An Apartment</a>
-            <a href="sellApartmnet" class="sellButton">Sell An Aparttment</a>
-            </div>
-        </div>
+
 
         <!-- Footer -->
         <footer>
