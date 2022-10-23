@@ -104,6 +104,33 @@ li a{
     display: none;
 }
 
+#dpNav{
+    left: 91%;
+    top: 35px;
+    border-radius: 5px;
+    display: none;
+}
+
+#dpNav li{
+    float:none;
+    background: white;
+    padding: 10px;
+}
+
+#dpNav li:hover{
+    background-color: wheat;
+    cursor: pointer;
+}
+
+#dpNav li a{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    display:block;
+    font-size:medium;
+    color:black;
+    padding: 30px 20px;
+}
+
 /*Dark mode
 #drkmode{
     float: right;

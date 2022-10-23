@@ -12,11 +12,11 @@
         <nav>
 
             <!-- Logo -->
-            <a href="index.html"><img src="images/Logo(light).png" id="logo" alt="logo"></a>
+            <a href="index.php"><img src="images/Logo(light).png" id="logo" alt="logo"></a>
 
             <!-- Nav buttons -->
             <ul>
-                <li><a href="index.html" class="active"><font class="hov">Home</font></a></li>
+                <li><a href="index.php" class="active"><font class="hov">Home</font></a></li>
                 <li><a href="apartment.html"><font class="hov">Apartments</font></a></li>
                 <li><a href="aboutus.html"><font class="hov">About Us</font></a></li>
                 <li><a href="contacts.html" ><font class="hov">Contact Us</font></a></li>
