@@ -17,7 +17,7 @@
     <body>
 
         <!-- Logo -->
-        <a href="index.html"><img src="images/Logo(light).png" id="logo" alt="logo"></a>
+        <a href="index.php"><img src="images/Logo(light).png" id="logo" alt="logo"></a>
 
         <!-- Registeration Form -->
         <div id="form">
@@ -27,6 +27,7 @@
                 <!-- Email -->
                 <label for="email">Email</label><br>
                 <input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                
                 <br>
 
                 <div id="passwrd">

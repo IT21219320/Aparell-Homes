@@ -1,3 +1,9 @@
+<?php
+    session_start();
+
+    $logStat = $_SESSION['LoginStat'];
+    $acc = $_SESSION['AccType'];
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,11 +18,11 @@
         <nav>
 
             <!-- Logo -->
-            <a href="index.html"><img src="images/Logo(light).png" id="logo" alt="logo"></a>
+            <a href="index.php"><img src="images/Logo(light).png" id="logo" alt="logo"></a>
 
             <!-- Nav buttons -->
             <ul>
-                <li><a href="index.html" class="active"><font class="hov">Home</font></a></li>
+                <li><a href="index.php" class="active"><font class="hov">Home</font></a></li>
                 <li><a href="apartment.html"><font class="hov">Apartments</font></a></li>
                 <li><a href="aboutus.html"><font class="hov">About Us</font></a></li>
                 <li><a href="contacts.html" ><font class="hov">Contact Us</font></a></li>
@@ -30,7 +36,13 @@
 
             <!-- Profile icon -->
             <div id="profile">
-                <img src="images/user.png" height="50px"; alt="profile">
+                <img src="images/user.png" height="50px" alt="profile" onmouseover="showDpNav();" onmouseout="hideDpNav();">
+                <div>
+                    <ul id="dpNav" onmouseover="showDpNav();" onmouseout="hideDpNav();">
+                        <a href="<?php echo $acc ?>Dash.php"><li style="margin-top: 35px; border-top-left-radius: 5px; border-top-right-radius: 5px;">Dashboard</li></a>
+                        <a href="logout.php"><li>Log Out</li></a>
+                    </ul>
+                </div>
             </div>
 
             <!-- Dark Mode toggle switch
@@ -67,3 +79,15 @@
         <script src="js/script.js"></script>
     </body>
 </html>
+
+<?php
+    if($logStat == true){
+    //if logged in
+        
+
+        echo "<script>
+                document.getElementById('log').style.display = 'none';
+                document.getElementById('profile').style.display = 'block';
+              </script>";
+    }
+?>

@@ -16,3 +16,12 @@ function light(val){
     }
 }
 */
+
+//show profile menu
+function showDpNav(){
+    document.getElementById("dpNav").style.display = "block";
+}
+//hide profile menu
+function hideDpNav(){
+    document.getElementById("dpNav").style.display = "none";
+}
