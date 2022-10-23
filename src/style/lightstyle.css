@@ -105,8 +105,9 @@ li a{
 }
 
 #dpNav{
-    left: 91%;
     top: 35px;
+    right: 10px;
+    left: unset;
     border-radius: 5px;
     display: none;
 }

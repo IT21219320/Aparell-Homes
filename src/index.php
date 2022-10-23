@@ -1,8 +1,12 @@
 <?php
     session_start();
 
-    $logStat = $_SESSION['LoginStat'];
-    $acc = $_SESSION['AccType'];
+    if(isset($_SESSION['LoginStat'])){
+
+        $logStat = $_SESSION['LoginStat'];
+        $acc = $_SESSION['AccType'];
+        
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -87,8 +91,6 @@
 <?php
     if($logStat == true){
     //if logged in
-        
-
         echo "<script>
                 document.getElementById('log').style.display = 'none';
                 document.getElementById('profile').style.display = 'block';
