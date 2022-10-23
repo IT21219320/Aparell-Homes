@@ -94,11 +94,15 @@
 </html>
 
 <?php
-    if($logStat == true){
-    //if logged in
-        echo "<script>
-                document.getElementById('log').style.display = 'none';
-                document.getElementById('profile').style.display = 'block';
-              </script>";
+    if(isset($_SESSION['LoginStat'])){
+
+        if($logStat == true){
+        //if logged in
+            echo "<script>
+                    document.getElementById('log').style.display = 'none';
+                    document.getElementById('profile').style.display = 'block';
+                </script>";
+        }
+        
     }
 ?>

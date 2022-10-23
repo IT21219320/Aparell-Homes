@@ -39,10 +39,10 @@ form{
     color: white;
 }
 
-#form h2{
+#form h1{
     text-align: center;
     margin-top: 0;
-    color: #260075;
+    color: black;
 }
 
 form .name{

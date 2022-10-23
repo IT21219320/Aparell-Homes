@@ -40,10 +40,10 @@ form{
     width: 270px;
 }
 
-#form h2{
+#form h1{
     text-align: center;
     margin-top: 0;
-    color: #260075;
+    color: black;
 }
 
 form input{

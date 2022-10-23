@@ -22,7 +22,7 @@
         <!-- Registeration Form -->
         <div id="form">
             <form action="login.php" method="POST" id="regForm">
-                <h2>Login</h2>
+                <h1>Login</h1>
 
                 <!-- Email -->
                 <label for="email">Email</label><br>
