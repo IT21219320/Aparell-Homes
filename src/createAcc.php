@@ -35,7 +35,7 @@
     }
 
     //insert values
-    $sqlInsert = "INSERT INTO users VALUES('$email','$firstName','$lastName','$address','$accType','$phone','$pwd');";
+    $sqlInsert = "INSERT INTO users(email,fName,lName,addrs,accType,phoneNo,password) VALUES('$email','$firstName','$lastName','$address','$accType','$phone','$pwd');";
 
     if(mysqli_query($conn,$sqlInsert)){
         echo "<script>

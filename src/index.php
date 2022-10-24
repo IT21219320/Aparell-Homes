@@ -5,6 +5,7 @@
 
         $logStat = $_SESSION['LoginStat'];
         $acc = $_SESSION['AccType'];
+        $dp = $_SESSION['profile'];
         
     }
 ?>
@@ -40,7 +41,7 @@
 
             <!-- Profile icon -->
             <div id="profile">
-                <img src="images/user.png" height="50px" alt="profile" onmouseover="showDpNav();" onmouseout="hideDpNav();">
+                <img src="images/<?php echo $dp ?>" height="50px" alt="profile" onmouseover="showDpNav();" onmouseout="hideDpNav();">
                 <div>
                     <ul id="dpNav" onmouseover="showDpNav();" onmouseout="hideDpNav();">
                         <a href="<?php echo $acc ?>Dash.php"><li style="margin-top: 35px; border-top-left-radius: 5px; border-top-right-radius: 5px;">Dashboard</li></a>
@@ -62,7 +63,7 @@
             <h2 class="Welcome">Wellcome to Aparell Homes</h2>
             <p class="welcometxt"><font class="textPadding">Your new Apartment is here. Do not waste your<br> time just go and find your dream Apartment with <br>fantastic features.</font></p>
             <a href="searchApartment.php" class="findButton">Find An Apartment</a>
-            <a href="sellApartmnet" class="sellButton">Sell An Aparttment</a>
+            <a href="sellApartmnet" class="sellButton">Sell An Apartment</a>
             </div>
         </div>
 
@@ -92,7 +93,6 @@
         <script src="js/script.js"></script>
     </body>
 </html>
-
 <?php
     if(isset($_SESSION['LoginStat'])){
 

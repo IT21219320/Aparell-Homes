@@ -5,6 +5,7 @@
 
         $logStat = $_SESSION['LoginStat'];
         $acc = $_SESSION['AccType'];
+        $dp = $_SESSION['profile'];
         
     }
 ?>
@@ -40,7 +41,7 @@
 
             <!-- Profile icon -->
             <div id="profile">
-                <img src="images/user.png" height="50px" alt="profile" onmouseover="showDpNav();" onmouseout="hideDpNav();">
+                <img src="images/<?php echo $dp ?>" height="50px" alt="profile" onmouseover="showDpNav();" onmouseout="hideDpNav();">
                 <div>
                     <ul id="dpNav" onmouseover="showDpNav();" onmouseout="hideDpNav();">
                         <a href="<?php echo $acc ?>Dash.php"><li style="margin-top: 35px; border-top-left-radius: 5px; border-top-right-radius: 5px;">Dashboard</li></a>
@@ -86,11 +87,13 @@
 </html>
 
 <?php
-    if($logStat == true){
-    //if logged in
-        echo "<script>
-                document.getElementById('log').style.display = 'none';
-                document.getElementById('profile').style.display = 'block';
-              </script>";
+    if(isset($_SESSION['LoginStat'])){
+        if($logStat == true){
+        //if logged in
+            echo "<script>
+                    document.getElementById('log').style.display = 'none';
+                    document.getElementById('profile').style.display = 'block';
+                </script>";
+        }
     }
 ?>

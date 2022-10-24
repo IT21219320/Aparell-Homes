@@ -20,6 +20,7 @@
         $_SESSION['Email'] = $email;
         $_SESSION['Pwd'] = $pwd;
         $_SESSION['AccType'] = $accType;
+        $_SESSION['profile'] = $row['profile'];
         $_SESSION['LoginStat'] = true;
 
         echo "<script>alert('Login Successfull!');</script>";
