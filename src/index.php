@@ -66,6 +66,36 @@
             <a href="sellApartmnet" class="sellButton">Sell An Apartment</a>
             </div>
         </div>
+        <div class="blank">
+
+        </div>
+
+        <div class="ad">
+            <img src="images/Apartments/apartmentpic_01.jpg" alt="image" width="100%">
+            <div class="ad_description">
+                <h2>franklin road</h2>
+                <p>afsfhalskehflkajshgaiwuehjksdbvsmdhfksfmsfgu</p>
+            </div>
+
+        </div>
+        <div class="ad">
+            <img src="images/Apartments/apartmentpic_01.jpg" alt="image" width="100%">
+            <div class="ad_description">
+                <h2>franklin road</h2>
+                <p>afsfhalskehflkajshgaiwuehjksdbvsmdhfksfmsfgu</p>
+            </div>
+
+        </div>
+        <div class="ad">
+            <img src="images/Apartments/apartmentpic_01.jpg" alt="image" width="100%">
+            <div class="ad_description">
+                <h2>franklin road</h2>
+                <p>afsfhalskehflkajshgaiwuehjksdbvsmdhfksfmsfgu</p>
+            </div>
+
+        </div>
+
+
 
         <!-- Footer -->
         <footer>
