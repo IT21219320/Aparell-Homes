@@ -20,6 +20,10 @@
         $_SESSION['Email'] = $email;
         $_SESSION['Pwd'] = $pwd;
         $_SESSION['AccType'] = $accType;
+        $_SESSION['fName'] = $row['fName'];
+        $_SESSION['lName'] = $row['lName'];
+        $_SESSION['addrs'] = $row['addrs'];
+        $_SESSION['mobile'] = $row['phoneNo'];
         $_SESSION['profile'] = $row['profile'];
         $_SESSION['LoginStat'] = true;
 
