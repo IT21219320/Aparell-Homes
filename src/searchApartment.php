@@ -2,10 +2,10 @@
     session_start();
 
     if(isset($_SESSION['LoginStat'])){
+        $logStat = $_SESSION['LoginStat'];
 
         if($_SESSION['LoginStat'] == true){
 
-            $logStat = $_SESSION['LoginStat'];
             $acc = $_SESSION['AccType'];
             $dp = $_SESSION['profile'];
             
