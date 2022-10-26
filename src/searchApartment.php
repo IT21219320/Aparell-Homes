@@ -3,10 +3,14 @@
 
     if(isset($_SESSION['LoginStat'])){
 
-        $logStat = $_SESSION['LoginStat'];
-        $acc = $_SESSION['AccType'];
-        $dp = $_SESSION['profile'];
-        
+        if($_SESSION['LoginStat'] == true){
+
+            $logStat = $_SESSION['LoginStat'];
+            $acc = $_SESSION['AccType'];
+            $dp = $_SESSION['profile'];
+            
+        }   
+
     }
 ?>
 <!DOCTYPE html>
