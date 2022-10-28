@@ -18,7 +18,7 @@
     <head>
         <title>Home | Aparell</title>
         <link rel="icon" type="image" href="images/Favicon.png">
-        <link rel="stylesheet" href="style/lightstyle.css" id="stylesheet">
+        <link rel="stylesheet" href="style/lightstyle.css" >
     </head>
 
     <body>
@@ -30,12 +30,14 @@
             <a href="index.php"><img src="images/Logo(light).png" id="logo" alt="logo"></a>
 
             <!-- Nav buttons -->
-            <ul>
-                <li><a href="index.php" class="active"><font class="hov">Home</font></a></li>
-                <li><a href="searchApartment.php"><font class="hov">Apartments</font></a></li>
-                <li><a href="aboutus.html"><font class="hov">About Us</font></a></li>
-                <li><a href="contacts.html" ><font class="hov">Contact Us</font></a></li>
-            </ul>
+            <div style="margin-right:20px">
+                <ul>
+                    <li><a href="index.php" class="active"><font class="hov">Home</font></a></li>
+                    <li><a href="searchApartment.php"><font class="hov">Apartments</font></a></li>
+                    <li><a href="aboutus.html"><font class="hov">About Us</font></a></li>
+                    <li><a href="contacts.html" ><font class="hov">Contact Us</font></a></li>
+                </ul>
+            </div>
 
             <!-- Login & Signup -->
             <div id="log">
@@ -73,30 +75,36 @@
         <div class="blank">
 
         </div>
-
+        <div class="ad_Area">
         <div class="ad">
-            <img src="images/Apartments/apartmentpic_01.jpg" alt="image" width="100%">
+            <img src="images/Apartments/apartmentpic_01.jpg" alt="image" width="100%" class="adpic">
             <div class="ad_description">
-                <h2>franklin road</h2>
-                <p>afsfhalskehflkajshgaiwuehjksdbvsmdhfksfmsfgu</p>
+                <h2 id="title">Franklin road</h2>
+                <p id="Address">22B, sude road, losAngalese</p>
+                <span id="noOfBeds">4 Beds</span>
+                <span id="baths">2 Baths</span>
+            </div>
+        </div>
+        <div class="ad">
+            <img src="images/Apartments/apartmentpic_01.jpg" alt="image" width="100%" class="adpic">
+            <div class="ad_description">
+                <h2 id="title">Franklin road</h2>
+                <p id="Address">22B, sude road, losAngalese</p>
+                <span id="noOfBeds">4 Beds</span>
+                <span id="baths">2 Baths</span>
             </div>
 
         </div>
         <div class="ad">
-            <img src="images/Apartments/apartmentpic_01.jpg" alt="image" width="100%">
+            <img src="images/Apartments/apartmentpic_01.jpg" alt="image" width="100%" class="adpic">
             <div class="ad_description">
-                <h2>franklin road</h2>
-                <p>afsfhalskehflkajshgaiwuehjksdbvsmdhfksfmsfgu</p>
+                <h2 id="title">Franklin road</h2>
+                <p id="Address">22B, sude road, losAngalese</p>
+                <span id="noOfBeds">4 Beds</span>
+                <span id="baths">2 Baths</span>
             </div>
 
         </div>
-        <div class="ad">
-            <img src="images/Apartments/apartmentpic_01.jpg" alt="image" width="100%">
-            <div class="ad_description">
-                <h2>franklin road</h2>
-                <p>afsfhalskehflkajshgaiwuehjksdbvsmdhfksfmsfgu</p>
-            </div>
-
         </div>
 
 

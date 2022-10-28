@@ -16,6 +16,8 @@ nav{
     height:80px;
     margin-left: 30px; 
     display: inline-block;
+    position: absolute;
+    left:1px;
 }
 
 /*Nav buttons*/
@@ -27,6 +29,8 @@ ul{
     display: inline-block;
     position: absolute;
     left: 33%;
+    width:50%;
+    height:80px;
 }  
 
 li{
@@ -201,7 +205,7 @@ footer div{
     
 }
 .pos70{
-    width:70%;
+    width:60%;
 
 
 }
@@ -256,10 +260,33 @@ footer div{
 .ad{
     display:inline-block;
     width:25%;
-    margin-left:5%;
-    border-radius: 5px;
+    margin:2%;
+    box-shadow: 1px 1px 10px #aaaaaa;
 }
 .ad_description{
     width:100%;
     padding-left:15px;
+    text-align: left;
+}
+.ad_Area{
+    width:100%;
+    text-align: center;
+
+}
+#title{
+    margin-bottom: 1px;
+}
+#Address{
+    margin: 1px;
+}
+#noOfBeds{
+    margin: 1px;
+    display:inline-block;
+}
+#baths{
+    margin: 1px;
+}
+.adpic{
+    border-radius: 8px 8px 0px 0px;
+    
 }
