@@ -280,7 +280,7 @@ footer div{
 }
 .anim div{
     display: contents;
-    font-size: 50px;
+    font-size: 3.5vw;
 }
 .ad{
     display:inline-block;
@@ -298,6 +298,7 @@ footer div{
     padding-left:15px;
     text-align: left;
     padding-bottom: 10px;
+    font-size: 1.5vw;
 }
 .ad_Area{
     width:100%;
