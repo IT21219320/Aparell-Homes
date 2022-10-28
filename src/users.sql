@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2022 at 01:04 PM
+-- Generation Time: Oct 26, 2022 at 01:26 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -21,10 +21,6 @@ SET time_zone = "+00:00";
 -- Database: `apartment sales system`
 --
 
-CREATE DATABASE `apartment sales system`;
-
-USE `apartment sales system`;
-
 -- --------------------------------------------------------
 
 --
@@ -38,7 +34,8 @@ CREATE TABLE `users` (
   `addrs` varchar(500) DEFAULT NULL,
   `accType` varchar(10) NOT NULL,
   `phoneNo` int(11) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `password` varchar(20) NOT NULL,
+  `profile` varchar(100) NOT NULL DEFAULT 'user.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
