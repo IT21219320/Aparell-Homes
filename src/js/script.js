@@ -25,3 +25,85 @@ function showDpNav(){
 function hideDpNav(){
     document.getElementById("dpNav").style.display = "none";
 }
+
+//Animate increasing numbers
+function runNum(){
+    var v = parseInt(document.getElementById("viewers").innerHTML);
+    var b = parseInt(document.getElementById("buyers").innerHTML);
+    var s = parseInt(document.getElementById("sellers").innerHTML);
+    var a = parseInt(document.getElementById("ads").innerHTML);
+    view();
+    buy();
+    sell();
+    ad();
+
+    function view(){
+        if(v <= 10000){
+            document.getElementById("viewers").innerHTML = v + "+";
+            setTimeout(function(){
+                if(v < 10){
+                    v++;
+                }
+                else if(v < 100){
+                    v = v + 10;
+                }
+                else{
+                    v = v + 100;
+                }
+
+                
+                view();
+            },1);
+        }
+    }
+
+    function buy(){
+        if(b <= 8000){
+            document.getElementById("buyers").innerHTML = b + "+";
+            setTimeout(function(){
+                if(b < 10){
+                    b++;
+                }
+                else if(b < 100){
+                    b = b + 10;
+                }
+                else{
+                    b = b + 100;
+                }
+
+                
+                buy();
+            },1);
+        }
+    }
+
+    function sell(){
+        if(s <= 4000){
+            document.getElementById("sellers").innerHTML = s + "+";
+            setTimeout(function(){
+                if(s < 10){
+                    s++;
+                }
+                else if(s < 100){
+                    s = s + 10;
+                }
+                else{
+                    s = s + 100;
+                }
+
+                
+                sell();
+            },1);
+        }
+    }
+
+    function ad(){
+        if(a <= 100){
+            document.getElementById("ads").innerHTML = a + "%";
+            setTimeout(function(){
+                a++;
+                ad();
+            },1);
+        }
+    }
+}

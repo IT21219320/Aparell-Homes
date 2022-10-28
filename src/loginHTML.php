@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home | Aparell</title>
+        <title>Login | Aparell</title>
         <link rel="icon" type="image" href="images/Favicon.png">
         <link rel="stylesheet" href="style/logStyle.css" id="stylesheet">
     </head>
