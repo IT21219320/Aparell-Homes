@@ -76,6 +76,7 @@
 
         </div>
         <div class="ad_Area">
+            <h1> Featured Ads</h1>
         <div class="ad">
             <img src="images/Apartments/apartmentpic_01.jpg" alt="image" width="100%" class="adpic">
             <div class="ad_description">

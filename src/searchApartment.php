@@ -18,7 +18,7 @@
     <head>
         <title>Search | Aparell</title>
         <link rel="icon" type="image" href="images/Favicon.png">
-        <link rel="stylesheet" href="style/lightstyle.css" id="stylesheet">
+        <link rel="stylesheet" href="style/searchstyle.css" id="stylesheet">
     </head>
 
     <body>
@@ -61,7 +61,34 @@
             </div> -->
 
         </nav>
-
+        <div class="searchArea">
+            <form action="searchAd.php">
+                <select name="type" id="type">
+                    <option value="ForSell">For sell</option>
+                    <option value="ForRent">For rent</option>
+                </select>
+                <input type="text" name="search" placeholder="search..">
+                <select name="proptype" id="proptype">
+                    <option value="PropertyType">Property type</option>
+                    <option value="apartments">Apartments</option>
+                    <option value="houses">Houses</option>
+                </select>
+                <input type="submit" value="Search"> 
+            </form>
+        </div>
+        <div class="searchWeltxt">
+            <h1>Property for Sale</h1>
+            <p> Here are many aprtments that you can select as you want and as matched to your reqiurements</p>
+            <div class="dropdown">
+                <button class="dropdownbtn">Filters</button>
+                <div class="dropdown-content">
+                    <form>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+        <hr>
 
         <!-- Footer -->
         <footer>
