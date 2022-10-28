@@ -63,6 +63,7 @@
             </div> -->
 
         </nav>
+
         <!--background image and text-->
         <div class="home">
             <div class="pos70">
@@ -72,40 +73,51 @@
             <a href="sellApartmnet" class="sellButton">Sell An Apartment</a>
             </div>
         </div>
-        <div class="blank">
 
+        <!-- Increasing numbers Stats -->
+        <div class="stats" onmouseover="runNum();">
+            <center>
+                <h1>Life is changing - and housing has just caught up.</h1>
+                <div class="anim"><div id="viewers">0</div><br>Viewers</div>
+                <div class="anim"><div id="buyers">0</div><br>Buyers</div>
+                <div class="anim"><div id="sellers">0</div><br>Verified Sellers</div>
+                <div class="anim"><div id="ads">0</div><br>Reliability</div>
+            </center>
         </div>
+
+        <!-- Featured Ads -->
         <div class="ad_Area">
-            <h1> Featured Ads</h1>
-        <div class="ad">
-            <img src="images/Apartments/apartmentpic_01.jpg" alt="image" width="100%" class="adpic">
-            <div class="ad_description">
-                <h2 id="title">Franklin road</h2>
-                <p id="Address">22B, sude road, losAngalese</p>
-                <span id="noOfBeds">4 Beds</span>
-                <span id="baths">2 Baths</span>
+        <h1> Featured Ads</h1>
+            <div class="ad">
+                <img src="images/Apartments/apartmentpic_01.jpg" alt="image" width="100%" class="adpic">
+                <div class="ad_description">
+                    <h2 id="title">Franklin road</h2>
+                    <p id="Address">22B, sude road, losAngalese</p>
+                    <span id="noOfBeds">4 Beds</span>
+                    <span id="baths">2 Baths</span>
+                </div>
             </div>
-        </div>
-        <div class="ad">
-            <img src="images/Apartments/apartmentpic_01.jpg" alt="image" width="100%" class="adpic">
-            <div class="ad_description">
-                <h2 id="title">Franklin road</h2>
-                <p id="Address">22B, sude road, losAngalese</p>
-                <span id="noOfBeds">4 Beds</span>
-                <span id="baths">2 Baths</span>
+            <div class="ad">
+                <img src="images/Apartments/apartmentpic_01.jpg" alt="image" width="100%" class="adpic">
+                <div class="ad_description">
+                    <h2 id="title">Franklin road</h2>
+                    <p id="Address">22B, sude road, losAngalese</p>
+                    <span id="noOfBeds">4 Beds</span>
+                    <span id="baths">2 Baths</span>
+                </div>
             </div>
-
-        </div>
-        <div class="ad">
-            <img src="images/Apartments/apartmentpic_01.jpg" alt="image" width="100%" class="adpic">
-            <div class="ad_description">
-                <h2 id="title">Franklin road</h2>
-                <p id="Address">22B, sude road, losAngalese</p>
-                <span id="noOfBeds">4 Beds</span>
-                <span id="baths">2 Baths</span>
+            <div class="ad">
+                <img src="images/Apartments/apartmentpic_01.jpg" alt="image" width="100%" class="adpic">
+                <div class="ad_description">
+                    <h2 id="title">Franklin road</h2>
+                    <p id="Address">22B, sude road, losAngalese</p>
+                    <span id="noOfBeds">4 Beds</span>
+                    <span id="baths">2 Baths</span>
+                </div>
             </div>
-
-        </div>
+            <br>
+            <a href="searchApartment.php"><button id="moreBtn">View More</button></a>
+            <br>
         </div>
 
 
