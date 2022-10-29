@@ -67,13 +67,13 @@
                     <option value="ForSell">For sell</option>
                     <option value="ForRent">For rent</option>
                 </select>
-                <input type="text" name="search" placeholder="search..">
-                <select name="proptype" id="proptype">
+                <input type="text" name="search" placeholder="search.." class="search">
+                <select name="proptype" id="proptype" class="selectSearc">
                     <option value="PropertyType">Property type</option>
                     <option value="apartments">Apartments</option>
                     <option value="houses">Houses</option>
                 </select>
-                <input type="submit" value="Search"> 
+                <input type="submit" value="Search" class="submitBtn"> 
             </form>
         </div>
         <div class="searchWeltxt">
@@ -82,12 +82,28 @@
             <div class="dropdown">
                 <button class="dropdownbtn">Filters</button>
                 <div class="dropdown-content">
-                    <form>
-                        
+                    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                        <label class="filterLabel">No of Beds</lebel>
+                        <select id="noOfRooms" name="noOfRooms">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select><br>
+                        <label class="filterLabel">No of Baths</lebel>
+                        <select id="noOfBaths" name="noOfBaths">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select><br>
                     </form>
                 </div>
             </div>
         </div>
+        
         <hr>
 
         <!-- Footer -->
@@ -127,4 +143,7 @@
                 </script>";
         }
     }
+?>
+<?php
+
 ?>
