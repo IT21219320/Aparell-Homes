@@ -6,19 +6,37 @@
 
         if($_SESSION['LoginStat'] == true){
 
-            $acc = $_SESSION['AccType'];
-            $dp = $_SESSION['profile'];
-            
-        }   
-
+            if($_SESSION['StaffSignedIn'] == true){
+                header('Location:staffDash.php');
+            }
+            elseif($_SESSION['BuyerSignedIn'] == true){
+                header('Location:buyerDash.php');
+            }
+            elseif($_SESSION['SellerSignedIn'] != true){
+                echo "<script>
+                        alert('Please login to proceed!');
+                        window.location.replace('loginHTML.php');
+                    </script>";
+            }
+            else{
+                $email = $_SESSION['Email'];
+                $acc = $_SESSION['AccType'];
+                $fname = $_SESSION['fName'];
+                $lname = $_SESSION['lName'];
+                $addrs = $_SESSION['addrs'];
+                $phone = $_SESSION['mobile'];
+                $pwd = $_SESSION['Pwd'];
+                $dp = $_SESSION['profile'];
+            }  
+        }          
     }
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Search | Aparell</title>
+        <title>Dashboard | Aparell</title>
         <link rel="icon" type="image" href="images/Favicon.png">
-        <link rel="stylesheet" href="style/searchstyle.css" id="stylesheet">
+        <link rel="stylesheet" href="style/postAdStyle.css" id="stylesheet">
     </head>
 
     <body>
@@ -31,17 +49,11 @@
 
             <!-- Nav buttons -->
             <ul>
-                <li><a href="index.php" ><font class="hov">Home</font></a></li>
-                <li><a href="searchApartment.php" class="active"><font class="hov">Apartments</font></a></li>
+                <li><a href="index.php"><font class="hov">Home</font></a></li>
+                <li><a href="searchApartment.php"><font class="hov">Apartments</font></a></li>
                 <li><a href="aboutus.html"><font class="hov">About Us</font></a></li>
                 <li><a href="contacts.html" ><font class="hov">Contact Us</font></a></li>
             </ul>
-
-            <!-- Login & Signup -->
-            <div id="log">
-                <a href="loginHTML.php"><button id="login">Login</button></a>
-                <a href="register.html"><button id="signup">Sign up</button></a>
-            </div>
 
             <!-- Profile icon -->
             <div id="profile">
@@ -61,34 +73,15 @@
             </div> -->
 
         </nav>
-        <div class="searchArea">
-            <form action="searchAd.php">
-                <select name="type" id="type">
-                    <option value="ForSell">For sell</option>
-                    <option value="ForRent">For rent</option>
-                </select>
-                <input type="text" name="search" placeholder="search..">
-                <select name="proptype" id="proptype">
-                    <option value="PropertyType">Property type</option>
-                    <option value="apartments">Apartments</option>
-                    <option value="houses">Houses</option>
-                </select>
-                <input type="submit" value="Search"> 
+        
+        <!-- Post Ad form -->
+        <center>
+            <form>
+
             </form>
-        </div>
-        <div class="searchWeltxt">
-            <h1>Property for Sale</h1>
-            <p> Here are many aprtments that you can select as you want and as matched to your reqiurements</p>
-            <div class="dropdown">
-                <button class="dropdownbtn">Filters</button>
-                <div class="dropdown-content">
-                    <form>
-                        
-                    </form>
-                </div>
-            </div>
-        </div>
-        <hr>
+        </center>
+
+        <br><br><br><br><br>
 
         <!-- Footer -->
         <footer>
@@ -116,15 +109,3 @@
         <script src="js/script.js"></script>
     </body>
 </html>
-
-<?php
-    if(isset($_SESSION['LoginStat'])){
-        if($logStat == true){
-        //if logged in
-            echo "<script>
-                    document.getElementById('log').style.display = 'none';
-                    document.getElementById('profile').style.display = 'block';
-                </script>";
-        }
-    }
-?>
