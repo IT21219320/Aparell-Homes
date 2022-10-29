@@ -306,17 +306,22 @@ footer div{
 }
 #title{
     margin-bottom: 6px;
+    font-family:Rockwell;
+    font-size: 130%;
 }
 #Address{
     margin: 1px;
+    font-size: 80%;
 }
 #noOfBeds{
     margin: 1px;
     display:inline-block;
     margin: 1px 1px 20px 1px;
+    font-size: 80%;
 }
 #baths{
     margin: 1px 1px 20px 1px;
+    font-size: 80%;
 }
 .adpic{    
     border-radius: 8px 8px 0px 0px;
