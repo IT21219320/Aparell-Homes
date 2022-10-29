@@ -16,13 +16,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home | Aparell</title>
+        <title>Contact Us | Aparell</title>
         <link rel="icon" type="image" href="images/Favicon.png">
-        <link rel="stylesheet" href="style/lightstyle.css" >
+        <link rel="stylesheet" href="style/contactstyle.css">
     </head>
-
     <body>
-
         <!-- Navigation panel -->
         <nav>
 
@@ -32,10 +30,10 @@
             <!-- Nav buttons -->
             <div style="margin-right:20px">
                 <ul>
-                    <li><a href="index.php" class="active"><font class="hov">Home</font></a></li>
+                    <li><a href="index.php"><font class="hov">Home</font></a></li>
                     <li><a href="searchApartment.php"><font class="hov">Apartments</font></a></li>
                     <li><a href="aboutus.html"><font class="hov">About Us</font></a></li>
-                    <li><a href="contactUs.php" ><font class="hov">Contact Us</font></a></li>
+                    <li><a href="contactUs.php"class="active"><font class="hov">Contact Us</font></a></li>
                 </ul>
             </div>
 
@@ -63,54 +61,16 @@
             </div> -->
 
         </nav>
-        <!--background image and text-->
+
         <div class="home">
-            <div class="pos70">
-            <h2 class="Welcome">Wellcome to Aparell Homes</h2>
-            <p class="welcometxt"><font class="textPadding">Your new Apartment is here. Do not waste your<br> time just go and find your dream Apartment with <br>fantastic features.</font></p>
-            <a href="searchApartment.php" class="findButton">Find An Apartment</a>
-            <a href="sellApartmnet" class="sellButton">Sell An Apartment</a>
-            </div>
-        </div>
-        <div class="blank">
-
-        </div>
-        <div class="ad_Area">
-        <div class="ad">
-            <img src="images/Apartments/apartmentpic_01.jpg" alt="image" width="100%" class="adpic">
-            <div class="ad_description">
-                <h2 id="title">Franklin road</h2>
-                <p id="Address">22B, sude road, losAngalese</p>
-                <span id="noOfBeds">4 Beds</span>
-                <span id="baths">2 Baths</span>
-            </div>
-        </div>
-        <div class="ad">
-            <img src="images/Apartments/apartmentpic_01.jpg" alt="image" width="100%" class="adpic">
-            <div class="ad_description">
-                <h2 id="title">Franklin road</h2>
-                <p id="Address">22B, sude road, losAngalese</p>
-                <span id="noOfBeds">4 Beds</span>
-                <span id="baths">2 Baths</span>
-            </div>
-
-        </div>
-        <div class="ad">
-            <img src="images/Apartments/apartmentpic_01.jpg" alt="image" width="100%" class="adpic">
-            <div class="ad_description">
-                <h2 id="title">Franklin road</h2>
-                <p id="Address">22B, sude road, losAngalese</p>
-                <span id="noOfBeds">4 Beds</span>
-                <span id="baths">2 Baths</span>
-            </div>
-
+        <div class ="pos70">
+        <h1 class="Welcome">Contact Us<h1>
+        <p class="welcometxt">If you have any questions or queries a member of staff will always be happy to help.Feel free to contact us by telephone or email and we will be sure to get back to you as soon possible.</p>
         </div>
         </div>
 
-
-
-        <!-- Footer -->
-        <footer>
+           <!-- Footer -->
+           <footer>
             <center>
                 <!-- Social Media -->
                 <div id="icons">
@@ -122,22 +82,22 @@
                 </div>
                 <!-- Links -->
                 <div id="links">
-                    <a href="aboutus.html">Info</a> &#x2022 <a href="contactUs.php">Support</a> &#x2022 <a href="contactUs.php">Marketing</a><br>
+                    <a href="aboutus.html">Info</a> &#x2022 <a href="contactus.html">Support</a> &#x2022 <a href="contactus.html">Marketing</a><br>
                     <a href="terms.html">Terms of Use</a> &#x2022 <a href="privacy.html">Privacy Policy</a>
                 </div>
                 <!-- Copyrights -->
-                <div id="cpyryt">
+                <div id="cpyryts">
                     &#x00A9 2022 Aparell Homes
                 </div>
             </center>
         </footer>
 
         <script src="js/script.js"></script>
+        
     </body>
 </html>
 <?php
     if(isset($_SESSION['LoginStat'])){
-
         if($logStat == true){
         //if logged in
             echo "<script>
@@ -145,6 +105,5 @@
                     document.getElementById('profile').style.display = 'block';
                 </script>";
         }
-        
     }
 ?>
