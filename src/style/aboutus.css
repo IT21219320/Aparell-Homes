@@ -16,7 +16,7 @@ nav{
 #logo{
     height:80px;
     margin-left: 30px; 
-    display: inline-block;
+    position: absolute;
 }
 
 /*Nav buttons*/
@@ -271,7 +271,7 @@ footer div{
 
 .heading{
     font-size: 70px;
-    color:rgb(1, 1, 105)
+    color:rgb(1, 1, 105);
 }
 .heading span{
     font-style: italic;
@@ -344,7 +344,11 @@ footer div{
     .profiles{
         margin: 20px 0;
     }
-    profile1 p {
+    .profile1 p {
         margin: 20px 10px 80px 10px;
     }
+}
+
+@media only screen and (max-width:900px){
+    .container
 }
