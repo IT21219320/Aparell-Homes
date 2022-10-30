@@ -28,13 +28,25 @@
                 $pwd = $_SESSION['Pwd'];
                 $dp = $_SESSION['profile'];
             }  
-        }          
+        }  
+        else{
+            echo "<script>
+                            alert('Please login to proceed!');
+                            window.location.replace('loginHTML.php');
+                        </script>";
+        }        
+    }
+    else{
+        echo "<script>
+                        alert('Please login to proceed!');
+                        window.location.replace('loginHTML.php');
+                    </script>";
     }
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Dashboard | Aparell</title>
+        <title>Post Ad | Aparell</title>
         <link rel="icon" type="image" href="images/Favicon.png">
         <link rel="stylesheet" href="style/postAdStyle.css" id="stylesheet">
     </head>
@@ -73,15 +85,97 @@
             </div> -->
 
         </nav>
-        
+
+        <br>
+
         <!-- Post Ad form -->
-        <center>
-            <form>
+        <div id="form">
+            <form action="addAprt.php" method="post" id="aprtForm" enctype="multipart/form-data">    
+            <h1>Post Ad</h1>
 
+                <!-- Ad Type -->
+                <label>For: </label>
+                <input type="radio" id="sale" name="type" checked><label for="sale">Sale</label>
+                <input type="radio" id="rent" name="type"><label for="rent">Rent</label>
+
+                <br>
+
+                <!-- No. of Bedrooms -->
+                <div id="bedDiv">
+                    <label for="beds">Bedrooms</label><br>
+                    <input type="number" name="beds" id="beds" required>
+                </div>
+
+                <!-- No. of Bathrooms -->
+                <div id="bathDiv">
+                    <label for="baths">Bathrooms</label><br>
+                    <input type="number" name="baths" id="baths" required>
+                </div>
+
+                <br>
+
+                <!-- Apartmnet Size -->
+                <label for="size">Size</label><br>
+                <input type="number" name="size" id="size" placeholder="(sqrft)" required>
+
+                <br>
+
+                <!-- Location -->
+                <label for="country">Location</label><br>
+                <input type="text" name="country" id="country" placeholder="Country" required>
+                <input type="text" name="city" id="city" placeholder="City" required>
+                <input type="text" name="town" id="town" placeholder="Town" required>
+                
+                <br>
+
+                <!-- Address -->
+                <label for="addrs">Address</label><br>
+                <textarea name="addrs" id="addrs" cols="30" rows="4" required></textarea>
+                
+                <br>
+
+                <!-- Apartmnet Title -->
+                <label for="title">Title</label><br>
+                <input type="text" name="title" id="title" required>
+                
+                <br>
+
+                <!-- Description -->
+                <label for="description">Description</label><br>
+                <textarea name="description" id="description" cols="50" rows="6" required></textarea>
+
+                <br>
+
+                <!-- Price -->
+                <label for="price">Price (Rs)</label><br>
+                <input type="number" name="price" id="price" required>
+
+                <br>
+
+                <!-- Negotiable -->
+                <input type="checkbox" name="nego" id="nego"><label for="nego">Negotiable</label>
+                
+                <br>
+                
+                <hr>
+                
+                <br>
+
+                <div id="output"></div>
+                <input type="file" name="imgFrm[]" id="imgFrm" accept="image/*"  multiple onchange="loadFile(event)" required>
+
+                <br>
+
+                <hr>
+
+                <center>
+                    <!-- Submit Button -->
+                    <button id="submitBtn">Post Ad</button>
+                </center>
             </form>
-        </center>
+        </div>
 
-        <br><br><br><br><br>
+        <br><br><br><br>
 
         <!-- Footer -->
         <footer>
@@ -107,5 +201,27 @@
         </footer>
 
         <script src="js/script.js"></script>
+        <!-- preview image -->
+        <script>
+            function loadFile(event){
+                var output = document.getElementById('output');
+                var source = [];
+                var filesCount = event.target.files.length;
+                if(filesCount > 3){
+                    alert("Only 3 files are allowed to upload");
+                    document.getElementById("imgFrm").value = "";
+                }
+                else{
+                    for(var i = 0; i < filesCount; i++){
+                        source[i] = URL.createObjectURL(event.target.files[i]);
+                        output.innerHTML +=  ("<img src = '"+source[i]+"' width='100px' height='100px' style='margin:20px;'>");
+                    }
+                    output.onload = function() {
+                        output.innerHTML = "";
+                    } 
+                }
+                        
+            }      
+        </script>
     </body>
 </html>

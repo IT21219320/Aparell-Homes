@@ -28,7 +28,19 @@
                 $pwd = $_SESSION['Pwd'];
                 $dp = $_SESSION['profile'];
             }  
-        }          
+        }  
+        else{
+            echo "<script>
+                            alert('Please login to proceed!');
+                            window.location.replace('loginHTML.php');
+                        </script>";
+        }        
+    }
+    else{
+        echo "<script>
+                        alert('Please login to proceed!');
+                        window.location.replace('loginHTML.php');
+                    </script>";
     }
 ?>
 <!DOCTYPE html>
@@ -52,7 +64,7 @@
                 <li><a href="index.php"><font class="hov">Home</font></a></li>
                 <li><a href="searchApartment.php"><font class="hov">Apartments</font></a></li>
                 <li><a href="aboutus.html"><font class="hov">About Us</font></a></li>
-                <li><a href="contacts.html" ><font class="hov">Contact Us</font></a></li>
+                <li><a href="contactUs.php" ><font class="hov">Contact Us</font></a></li>
             </ul>
 
             <!-- Profile icon -->
@@ -86,7 +98,7 @@
                 <img src="images/Apartments/apartmentpic_01.jpg" width="25%" height="215px">
                 <div class="adDisc">
                     <h2>Title</h2>
-                    <p>qwertyuiopasdfghjkllzxcvbnmqwertyuiopasdfghjkllzxcvbnmqwertyuiopasdfghjkllzxcvbnmqwertyuiopasdfghjkllzxcvbnm</p>
+                    <p>Optimum-Sized Apartments. Sustainable Living. Setting The Standard Of Luxury In Lifestyle. 40000 sqft Of Spaces For Recreation And Commercial Services For Residents. Freehold. Freehold title. In Colombo 02. Ocean, Lake & City Views. Amenities: Infinity Pool, Sky Bridge.</p>
                     <div>
                     <a href="editAd.php"><button>Edit</button></a><a href="deleteAd.php"><button>Delete</button></a>
                     </div>

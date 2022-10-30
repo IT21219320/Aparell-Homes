@@ -5,7 +5,7 @@
 
     session_start();
 
-    $email = $_POST['email'];
+    $email = strtolower($_POST['email']);
     $pwd = $_POST['pwd'];
     $accType = $_POST['accType'];
 

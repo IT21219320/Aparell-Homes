@@ -8,7 +8,7 @@
     $lastName = htmlspecialchars($_POST['lName']);
     $address = htmlspecialchars($_POST['addrs']);
     $accType = $_POST['accType'];
-    $email = $_POST['email'];
+    $email = strtolower($_POST['email']);
     $phone = $_POST['phone'];
     $pwd = $_POST['pwd'];
 
