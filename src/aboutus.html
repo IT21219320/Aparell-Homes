@@ -24,23 +24,6 @@
                 </ul>
             </div>
 
-            <!-- Login & Signup -->
-            <div id="log">
-                <a href="loginHTML.php"><button id="login">Login</button></a>
-                <a href="register.html"><button id="signup">Sign up</button></a>
-            </div>
-
-            <!-- Profile icon -->
-            <div id="profile">
-                <img src="images/<?php echo $dp ?>" height="50px" alt="profile" onmouseover="showDpNav();" onmouseout="hideDpNav();">
-                <div>
-                    <ul id="dpNav" onmouseover="showDpNav();" onmouseout="hideDpNav();">
-                        <a href="<?php echo $acc ?>Dash.php"><li style="margin-top: 35px; border-top-left-radius: 5px; border-top-right-radius: 5px;">Dashboard</li></a>
-                        <a href="logout.php"><li>Log Out</li></a>
-                    </ul>
-                </div>
-            </div>
-
             <!-- Dark Mode toggle switch
             <div id="drkmode">
                 <img src="images/night.png" alt="dark" id="dark" class="mode" width="20px" onclick="light('OFF')">
