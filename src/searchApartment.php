@@ -1,18 +1,13 @@
 <?php
-require_once "config.php";
-if (isset($_POST["SearchSubmitbtn"])){
-    $type = $_POST["type"];
-    $SearchPhrase = $_POST["search"];
-    $propertyType = $_POST["proptype"];
-    $noOfRooms = $_POST["noOfRooms"];
-    $noOfBaths = $_POST["noOfBaths"];
-
-    echo "$type  $SearchPhrase  $propertyType $noOfRooms $noOfBaths";
-    //$rowCount = 
-}
-
-
-
+    require_once "config.php";
+    if (isset($_POST["SearchSubmitbtn"])){
+        $type = $_POST["type"];
+        $SearchPhrase = $_POST["search"];
+        $propertyType = $_POST["proptype"];
+        $noOfRooms = $_POST["noOfRooms"];
+        $noOfBaths = $_POST["noOfBaths"];
+        
+    }
 ?>
 <?php
     session_start();
@@ -130,6 +125,45 @@ if (isset($_POST["SearchSubmitbtn"])){
         </div>
         
         <hr>
+        <?php
+        require_once "config.php";
+        $sql = "select * from apartments";
+        $result = $conn->query($sql);
+        if (isset($_POST["SearchSubmitbtn"])){
+            $type = $_POST["type"];
+            $SearchPhrase = $_POST["search"];
+            $propertyType = $_POST["proptype"];
+            $noOfRooms = $_POST["noOfRooms"];
+            $noOfBaths = $_POST["noOfBaths"];
+            
+        }
+        else{
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+            echo "<a href='viewApartment.php' style='color:black'>
+            <div class='DisplayedAds'>
+                <div class='AdPictures'>
+                    <img src='{$row['img1']}' class='pics'>
+                </div>
+                <div class='Adsdis'>
+                    <p id='title'>{$row['title']}</p>
+                    <p id='address'>{$row['addrs']}</p>
+                </div>
+                <div class='price'>
+                    <p id='price'>Rs. {$row['price']}</p>
+                    <p id='noOfBeds'>Beds {$row['beds']}</p>
+                    <p id='baths'>Baths {$row['baths']}</p>
+                </div>
+                <div class= 'contactbtn'>
+                    <button name='contact' id='contact'>Contact Seller</button>
+                </div>
+            </div></a>";
+            }
+        }
+    }
+        ?>
+        <!--
         <a href="viewApartment.php" style="color:black">
         <div class="DisplayedAds">
             <div class="AdPictures">
@@ -147,7 +181,7 @@ if (isset($_POST["SearchSubmitbtn"])){
             <div class= "contactbtn">
                 <button name="contact" id="contact">Contact Seller</button>
             </div>
-        </div></a>
+        </div></a>-->
 
         <!-- Footer -->
         <footer>
