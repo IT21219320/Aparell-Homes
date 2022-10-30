@@ -52,7 +52,7 @@
     $nego = isset($_POST['nego']);
 
     //insert values
-    $sql = "INSERT INTO users(email,fName,lName,addrs,accType,phoneNo,password) VALUES('$email','$firstName','$lastName','$address','$accType','$phone','$pwd');";
+    $sql = "INSERT INTO apartments(adType,beds,baths,size,country,city,town,addrs,title,description,price,negotiable,img1,img2,img3) VALUES('$adType','$beds','$baths','$size','$country','$city','$town','$addrs','$title','$description','$price','$nego','$target_file[0]','$target_file[1]','$target_file[2]');";
 
     if(mysqli_query($conn,$sql)){
         echo "<script>
