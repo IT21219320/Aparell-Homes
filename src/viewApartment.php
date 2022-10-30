@@ -1,19 +1,4 @@
-<?php
-require_once "config.php";
-if (isset($_POST["SearchSubmitbtn"])){
-    $type = $_POST["type"];
-    $SearchPhrase = $_POST["search"];
-    $propertyType = $_POST["proptype"];
-    $noOfRooms = $_POST["noOfRooms"];
-    $noOfBaths = $_POST["noOfBaths"];
 
-    echo "$type  $SearchPhrase  $propertyType $noOfRooms $noOfBaths";
-    //$rowCount = 
-}
-
-
-
-?>
 <?php
     session_start();
 
@@ -77,77 +62,7 @@ if (isset($_POST["SearchSubmitbtn"])){
             </div> -->
 
         </nav>
-        <!-- search bar -->
-        <div class="searchArea">
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
-                <select name="type" id="type" class="selectSearch">
-                    <option value="ForSell">For sell</option>
-                    <option value="ForRent">For rent</option>
-                </select>
-                <input type="text" name="search" placeholder="search.." value="<?php if(isset($_POST["SearchSubmitbtn"])){echo "$SearchPhrase";} ?>" class="search">
-                <select name="proptype" id="proptype" class="selectSearch">
-                    <option value="PropertyType"><?php if(isset($_POST["SearchSubmitbtn"])){echo "$propertyType";}else{echo "Property type";}; ?></option>
-                    <option value="Apartments">Apartments</option>
-                    <option value="Houses">Houses</option>
-                </select>
-                <div class="dropdown">
-                    <p style="margin:0px 0px ; font-size: 18px;">Filter</p>
-                <div class="dropdown-content">
-                        <label class="filterLabel">No of Beds</label>
-                        <select id="noOfRooms" name="noOfRooms">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                        </select><br>
-                        <label class="filterLabel">No of Baths</label>
-                        <select id="noOfBaths" name="noOfBaths">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                        </select>  
-                </div>   
-            </div>
-                <input name="SearchSubmitbtn" type="submit" value="Search" class="submitBtn"> 
-            </form>
-        </div>
-        <div class="searchWeltxt">
-            <h1>Property for Sale</h1>
-            <p> Here are many aprtments that you can select as you want and as matched to your reqiurements</p>
-            
-            <div class="storebyArea">
-            <form method="POST">
-                <select name="storeBy" id="storeBY" class="selectStoreBy">
-                    <option value="Store By">Store By</option>
-                    <option value="Low Price">Low Price</option>
-                    <option value="High Price">High Price</option>
-                </select>
-            </form>
-            </div>
-        </div>
-        
-        <hr>
-        <a href="viewApartment.php" style="color:black">
-        <div class="DisplayedAds">
-            <div class="AdPictures">
-                <img src="images/Apartments/apartmentpic_01.jpg" class="pics">
-            </div>
-            <div class="Adsdis">
-                <p id="title">House for Sale in Frankline Road</p>
-                <p id="address">22B, sude road, losAngalese</p>
-            </div>
-            <div class="price">
-                <p id="price">2,160,000/=</p>
-                <p id="noOfBeds">4 Beds</p>
-                <p id="baths">2 Baths</p>
-            </div>
-            <div class= "contactbtn">
-                <button name="contact" id="contact">Contact Seller</button>
-            </div>
-        </div></a>
+         
 
         <!-- Footer -->
         <footer>

@@ -263,9 +263,8 @@ hr{
 }
 .DisplayedAds{
     width:80%;
-    height:250px;
-    padding:20px;
-    padding: 2% 5% 0% 5%
+    height:200px;
+    margin: 2% 5% 2% 5%;
 }
 .pics{
     width:300px;
@@ -278,6 +277,7 @@ hr{
 }
 .Adsdis{
     float:left;
+    
 }
 #title{
     font-size: 20px;
@@ -286,6 +286,18 @@ hr{
     margin-top: 5px;
 }
 .price{
-    margin:10px;
+    border-left:1px solid black;
+    margin:2px 20px ;
+    padding:0px 20px;
+    float:left;
+}
+
+#price{
+    margin-top:4px;
+    font-size: large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.contactbtn{
+    margin:20px 20px;
     float:left;
 }

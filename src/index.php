@@ -68,7 +68,7 @@
         <div class="home">
             <div class="pos70">
             <h2 class="Welcome">Wellcome to Aparell Homes</h2>
-            <p class="welcometxt"><font class="textPadding">Your new Apartment is here. Do not waste your<br> time just go and find your dream Apartment with <br>fantastic features.</font></p>
+            <p class="welcometxt">Your new Apartment is here. Do not waste your<br> time just go and find your dream Apartment with <br>fantastic features.</p>
             <a href="searchApartment.php" class="findButton">Find An Apartment</a>
             <a href="sellApartmnet" class="sellButton">Sell An Apartment</a>
             </div>
