@@ -229,9 +229,10 @@ hr{
     background-color: black;
 }
 .dropdown{
-    position:relative;
     display: inline-block;
-    margin:0px 10% 0px 70% ;
+    padding:13px 13px ;
+    background-color: whitesmoke;
+    
 }
 .dropdownbtn{
     padding:10px 20px;
@@ -242,7 +243,6 @@ hr{
     width:100px;
     height:100px;
     position:absolute;
-    border:1px solid black;
     display:none;
     background-color: white;
 }
@@ -254,4 +254,38 @@ hr{
 }
 .filterForm{
     width:30%;
+}
+.storebyArea{
+    width:10%;
+}
+.selectStoreBy{
+    
+}
+.DisplayedAds{
+    width:80%;
+    height:250px;
+    padding:20px;
+    padding: 2% 5% 0% 5%
+}
+.pics{
+    width:300px;
+
+}
+.AdPictures{
+    float:left;
+    margin-right: 20px;
+    
+}
+.Adsdis{
+    float:left;
+}
+#title{
+    font-size: 20px;
+    font-weight:700;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 5px;
+}
+.price{
+    margin:10px;
+    float:left;
 }
