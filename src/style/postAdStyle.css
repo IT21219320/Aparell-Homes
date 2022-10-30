@@ -209,9 +209,6 @@ a{
     text-decoration: none;
 }
 
-a:hover{
-}
-
 #bedDiv, #bathDiv{
     display: inline-block;
 }
@@ -219,6 +216,10 @@ a:hover{
 #title{
     width: 95%;
     padding: 10px;
+}
+
+input[type=file]{
+    cursor:pointer;
 }
 
     /*Footer*/

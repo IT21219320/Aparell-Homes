@@ -1,4 +1,7 @@
 <?php
+    include_once "config.php";
+?>
+<?php
     session_start();
 
     if(isset($_SESSION['LoginStat'])){
@@ -42,6 +45,11 @@
                         window.location.replace('loginHTML.php');
                     </script>";
     }
+
+    $sql = "SELECT * FROM apartments";
+
+    $result = $conn->query($sql);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -94,20 +102,33 @@
                 </ul>
             </nav>
             <hr>
-            <div id="ads">
-                <img src="images/Apartments/apartmentpic_01.jpg" width="25%" height="215px">
-                <div class="adDisc">
-                    <h2>Title</h2>
-                    <p>Optimum-Sized Apartments. Sustainable Living. Setting The Standard Of Luxury In Lifestyle. 40000 sqft Of Spaces For Recreation And Commercial Services For Residents. Freehold. Freehold title. In Colombo 02. Ocean, Lake & City Views. Amenities: Infinity Pool, Sky Bridge.</p>
-                    <div>
-                    <a href="editAd.php"><button>Edit</button></a><a href="deleteAd.php"><button>Delete</button></a>
-                    </div>
-                </div>
-                <div id="boost">
-                    <p>Reach up to 10x more people by promoting your ad.</p>
-                    <a href="payment.php"><button>Boost Ad</button></a>
-                </div>
-            </div>
+            <?php
+                if($result->num_rows>0){
+                    while($row = $result->fetch_assoc()){
+                        $id = $row['aprtID'];
+                        $title = $row['title'];
+                        $description = $row['description'];
+                        $price = $row['price'];
+                        $img = $row['img1'];
+
+                        echo"<div class='ads'>
+                                <img src='$img' width='25%' height='215px'>
+                                <div class='adDisc'>
+                                    <h2>$title</h2>
+                                    <p>$description<br><br><br>Rs.$price</p>
+                                    <div>
+                                    <a href='editAd.php?aprtID=$id'><button>Edit</button></a><a href='deleteAd.php?aprtID=$id''><button>Delete</button></a>
+                                    </div>
+                                </div>
+                                <div id='boost'>
+                                    <p>Reach up to 10x more people by promoting your ad.</p>
+                                    <a href='payment.php?aprtID=$id''><button>Boost Ad</button></a>
+                                </div>
+                            </div>";
+                    }
+                }
+                
+            ?>    
             <center>
                 <a href="postAd.php"><button id="postAd">Post Ad</button></a>
             </center>    

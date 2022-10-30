@@ -138,16 +138,19 @@ button {
 }
 
 section{
-    border: 1px solid black;
+    border: 0;
     margin: 50px;
     background: white;
+    border-radius: 20px;
+    box-shadow: 0 0 15px 0px #5c5c5c;
 }
 section nav{
     box-shadow: none;
     height: 50px;
-    background: white;
+    background: transparent;
     position: relative;
     z-index: 0;
+    padding-top: 20px;
 }
 section ul{
     left: initial;
@@ -177,8 +180,9 @@ section li a{
     background: antiquewhite;
 }
 
-#ads{
-    margin: 70px 50px 20px 70px;
+.ads{
+    margin: 60px 40px 10px 60px;
+    padding: 10px;
 }
 .adDisc {
     width: 72%;
@@ -222,7 +226,7 @@ section li a{
     display: inline-block;
 }
 
-#ads a{
+.ads a{
     text-decoration: none;
     color: white;
     font-weight: bold;
@@ -256,6 +260,9 @@ section li a{
     text-decoration: none;
     color: white;
     font-weight: bold;
+}
+
+.ads:hover {
 }
 
 /*      Footer    */

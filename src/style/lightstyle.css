@@ -287,6 +287,7 @@ footer div{
     box-shadow: 1px 1px 10px #aaaaaa;
     border-radius: 8px 8px 0px 0px;
     cursor:pointer;
+    color: black;
 }
 .ad:hover{
     transform:scale(1.02);
@@ -301,6 +302,9 @@ footer div{
     width:100%;
     text-align: center;
     margin-bottom: 50px;
+}
+.ad_Area a{
+    text-decoration: none;
 }
 #title{
     margin-bottom: 6px;
@@ -321,8 +325,9 @@ footer div{
     margin: 1px 1px 20px 1px;
     font-size: 80%;
 }
-.adpic{    
+.adpic{
     border-radius: 8px 8px 0px 0px;
+    height: 180px;
 }
 #moreBtn{
     width: 95px;

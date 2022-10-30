@@ -1,4 +1,7 @@
 <?php
+    include_once "config.php";
+?>
+<?php
     session_start();
 
     if(isset($_SESSION['LoginStat'])){
@@ -92,6 +95,12 @@
         <div id="form">
             <form action="addAprt.php" method="post" id="aprtForm" enctype="multipart/form-data">    
             <h1>Post Ad</h1>
+
+                <!-- Ad ID -->
+                <label>ID </label>
+                <input type="text" id="id" name="id" value='<?php echo $_GET["aprtID"] ?>' disabled>
+
+                <br>
 
                 <!-- Ad Type -->
                 <label>For: </label>

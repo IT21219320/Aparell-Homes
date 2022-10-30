@@ -42,12 +42,12 @@
     $beds = $_POST['beds'];
     $baths = $_POST['baths'];
     $size = $_POST['size'];
-    $country = $_POST['country'];
-    $city = $_POST['city'];
-    $town = $_POST['town'];
-    $addrs = $_POST['addrs'];
-    $title = $_POST['title'];
-    $description = $_POST['description'];
+    $country = htmlspecialchars($_POST['country']);
+    $city = htmlspecialchars($_POST['city']);
+    $town = htmlspecialchars($_POST['town']);
+    $addrs = htmlspecialchars($_POST['addrs']);
+    $title = htmlspecialchars($_POST['title']);
+    $description = htmlspecialchars($_POST['description']);
     $price = $_POST['price'];
     $nego = isset($_POST['nego']);
 
