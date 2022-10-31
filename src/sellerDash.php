@@ -90,7 +90,9 @@
                 <br>
                 <a href="pendingAprovals.php"><button>Pending Aprovals</button></a>
                 <br>
-                <a href="updateUser.php"><button>Settings</button></a>
+                <a href="history.php"><button>History</button></a>
+                <br>
+                <a href="sellersettings.php"><button>Settings</button></a>
                 <br>
                 <a href="logout.php"><button id="logout">Log Out</button></a>
                 <br></br>

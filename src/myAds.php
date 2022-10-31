@@ -97,7 +97,7 @@
                     <li><a href="sellerDash.php" class="hover">Dashboard</a></li>
                     <li><a href="myAds.php" class="hover activeNav">My Ads</a></li>
                     <li><a href="pendingAprovals.php" class="hover">Pending Aproval</a></li>
-                    <li><a href="sellerDash.php" class="hover">Settings</a></li>
+                    <li><a href="sellersettings.php" class="hover">Settings</a></li>
                 </ul>
             </nav>
             <hr>
