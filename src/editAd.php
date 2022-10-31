@@ -1,4 +1,7 @@
 <?php
+    include_once "config.php";
+?>
+<?php
     session_start();
 
     if(isset($_SESSION['LoginStat'])){
@@ -42,6 +45,25 @@
                         window.location.replace('loginHTML.php');
                     </script>";
     }
+
+    $id = $_GET['aprtID'];
+    $sql = "SELECT * FROM apartments WHERE aprtID = $id";
+
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+
+    $adType = $row['adType'];
+    $beds = $row['beds'];
+    $baths = $row['baths'];
+    $size = $row['size'];
+    $country = $row['country'];
+    $city = $row['city'];
+    $town = $row['town'];
+    $addrs = $row['addrs'];
+    $title = $row['title'];
+    $description = $row['description'];
+    $price = $row['price'];
+    $nego = $row['negotiable'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -90,12 +112,18 @@
 
         <!-- Post Ad form -->
         <div id="form">
-            <form action="addAprt.php" method="post" id="aprtForm" enctype="multipart/form-data">    
+            <form action='updateAprt.php?<?php echo"aprtID=$id" ?>' method="post" id="aprtForm">    
             <h1>Post Ad</h1>
+
+                <!-- Ad ID -->
+                <label>ID </label>
+                <input type="text" id="id" name="id" value='<?php echo $_GET["aprtID"] ?>' disabled>
+
+                <br>
 
                 <!-- Ad Type -->
                 <label>For: </label>
-                <input type="radio" id="sale" name="type" value="sale" checked><label for="sale">Sale</label>
+                <input type="radio" id="sale" name="type" value="sale" ><label for="sale">Sale</label>
                 <input type="radio" id="rent" name="type" value="rent" ><label for="rent">Rent</label>
 
                 <br>
@@ -103,74 +131,66 @@
                 <!-- No. of Bedrooms -->
                 <div id="bedDiv">
                     <label for="beds">Bedrooms</label><br>
-                    <input type="number" name="beds" id="beds" required>
+                    <input type="number" name="beds" id="beds" value="<?php echo "$beds" ?>" required>
                 </div>
 
                 <!-- No. of Bathrooms -->
                 <div id="bathDiv">
                     <label for="baths">Bathrooms</label><br>
-                    <input type="number" name="baths" id="baths" required>
+                    <input type="number" name="baths" id="baths" value="<?php echo "$baths" ?>" required>
                 </div>
 
                 <br>
 
                 <!-- Apartmnet Size -->
                 <label for="size">Size</label><br>
-                <input type="number" name="size" id="size" placeholder="(sqrft)" required>
+                <input type="number" name="size" id="size" placeholder="(sqrft)" value="<?php echo "$size" ?>" required>
 
                 <br>
 
                 <!-- Location -->
                 <label for="country">Location</label><br>
-                <input type="text" name="country" id="country" placeholder="Country" required>
-                <input type="text" name="city" id="city" placeholder="City" required>
-                <input type="text" name="town" id="town" placeholder="Town" required>
+                <input type="text" name="country" id="country" placeholder="Country" value="<?php echo "$country" ?>" required>
+                <input type="text" name="city" id="city" placeholder="City" value="<?php echo "$city" ?>" required>
+                <input type="text" name="town" id="town" placeholder="Town" value="<?php echo "$town" ?>" required>
                 
                 <br>
 
                 <!-- Address -->
                 <label for="addrs">Address</label><br>
-                <textarea name="addrs" id="addrs" cols="30" rows="4" required></textarea>
+                <textarea name="addrs" id="addrs" cols="30" rows="4" required><?php echo "$addrs" ?></textarea>
                 
                 <br>
 
                 <!-- Apartmnet Title -->
                 <label for="title">Title</label><br>
-                <input type="text" name="title" id="title" required>
+                <input type="text" name="title" id="title" value="<?php echo "$title" ?>" required>
                 
                 <br>
 
                 <!-- Description -->
                 <label for="description">Description</label><br>
-                <textarea name="description" id="description" cols="50" rows="6" required></textarea>
+                <textarea name="description" id="description" cols="50" rows="6" required><?php echo "$description" ?></textarea>
 
                 <br>
 
                 <!-- Price -->
                 <label for="price">Price (Rs)</label><br>
-                <input type="number" name="price" id="price" required>
+                <input type="number" name="price" id="price" value="<?php echo "$price" ?>" required>
 
                 <br>
 
                 <!-- Negotiable -->
                 <input type="checkbox" name="nego" id="nego"><label for="nego">Negotiable</label>
                 
-                <br>
                 
-                <hr>
-                
-                <br>
-
-                <div id="output"></div>
-                <input type="file" name="imgFrm[]" id="imgFrm" accept="image/*"  multiple onchange="loadFile(event)" required>
-
                 <br>
 
                 <hr>
 
                 <center>
                     <!-- Submit Button -->
-                    <button id="submitBtn">Post Ad</button>
+                    <button id="submitBtn">Update Ad</button>
                 </center>
             </form>
         </div>
@@ -203,6 +223,11 @@
         <script src="js/script.js"></script>
         <!-- preview image -->
         <script>
+            document.getElementById("<?php echo $adType ?>").checked = true;
+            if(<?php echo "$nego" ?>){
+                document.getElementById("nego").checked = true;
+            }
+
             function loadFile(event){
                 var output = document.getElementById('output');
                 output.innerHTML = "";

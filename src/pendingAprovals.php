@@ -46,7 +46,7 @@
                     </script>";
     }
 
-    $sql = "SELECT * FROM apartments WHERE approved = 1";
+    $sql = "SELECT * FROM apartments WHERE approved = 0";
 
     $result = $conn->query($sql);
 
@@ -95,9 +95,9 @@
             <nav>
                 <ul>
                     <li><a href="sellerDash.php" class="hover">Dashboard</a></li>
-                    <li><a href="myAds.php" class="hover activeNav">My Ads</a></li>
-                    <li><a href="pendingAprovals.php" class="hover">Pending Aproval</a></li>
-                    <li><a href="sellersettings.php" class="hover">Settings</a></li>
+                    <li><a href="myAds.php" class="hover">My Ads</a></li>
+                    <li><a href="pendingAprovals.php" class="hover activeNav">Pending Aproval</a></li>
+                    <li><a href="sellerDash.php" class="hover">Settings</a></li>
                 </ul>
             </nav>
             <hr>
@@ -111,18 +111,12 @@
                         $img = $row['img1'];
 
                         echo"
-                            <div class='ads'>
+                            <div class='ads nt_approved'>
                                 <img src='$img' width='25%' height='215px'>
                                 <div class='adDisc'>
                                     <h2>$title</h2>
                                     <p>$description<br><br><br>Rs.$price</p>
-                                    <div>
-                                    <a href='editAd.php?aprtID=$id'><button>Edit</button></a><a onclick='conf($id);'><button>Delete</button></a>
-                                    </div>
-                                </div>
-                                <div id='boost'>
-                                    <p>Reach up to 10x more people by promoting your ad.</p>
-                                    <a href='payment.php?aprtID=$id'><button>Boost Ad</button></a>
+                                    
                                 </div>
                             </div>";
                     }
