@@ -174,7 +174,7 @@ footer div{
 }
 /* End footer */
 .searchArea{
-    background-color:#82cce2;
+    background-color:#5f6894;
     padding-left:7%;
     
 } 
@@ -221,7 +221,7 @@ input[type=submit]:hover{
 
 }
 .searchWeltxt{
-    padding:2% 5% 0% 5%;
+    padding:2% 8% 0% 8%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 hr{
@@ -230,8 +230,10 @@ hr{
 }
 .dropdown{
     display: inline-block;
-    padding:13px 13px ;
+    padding: 11px 14px;
     background-color: whitesmoke;
+    border-radius: 5px;
+    border: 2px solid #ccc;
     
 }
 .dropdownbtn{
@@ -240,34 +242,39 @@ hr{
     
 }
 .dropdown-content{
-    width:100px;
-    height:100px;
+    width: 80px;
+    height: 150px;
     position:absolute;
     display:none;
     background-color: #e6e6e6;
     padding: 10px;
     border-radius: 5px;
+    margin-top: 12px;
 }
 .dropdown:hover .dropdown-content{
     display:block;
 }
-.filterLabel{
-    
-margin-top: 10px;
+.filterslect{
+    width:70px;
 }
 .filterForm{
     width:30%;
 }
-.storebyArea{
+.sortbyArea{
     width:10%;
+    border-radius: 5px;
+    margin-top:10px;
+    margin-left: 90%;
 }
-.selectStoreBy{
-    
+.selectSortBy{
+    Padding:10px;
+    background-color: #e6e6e6;
+    border-radius: 5px;
 }
 .DisplayedAds{
     width:80%;
     height:200px;
-    margin: 1% 5% 2% 5%;
+    margin: 1% 8% 2% 8%;
 }
 .pics{
     width:300px;

@@ -82,8 +82,8 @@
                 <div class="dropdown">
                     <p style="margin:0px 0px ; font-size: 18px;">Filter</p>
                 <div class="dropdown-content">
-                        <label class="filterLabel">No of Beds</label>
-                        <select id="noOfRooms" name="noOfRooms">
+                        <label class="filterLabel" style="display:inline-block">No of Beds</label>
+                        <select id="noOfRooms" name="noOfRooms" class="filterslect">
                             <option value="-">-</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -93,7 +93,7 @@
                             <option value="6">6</option>
                         </select><br>
                         <label class="filterLabel">No of Baths</label>
-                        <select id="noOfBaths" name="noOfBaths">
+                        <select id="noOfBaths" name="noOfBaths" class="filterslect">
                             <option value="-">-</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -109,10 +109,10 @@
             <h1>Property for Sale</h1>
             <p> Here are many aprtments that you can select as you want and as matched to your reqiurements</p>
             
-            <div class="storebyArea">
+            <div class="sortbyArea">
             <form method="POST">
-                <select name="storeBy" id="storeBY" class="selectStoreBy">
-                    <option value="Store By">Store By</option>
+                <select name="sortBy" id="sortBY" class="selectSortBy">
+                    <option value="Sort By">Sort By</option>
                     <option value="Low Price">Low Price</option>
                     <option value="High Price">High Price</option>
                 </select>
