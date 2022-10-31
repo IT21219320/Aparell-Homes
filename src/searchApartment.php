@@ -84,7 +84,7 @@
                 <div class="dropdown-content">
                         <label class="filterLabel">No of Beds</label>
                         <select id="noOfRooms" name="noOfRooms">
-                            <option value="0">0</option>
+                            <option value="0">-</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -94,7 +94,7 @@
                         </select><br>
                         <label class="filterLabel">No of Baths</label>
                         <select id="noOfBaths" name="noOfBaths">
-                            <option value="0">0</option>
+                            <option value="0">-</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -131,10 +131,20 @@
                 $noOfBaths = $_POST["noOfBaths"];
                 $flag = False;
                     
-                $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' && (beds = '{$noOfRooms}'|| beds = '{0}') && (baths = '{$noOfBaths}' || baths = '{0}' )";
+                $sql2 = "select * from apartments where title like '%$SearchPhrase%' && (beds = '{$noOfRooms}'|| beds = '{0}') && (baths = '{$noOfBaths}' || baths = '{0}' )";
+                if($noOfRooms == '-'){
+                    $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' && baths = '{$noOfBaths}'";
+                    if($noOfBaths == '-'){
+                        $sql2 = "SELECT * FROM apartments WHERE title LIKE '%$SearchPhrase%'";
+                    }
+                }
+                elseif($noOfBaths == '-'){
+                    $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' && beds = '{$noOfRooms}''";
+                }
                 $result2 = $conn->query($sql2);
 
                 if($result2 -> num_rows>0){
+                    echo "<script>alert('hi');</script>";
                     while($row = $result2 -> fetch_assoc()){
                         
                         echo "<a href='viewApartment.php' style='color:black'>
