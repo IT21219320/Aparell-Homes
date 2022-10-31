@@ -176,6 +176,8 @@ footer div{
 .searchArea{
     background-color:#5f6894;
     padding-left:7%;
+    margin: 0% 2%;
+    border-radius: 10px;
     
 } 
 .search{
@@ -276,6 +278,10 @@ hr{
     height:200px;
     margin: 1% 8% 2% 8%;
 }
+.DisplayedAds:hover{
+    background-color: rgba(237, 237, 237, 0.814);
+    border-radius: 10px;
+}
 .pics{
     width:300px;
     height:200px;
@@ -314,6 +320,12 @@ hr{
 .contactbtn{
     margin:20px 20px;
     float:left;
+}
+#contact{
+    padding:10px;
+    background-color:rgb(118, 204, 118);
+    border:none;
+    border-radius:5px;
 }
 
 #noOfRooms, #noOfBaths{
