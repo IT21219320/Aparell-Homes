@@ -46,7 +46,7 @@
                     </script>";
     }
 
-    $sql = "SELECT * FROM apartments";
+    $sql = "SELECT * FROM apartments WHERE approved = 1";
 
     $result = $conn->query($sql);
 
@@ -96,8 +96,7 @@
                 <ul>
                     <li><a href="sellerDash.php" class="hover">Dashboard</a></li>
                     <li><a href="myAds.php" class="hover activeNav">My Ads</a></li>
-                    <li><a href="sellerDash.php" class="hover">Pending Aproval</a></li>
-                    <li><a href="sellerDash.php" class="hover">History</a></li>
+                    <li><a href="pendingAprovals.php" class="hover">Pending Aproval</a></li>
                     <li><a href="sellerDash.php" class="hover">Settings</a></li>
                 </ul>
             </nav>
@@ -111,18 +110,19 @@
                         $price = $row['price'];
                         $img = $row['img1'];
 
-                        echo"<div class='ads'>
+                        echo"
+                            <div class='ads'>
                                 <img src='$img' width='25%' height='215px'>
                                 <div class='adDisc'>
                                     <h2>$title</h2>
                                     <p>$description<br><br><br>Rs.$price</p>
                                     <div>
-                                    <a href='editAd.php?aprtID=$id'><button>Edit</button></a><a href='deleteAd.php?aprtID=$id''><button>Delete</button></a>
+                                    <a href='editAd.php?aprtID=$id'><button>Edit</button></a><a onclick='conf($id);'><button>Delete</button></a>
                                     </div>
                                 </div>
                                 <div id='boost'>
                                     <p>Reach up to 10x more people by promoting your ad.</p>
-                                    <a href='payment.php?aprtID=$id''><button>Boost Ad</button></a>
+                                    <a href='payment.php?aprtID=$id'><button>Boost Ad</button></a>
                                 </div>
                             </div>";
                     }
@@ -158,5 +158,14 @@
         </footer>
 
         <script src="js/script.js"></script>
+        <script>
+            function conf(id){
+                var confirmation = confirm('This will permenantly delete your ad! Please Confirm.');
+                if(confirmation){
+                    window.location.replace('deleteAd.php?aprtID='+id);
+                }
+            };
+
+        </script>
     </body>
 </html>

@@ -122,7 +122,7 @@
         
         <hr>
         <?php
-            $sql = "select * from apartments";
+            $sql = "select * from apartments where approved = 1";
             $result = $conn->query($sql);
             $flag = True;
             if (isset($_POST["SearchSubmitbtn"])){
@@ -131,15 +131,15 @@
                 $noOfBaths = $_POST["noOfBaths"];
                 $flag = False;
                     
-                $sql2 = "select * from apartments where title like '%$SearchPhrase%' && (beds = '{$noOfRooms}'|| beds = '{0}') && (baths = '{$noOfBaths}' || baths = '{0}' )";
+                $sql2 = "select * from apartments where title like '%$SearchPhrase%' AND (beds = '{$noOfRooms}'|| beds = '{0}') AND (baths = '{$noOfBaths}' || baths = '{0}' ) AND  approved = 1";
                 if($noOfRooms == '-'){
-                    $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' && baths = '{$noOfBaths}'";
+                    $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' AND baths = '{$noOfBaths}' AND  approved = 1";
                     if($noOfBaths == '-'){
-                        $sql2 = "SELECT * FROM apartments WHERE title LIKE '%$SearchPhrase%'";
+                        $sql2 = "SELECT * FROM apartments WHERE title LIKE '%$SearchPhrase%' AND  approved = 1";
                     }
                 }
                 elseif($noOfBaths == '-'){
-                    $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' && beds = '{$noOfRooms}''";
+                    $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' AND beds = '{$noOfRooms}' AND  approved = 1";
                 }
                 $result2 = $conn->query($sql2);
 

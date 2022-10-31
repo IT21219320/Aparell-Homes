@@ -20,21 +20,7 @@
 
     $result = $conn->query($sql);
 
-    if($result->num_rows>0){
-
-        $id1 = rand(1,$result->num_rows);
-        $id2 = rand(1,$result->num_rows);
-        while($id1 == $id2){
-            $id2 = rand(1,$result->num_rows);
-        } 
-        $id3 = rand(1,$result->num_rows);
-        while($id3 == $id1 || $id3 == $id2){
-            $id3 = rand(1,$result->num_rows);
-        }
-        $sqlfeatured = "SELECT * FROM apartments WHERE aprtID = '$id1' OR aprtID = '$id2' OR aprtID = '$id3'";
-
-        $result2 = $conn->query($sqlfeatured);
-    }
+    
     
 ?>
 <!DOCTYPE html>
@@ -110,35 +96,50 @@
         </div>
 
         <!-- Featured Ads -->
-        <div class="ad_Area">
+        <div class="ad_Area" id="adArea">
             <h1> Featured Ads</h1>
             <?php
-                while($row = $result2->fetch_assoc()){
-                    $id = $row['aprtID'];
-                    $title = $row['title'];
-                    $addrs = $row['addrs'];
-                    $baths = $row['baths'];
-                    $beds = $row['beds'];
-                    $img = $row['img1'];
-        
-                    echo "<a href='viewApartment.php?id=$id'>
-                            <div class='ad'>
-                                <img src='$img' alt='image' width='100%' class='adpic'>
-                                <div class='ad_description'>
-                                    <h2 id='title'>$title</h2>
-                                    <p id='Address'>$addrs</p>
-                                    <span id='noOfBeds'>$baths Bedroom(s)</span>
-                                    <span id='baths'>$baths Bathroom(s)</span>
+                if($result->num_rows>0){
+
+                    $id1 = rand(1,$result->num_rows);
+                    $id2 = rand(1,$result->num_rows);
+                    while($id1 == $id2){
+                        $id2 = rand(1,$result->num_rows);
+                    } 
+                    $id3 = rand(1,$result->num_rows);
+                    while($id3 == $id1 || $id3 == $id2){
+                        $id3 = rand(1,$result->num_rows);
+                    }
+                    $sqlfeatured = "SELECT * FROM apartments WHERE aprtID = '$id1' OR aprtID = '$id2' OR aprtID = '$id3'";
+            
+                    $result2 = $conn->query($sqlfeatured);
+                
+                    while($row = $result2->fetch_assoc()){
+                        $id = $row['aprtID'];
+                        $title = $row['title'];
+                        $addrs = $row['addrs'];
+                        $baths = $row['baths'];
+                        $beds = $row['beds'];
+                        $img = $row['img1'];
+            
+                        echo "<a href='viewApartment.php?id=$id'>
+                                <div class='ad'>
+                                    <img src='$img' alt='image' width='100%' class='adpic'>
+                                    <div class='ad_description'>
+                                        <h2 id='title'>$title</h2>
+                                        <p id='Address'>$addrs</p>
+                                        <span id='noOfBeds'>$baths Bedroom(s)</span>
+                                        <span id='baths'>$baths Bathroom(s)</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>";
+                            </a>";
+                    }
                 }
             ?>
             <br>
             <a href="searchApartment.php"><button id="moreBtn">View More</button></a>
             <br>
         </div>
-
 
 
         <!-- Footer -->

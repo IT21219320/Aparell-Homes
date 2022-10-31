@@ -1,4 +1,7 @@
 <?php
+    include_once "config.php";
+?>
+<?php
     session_start();
 
     if(isset($_SESSION['LoginStat'])){
@@ -28,7 +31,7 @@
                 $pwd = $_SESSION['Pwd'];
                 $dp = $_SESSION['profile'];
             }  
-        }   
+        }  
         else{
             echo "<script>
                             alert('Please login to proceed!');
@@ -42,11 +45,16 @@
                         window.location.replace('loginHTML.php');
                     </script>";
     }
+
+    $sql = "SELECT * FROM apartments WHERE approved = 0";
+
+    $result = $conn->query($sql);
+
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Dashboard | Aparell</title>
+        <title>My Ads | Aparell</title>
         <link rel="icon" type="image" href="images/Favicon.png">
         <link rel="stylesheet" href="style/dashStyle.css" id="stylesheet">
     </head>
@@ -64,7 +72,7 @@
                 <li><a href="index.php"><font class="hov">Home</font></a></li>
                 <li><a href="searchApartment.php"><font class="hov">Apartments</font></a></li>
                 <li><a href="aboutus.html"><font class="hov">About Us</font></a></li>
-                <li><a href="contacts.html" ><font class="hov">Contact Us</font></a></li>
+                <li><a href="contactUs.php" ><font class="hov">Contact Us</font></a></li>
             </ul>
 
             <!-- Profile icon -->
@@ -78,26 +86,47 @@
                 <img src="images/day.png" alt="light" id="light" class="mode" width="20px" onclick="light('ON')">
             </div> -->
 
-        </nav>
-        
-        <!-- Dashboard -->
-        <h1>Dashboard</h1>
-        <center>
-            <section id="dashboard">
-                <h2>Hello <?php echo $fname ?> <?php echo $lname ?>!</h2>
-                <hr>
-                <a href="myAds.php"><button>My Ads</button></a>
-                <br>
-                <a href="pendingAprovals.php"><button>Pending Aprovals</button></a>
-                <br>
-                <a href="updateUser.php"><button>Settings</button></a>
-                <br>
-                <a href="logout.php"><button id="logout">Log Out</button></a>
-                <br></br>
-            </section>
-        </center>
+        </nav>       
 
-        <br><br><br><br><br>
+<br><br><br>
+        
+        <!-- Ads -->
+        <section>
+            <nav>
+                <ul>
+                    <li><a href="sellerDash.php" class="hover">Dashboard</a></li>
+                    <li><a href="myAds.php" class="hover">My Ads</a></li>
+                    <li><a href="pendingAprovals.php" class="hover activeNav">Pending Aproval</a></li>
+                    <li><a href="sellerDash.php" class="hover">Settings</a></li>
+                </ul>
+            </nav>
+            <hr>
+            <?php
+                if($result->num_rows>0){
+                    while($row = $result->fetch_assoc()){
+                        $id = $row['aprtID'];
+                        $title = $row['title'];
+                        $description = $row['description'];
+                        $price = $row['price'];
+                        $img = $row['img1'];
+
+                        echo"
+                            <div class='ads nt_approved'>
+                                <img src='$img' width='25%' height='215px'>
+                                <div class='adDisc'>
+                                    <h2>$title</h2>
+                                    <p>$description<br><br><br>Rs.$price</p>
+                                    
+                                </div>
+                            </div>";
+                    }
+                }
+                
+            ?>    
+            <center>
+                <a href="postAd.php"><button id="postAd">Post Ad</button></a>
+            </center>    
+        </section> 
 
         <!-- Footer -->
         <footer>
@@ -123,5 +152,14 @@
         </footer>
 
         <script src="js/script.js"></script>
+        <script>
+            function conf(id){
+                var confirmation = confirm('This will permenantly delete your ad! Please Confirm.');
+                if(confirmation){
+                    window.location.replace('deleteAd.php?aprtID='+id);
+                }
+            };
+
+        </script>
     </body>
 </html>
