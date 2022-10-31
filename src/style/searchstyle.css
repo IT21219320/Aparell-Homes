@@ -264,19 +264,23 @@ hr{
 .DisplayedAds{
     width:80%;
     height:200px;
-    margin: 2% 5% 2% 5%;
+    margin: 1% 5% 2% 5%;
 }
 .pics{
     width:300px;
+    height:200px;
 
 }
 .AdPictures{
+    width:300px;
     float:left;
     margin-right: 20px;
     
 }
 .Adsdis{
+    width:20%;
     float:left;
+    overflow-wrap: break-word;
     
 }
 #title{

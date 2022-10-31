@@ -1,18 +1,10 @@
 <?php
-require_once "config.php";
-if (isset($_POST["SearchSubmitbtn"])){
-    $type = $_POST["type"];
+    require_once "config.php";
+    if(isset($_POST["SearchSubmitbtn"])){
     $SearchPhrase = $_POST["search"];
-    $propertyType = $_POST["proptype"];
     $noOfRooms = $_POST["noOfRooms"];
     $noOfBaths = $_POST["noOfBaths"];
-
-    echo "$type  $SearchPhrase  $propertyType $noOfRooms $noOfBaths";
-    //$rowCount = 
-}
-
-
-
+    }
 ?>
 <?php
     session_start();
@@ -29,6 +21,7 @@ if (isset($_POST["SearchSubmitbtn"])){
 
     }
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -85,16 +78,13 @@ if (isset($_POST["SearchSubmitbtn"])){
                     <option value="ForRent">For rent</option>
                 </select>
                 <input type="text" name="search" placeholder="search.." value="<?php if(isset($_POST["SearchSubmitbtn"])){echo "$SearchPhrase";} ?>" class="search">
-                <select name="proptype" id="proptype" class="selectSearch">
-                    <option value="PropertyType"><?php if(isset($_POST["SearchSubmitbtn"])){echo "$propertyType";}else{echo "Property type";}; ?></option>
-                    <option value="Apartments">Apartments</option>
-                    <option value="Houses">Houses</option>
-                </select>
+               
                 <div class="dropdown">
                     <p style="margin:0px 0px ; font-size: 18px;">Filter</p>
                 <div class="dropdown-content">
                         <label class="filterLabel">No of Beds</label>
                         <select id="noOfRooms" name="noOfRooms">
+                            <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -104,6 +94,7 @@ if (isset($_POST["SearchSubmitbtn"])){
                         </select><br>
                         <label class="filterLabel">No of Baths</label>
                         <select id="noOfBaths" name="noOfBaths">
+                            <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -130,6 +121,71 @@ if (isset($_POST["SearchSubmitbtn"])){
         </div>
         
         <hr>
+        <?php
+            $sql = "select * from apartments";
+            $result = $conn->query($sql);
+            $flag = True;
+            if (isset($_POST["SearchSubmitbtn"])){
+                $SearchPhrase = $_POST["search"];
+                $noOfRooms = $_POST["noOfRooms"];
+                $noOfBaths = $_POST["noOfBaths"];
+                $flag = False;
+                    
+                $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' && (beds = '{$noOfRooms}'|| beds = '{0}') && (baths = '{$noOfBaths}' || baths = '{0}' )";
+                $result2 = $conn->query($sql2);
+
+                if($result2 -> num_rows>0){
+                    while($row = $result2 -> fetch_assoc()){
+                        
+                        echo "<a href='viewApartment.php' style='color:black'>
+                        <div class='DisplayedAds'>
+                            <div class='AdPictures'>
+                                <img src='{$row['img1']}' class='pics'>
+                            </div>
+                            <div class='Adsdis'>
+                                <p id='title'>{$row['title']}</p>
+                                <p id='address'>{$row['addrs']}</p>
+                            </div>
+                            <div class='price'>
+                                <p id='price'>Rs. {$row['price']}</p>
+                                <p id='noOfBeds'>Beds {$row['beds']}</p>
+                                <p id='baths'>Baths {$row['baths']}</p>
+                            </div>
+                            <div class= 'contactbtn'>
+                                <button name='contact' id='contact'>Contact Seller</button>
+                            </div>
+                        </div></a>";
+                    }
+                }
+            }
+            if($flag==True){
+                
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                    echo "<a href='viewApartment.php' style='color:black'>
+                    <div class='DisplayedAds'>
+                        <div class='AdPictures'>
+                            <img src='{$row['img1']}' class='pics'>
+                        </div>
+                        <div class='Adsdis'>
+                            <p id='title'>{$row['title']}</p>
+                            <p id='address'>{$row['addrs']}</p>
+                        </div>
+                        <div class='price'>
+                            <p id='price'>Rs. {$row['price']}</p>
+                            <p id='noOfBeds'>Beds {$row['beds']}</p>
+                            <p id='baths'>Baths {$row['baths']}</p>
+                        </div>
+                        <div class= 'contactbtn'>
+                            <button name='contact' id='contact'>Contact Seller</button>
+                        </div>
+                    </div></a>";
+                    }
+                }
+            }
+        ?>
+        <!--
         <a href="viewApartment.php" style="color:black">
         <div class="DisplayedAds">
             <div class="AdPictures">
@@ -147,7 +203,7 @@ if (isset($_POST["SearchSubmitbtn"])){
             <div class= "contactbtn">
                 <button name="contact" id="contact">Contact Seller</button>
             </div>
-        </div></a>
+        </div></a>-->
 
         <!-- Footer -->
         <footer>
