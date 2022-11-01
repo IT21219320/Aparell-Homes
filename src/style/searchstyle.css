@@ -245,16 +245,20 @@ hr{
 }
 .dropdown-content{
     width: 80px;
-    height: 150px;
+    height: 175px;
     position:absolute;
     display:none;
     background-color: #e6e6e6;
     padding: 10px;
     border-radius: 5px;
     margin-top: 12px;
+    /* margin-bottom: 65px; */
 }
 .dropdown:hover .dropdown-content{
     display:block;
+}
+.dropdown-content:hover{
+    display: block;
 }
 .filterslect{
     width:70px;
