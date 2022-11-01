@@ -46,10 +46,7 @@
                     </script>";
     }
 
-    $sql = "SELECT * FROM apartments WHERE approved = 'NULL'";
-
-    $result = $conn->query($sql);
-
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -95,40 +92,91 @@
             <nav>
                 <ul>
                     <li><a href="staffDash.php" class="hover">Dashboard</a></li>
-                    <li><a href="toApprove.php" class="hover activeNav">To Approve</a></li>
-                    <li><a href="manageUsers.php" class="hover">Manage Users</a></li>
+                    <li><a href="toApprove.php" class="hover">To Approve</a></li>
+                    <li><a href="manageUsers.php" class="hover activeNav">Manage Users</a></li>
                     <li><a href="staffsettings.php" class="hover">Settings</a></li>
                 </ul>
             </nav>
             <hr>
-            <?php
-                if($result->num_rows>0){
-                    while($row = $result->fetch_assoc()){
-                        $id = $row['aprtID'];
-                        $title = $row['title'];
-                        $description = $row['description'];
-                        $addrs = $row['addrs'];
-                        $price = $row['price'];
-                        $img = $row['img1'];
+            <nav id="nav2">
+                <ul>
+                    <li class="userType typeActive" onclick="changeTbl('buy')">Buyers</li>
+                    <li class="userType" onclick="changeTbl('sell')">Sellers</li>
+                </ul>
+            </nav>
+            <center>
+                <div id="Buyers" class="tbldiv">
+                    <table class="Tbl" border=1>
+                        <tr>
+                            <th>Email</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Address</th>
+                            <th>Phone No</th>
+                        </tr>
+                        <?php
+                            $sql1 = "SELECT * FROM users WHERE accType = 'seller'";
+                            $result1 = $conn->query($sql1);
+                    
+                            if($result1->num_rows>0){
+                                while($row1 = $result1->fetch_assoc()){
 
-                        echo"
-                            <div class='ads'>
-                                <img src='$img' width='25%' height='215px'>
-                                <div class='adDisc'>
-                                    <h2>$title</h2>
-                                    <p>$addrs<br><br>$description<br><br><br>Rs.$price</p>
-                                    <div>
-                                    <a href='approve.php?aprtID=$id'><button class='approve'>Approve</button></a><a href='reject.php?aprtID=$id'><button class='reject'>Reject</button></a>
-                                    </div>
-                                </div>
-                            </div>";
-                    }
-                }
-                else{
-                    echo "<center><img src='images/allDone.jpg' style='margin:50px 0px' width='300px'></center>";
-                }
-                
-            ?>
+                                    $email = $row1['email'];
+                                    $fname = $row1['fName'];
+                                    $lname = $row1['lName'];
+                                    $addrs = $row1['addrs'];
+                                    $phone = $row1['phoneNo'];
+
+                                    echo"<tr>
+                                            <td>$email</td>  
+                                            <td>$fname</td>  
+                                            <td>$lname</td>  
+                                            <td>$addrs</td>  
+                                            <td>$phone</td>                                        
+                                         </tr>";
+                                }
+                            }
+                            
+                        ?>
+                    </table>
+                </div>
+                <div id="Sellers" class="tbldiv">
+                    <table class="Tbl" border=1>
+                        <tr>
+                            <th>Email</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Address</th>
+                            <th>Phone No</th>
+                        </tr>
+                        <?php
+                            $sql2 = "SELECT * FROM users WHERE accType = 'seller'";
+                            $result2 = $conn->query($sql2);
+
+                            if($result2->num_rows>0){
+                                while($row2 = $result2->fetch_assoc()){
+                                    
+                                    $email = $row2['email'];
+                                    $fname = $row2['fName'];
+                                    $lname = $row2['lName'];
+                                    $addrs = $row2['addrs'];
+                                    $phone = $row2 ['phoneNo'];
+
+                                    echo"<tr>
+                                            <td>$email</td>  
+                                            <td>$fname</td>  
+                                            <td>$lname</td>  
+                                            <td>$addrs</td>  
+                                            <td>$phone</td>                                        
+                                        </tr>";
+                                }
+                            }
+                            
+                        ?>
+                    </table>
+                </div>
+            </center>    
+            
             <br><br> 
         </section> 
 
