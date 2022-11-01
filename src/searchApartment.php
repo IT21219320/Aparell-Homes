@@ -43,7 +43,7 @@
                 <li><a href="index.php" ><font class="hov">Home</font></a></li>
                 <li><a href="searchApartment.php" class="active"><font class="hov">Apartments</font></a></li>
                 <li><a href="aboutus.html"><font class="hov">About Us</font></a></li>
-                <li><a href="contacts.html" ><font class="hov">Contact Us</font></a></li>
+                <li><a href="contactUs.php" ><font class="hov">Contact Us</font></a></li>
             </ul>
 
             <!-- Login & Signup -->
@@ -110,15 +110,21 @@
             <p> Here are many aprtments that you can select as you want and as matched to your reqiurements</p>
             
             <div class="sortbyArea">
-            <form method="POST">
+            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id = "filterForm">
                 <select name="sortBy" id="sortBY" class="selectSortBy">
-                    <option value="Sort By">Sort By</option>
-                    <option value="Low Price">Low Price</option>
-                    <option value="High Price">High Price</option>
+                    <option>Sort By</option>
+                    <option value="Low Price" onclick="filtersubmit()">Low Price</option>
+                    <option value="High Price" onclick="filtersubmit()">High Price</option>
                 </select>
+                <input type="submit" name="filterSub" style="display:none">
             </form>
             </div>
         </div>
+        <script>
+            function filterSubmit(){
+                decument.getElementById("filterForm").submit();
+            }
+        </script>
         
         <hr>
         <?php
@@ -131,9 +137,12 @@
                 $noOfBaths = $_POST["noOfBaths"];
                 $flag = False;
                     
-                $sql2 = "select * from apartments where title like '%$SearchPhrase%' AND (beds = '{$noOfRooms}' OR beds = 0) AND (baths = '{$noOfBaths}' OR baths = 0 ) AND  approved = '1'";
+                $sql2 = "select * from apartments where (title like '%{$SearchPhrase}%') AND (beds = '{$noOfRooms}') AND (baths = '{$noOfBaths}') AND  approved = '1'";
                 if($noOfRooms == '-'){
                     $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' AND baths = '{$noOfBaths}' AND  approved = '1'";
+                    if(isset($_POST["filterSub"])){
+                        $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' AND baths = '{$noOfBaths}' AND  approved = '1' order by "
+                    }
                     if($noOfBaths == '-'){
                         $sql2 = "SELECT * FROM apartments WHERE title LIKE '%$SearchPhrase%' AND  approved = '1'";
                     }
@@ -194,25 +203,7 @@
                 }
             }
         ?>
-        <!--
-        <a href="viewApartment.php" style="color:black">
-        <div class="DisplayedAds">
-            <div class="AdPictures">
-                <img src="images/Apartments/apartmentpic_01.jpg" class="pics">
-            </div>
-            <div class="Adsdis">
-                <p id="title">House for Sale in Frankline Road</p>
-                <p id="address">22B, sude road, losAngalese</p>
-            </div>
-            <div class="price">
-                <p id="price">2,160,000/=</p>
-                <p id="noOfBeds">4 Beds</p>
-                <p id="baths">2 Baths</p>
-            </div>
-            <div class= "contactbtn">
-                <button name="contact" id="contact">Contact Seller</button>
-            </div>
-        </div></a>-->
+        
 
         <!-- Footer -->
         <footer>
