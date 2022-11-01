@@ -18,7 +18,7 @@
     $nego = isset($_POST['nego']);
 
 
-    //insert values
+    //update values
     $sql = "UPDATE apartments 
             SET adType = '$adType',
                 beds = '$beds',
@@ -32,13 +32,13 @@
                 description = '$description',
                 price = '$price',
                 negotiable = '$nego', 
-                approved = 0 
+                approved = 'NULL'
             WHERE aprtID = $id";
 
     if(mysqli_query($conn,$sql)){
         echo "<script>
                 alert('Successfully Updated!');
-                window.location.replace('pendingAds.php');
+                window.location.replace('pendingAprovals.php');
               </script>";
     }
     else{

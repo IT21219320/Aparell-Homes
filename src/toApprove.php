@@ -1,21 +1,21 @@
 <?php
-    include_once "config.php";
+    include_once 'config.php';
 ?>
 <?php
     session_start();
 
     if(isset($_SESSION['LoginStat'])){
         $logStat = $_SESSION['LoginStat'];
-
+        
         if($_SESSION['LoginStat'] == true){
 
-            if($_SESSION['StaffSignedIn'] == true){
+            if($_SESSION['SellerSignedIn'] == true){
                 header('Location:staffDash.php');
             }
             elseif($_SESSION['BuyerSignedIn'] == true){
                 header('Location:buyerDash.php');
             }
-            elseif($_SESSION['SellerSignedIn'] != true){
+            elseif($_SESSION['StaffSignedIn'] != true){
                 echo "<script>
                         alert('Please login to proceed!');
                         window.location.replace('loginHTML.php');
@@ -31,7 +31,7 @@
                 $pwd = $_SESSION['Pwd'];
                 $dp = $_SESSION['profile'];
             }  
-        }  
+        }    
         else{
             echo "<script>
                             alert('Please login to proceed!');
@@ -46,7 +46,7 @@
                     </script>";
     }
 
-    $sql = "SELECT * FROM apartments WHERE approved = '1'";
+    $sql = "SELECT * FROM apartments WHERE approved = 'NULL'";
 
     $result = $conn->query($sql);
 
@@ -94,10 +94,10 @@
         <section>
             <nav>
                 <ul>
-                    <li><a href="sellerDash.php" class="hover">Dashboard</a></li>
-                    <li><a href="myAds.php" class="hover activeNav">My Ads</a></li>
-                    <li><a href="pendingAprovals.php" class="hover">Pending Aproval</a></li>
-                    <li><a href="sellersettings.php" class="hover">Settings</a></li>
+                    <li><a href="staffDash.php" class="hover">Dashboard</a></li>
+                    <li><a href="toApprove.php" class="hover activeNav">To Approve</a></li>
+                    <li><a href="manageUsers.php" class="hover">Manage Users</a></li>
+                    <li><a href="staffsettings.php" class="hover">Settings</a></li>
                 </ul>
             </nav>
             <hr>
@@ -107,6 +107,7 @@
                         $id = $row['aprtID'];
                         $title = $row['title'];
                         $description = $row['description'];
+                        $addrs = $row['addrs'];
                         $price = $row['price'];
                         $img = $row['img1'];
 
@@ -115,23 +116,17 @@
                                 <img src='$img' width='25%' height='215px'>
                                 <div class='adDisc'>
                                     <h2>$title</h2>
-                                    <p>$description<br><br><br>Rs.$price</p>
+                                    <p>$addrs<br><br>$description<br><br><br>Rs.$price</p>
                                     <div>
-                                    <a href='editAd.php?aprtID=$id'><button>Edit</button></a><a onclick='conf($id);'><button>Delete</button></a>
+                                    <a href='approve.php?aprtID=$id'><button class='approve'>Approve</button></a><a href='reject.php?aprtID=$id'><button class='reject'>Reject</button></a>
                                     </div>
-                                </div>
-                                <div id='boost'>
-                                    <p>Reach up to 10x more people by promoting your ad.</p>
-                                    <a href='payment.php?aprtID=$id'><button>Boost Ad</button></a>
                                 </div>
                             </div>";
                     }
                 }
                 
-            ?>    
-            <center>
-                <a href="postAd.php"><button id="postAd">Post Ad</button></a>
-            </center>    
+            ?>
+            <br><br> 
         </section> 
 
         <!-- Footer -->
@@ -159,7 +154,7 @@
 
         <script src="js/script.js"></script>
         <script>
-            function conf(id){
+            function decision(id){
                 var confirmation = confirm('This will permenantly delete your ad! Please Confirm.');
                 if(confirmation){
                     window.location.replace('deleteAd.php?aprtID='+id);

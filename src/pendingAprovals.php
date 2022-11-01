@@ -46,7 +46,7 @@
                     </script>";
     }
 
-    $sql = "SELECT * FROM apartments WHERE approved = 0";
+    $sql = "SELECT * FROM apartments";
 
     $result = $conn->query($sql);
 
@@ -77,7 +77,7 @@
 
             <!-- Profile icon -->
             <div id="profile">
-                <img src="images/<?php echo $dp ?>" height="50px" alt="profile">
+                <img src="<?php echo $dp ?>" height="50px" alt="profile" style="border-radius:50%";>
             </div>
 
             <!-- Dark Mode toggle switch
@@ -97,7 +97,7 @@
                     <li><a href="sellerDash.php" class="hover">Dashboard</a></li>
                     <li><a href="myAds.php" class="hover">My Ads</a></li>
                     <li><a href="pendingAprovals.php" class="hover activeNav">Pending Aproval</a></li>
-                    <li><a href="sellerDash.php" class="hover">Settings</a></li>
+                    <li><a href="Sellersettings.php" class="hover">Settings</a></li>
                 </ul>
             </nav>
             <hr>
@@ -109,23 +109,36 @@
                         $description = $row['description'];
                         $price = $row['price'];
                         $img = $row['img1'];
+                        $approv = $row['approved'];
 
-                        echo"
-                            <div class='ads nt_approved'>
-                                <img src='$img' width='25%' height='215px'>
-                                <div class='adDisc'>
-                                    <h2>$title</h2>
-                                    <p>$description<br><br><br>Rs.$price</p>
-                                    
-                                </div>
-                            </div>";
+                        if($approv == 'NULL'){
+                            echo"
+                                <div class='ads nt_approved'>
+                                    <img src='$img' width='25%' height='215px'>
+                                    <div class='adDisc'>
+                                        <h2>$title</h2>
+                                        <p>$description<br><br><br>Rs.$price</p>
+                                    </div>
+                                </div>";
+                        }
+                        elseif($approv == '0'){
+                            echo"
+                                <div class='ads rejected'>
+                                    <img src='$img' width='25%' height='215px'>
+                                    <div class='adDisc'>
+                                        <h2>$title</h2>
+                                        <p>$description<br><br><br>Rs.$price</p>
+                                        <div>
+                                        <a href='editAd.php?aprtID=$id'><button>Edit</button></a>
+                                        </div>
+                                    </div>
+                                </div>";
+                        }        
                     }
                 }
-                
-            ?>    
-            <center>
-                <a href="postAd.php"><button id="postAd">Post Ad</button></a>
-            </center>    
+            ?>   
+            <br>  
+            <br>   
         </section> 
 
         <!-- Footer -->

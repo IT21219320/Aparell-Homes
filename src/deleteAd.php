@@ -12,7 +12,7 @@
     if(mysqli_query($conn,$sql)){
         echo "<script>
                 alert('Successfully deleted!');
-                window.location.replace('pendingAds.php');
+                window.location.replace('pendingAprovals.php');
               </script>";
     }
     else{

@@ -1,3 +1,48 @@
+<?php
+    session_start();
+
+    if(isset($_SESSION['LoginStat'])){
+        $logStat = $_SESSION['LoginStat'];
+
+        if($_SESSION['LoginStat'] == true){
+
+            if($_SESSION['StaffSignedIn'] == true){
+                header('Location:staffDash.php');
+            }
+            elseif($_SESSION['BuyerSignedIn'] == true){
+                header('Location:buyerDash.php');
+            }
+            elseif($_SESSION['SellerSignedIn'] != true){
+                echo "<script>
+                        alert('Please login to proceed!');
+                        window.location.replace('loginHTML.php');
+                    </script>";
+            }
+            else{
+                $email = $_SESSION['Email'];
+                $acc = $_SESSION['AccType'];
+                $fname = $_SESSION['fName'];
+                $lname = $_SESSION['lName'];
+                $addrs = $_SESSION['addrs'];
+                $phone = $_SESSION['mobile'];
+                $pwd = $_SESSION['Pwd'];
+                $dp = $_SESSION['profile'];
+            }  
+        }   
+        else{
+            echo "<script>
+                            alert('Please login to proceed!');
+                            window.location.replace('loginHTML.php');
+                        </script>";
+        }        
+    }
+    else{
+        echo "<script>
+                        alert('Please login to proceed!');
+                        window.location.replace('loginHTML.php');
+                    </script>";
+    }
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -62,9 +107,7 @@ input[type=submit]:hover {
 }
 
 div {
-  border-radius: 10%;
   background-color: #f2f2f2;
-  padding: 20px;
 }
 .form{
     margin-left:10%;
@@ -72,7 +115,8 @@ div {
 
 }
 .formName{
-    margin-left:10%;
+    margin-left: 10%;
+    margin-top: 20px;
 }
 .profiles{
     display:flex;
@@ -113,6 +157,34 @@ div {
     margin-top:20px;
     text-align:justify;
 }
+#profile{
+    display:block;
+}
+#addrs{
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.show{
+    width: 25px;
+    height: 20px;
+    background: white;
+    position: absolute;
+    display: inline-block;
+    margin-left: 234px;
+    margin-top: -39px;
+    cursor: pointer;
+}
+
+#pwdIco{
+    padding: 0px 5px;
+    background: white;
+    display: none;
+}
+.show{
+    margin-left: -35px;
+    margin-top: 20px;
+}
 </style>
 
     <body>
@@ -132,17 +204,28 @@ div {
                     <li><a href="contactUs.php" ><font class="hov">Contact Us</font></a></li>
                 </ul>
             </div>
+            <!-- Profile icon -->
+            <div id="profile">
+                <img src="<?php echo $dp ?>" height="50px" alt="profile" onmouseover="showDpNav();" onmouseout="hideDpNav();" style="border-radius:50%";>
+                <div>
+                    <ul id="dpNav" onmouseover="showDpNav();" onmouseout="hideDpNav();">
+                        <a href="<?php echo $acc ?>Dash.php"><li style="margin-top: 35px; border-top-left-radius: 5px; border-top-right-radius: 5px;">Dashboard</li></a>
+                        <a href="logout.php"><li>Log Out</li></a>
+                    </ul>
+                </div>
+            </div>
         </nav>
         
 
 
-<div>
-  <form action="/action_page.php">
+<div style="padding: 20px;">
+  <form action="updateAcc.php"  enctype="multipart/form-data" method="POST">
   <div class="profiles" style="text-align:center">
             <div class ="profile1">
-                <img src="images/Sachi.jpg" class="profile1-img">
-                <input type="file">
-                <h3 class="user-name">Sachinthaka</h3>
+                <div id="previewDp">
+                    <img src="<?php echo $dp ?>" class="profile1-img">
+                </div>    
+                <input type="file" name = "dp" id="dp" accept="image/*"  onchange="loadFile(event)">
                 
             </div>
   </div>
@@ -150,42 +233,50 @@ div {
     <label for="fname">First Name</label>
     </div>
     <div class="form">
-        <input type="text" id="fname" name="firstname" placeholder="Your name.."><br>
+        <input type="text" id="fname" name="firstname" value='<?php echo$fname ?>'><br>
     </div>
 
     <div class="formName">
     <label for="lname">Last Name</label>
     </div>
     <div class="form">
-    <input type="text" id="lname" name="lastname" placeholder="Your last name.."><br>
+    <input type="text" id="lname" name="lastname"  value='<?php echo$lname ?>'><br>
     </div>
 
     <div class="formName">
     <label for="email">E-mail</label>
     </div>
     <div class="form">
-    <input type="text" id="email" name="mail" placeholder="Your email.."><br>
+    <input type="text" id="email" name="mail" disabled  value='<?php echo$email ?>'><br>
+    </div>
+
+    <div class="formName">
+    <label for="type">Account Type</label>
+    </div>
+    <div class="form">
+    <input type="text" id="type" name="type" disabled  value='<?php echo$acc ?>'><br>
     </div>
 
     <div class="formName">
     <label for="pnumber">Phone Number</label>
     </div>
     <div class="form">
-    <input type="text" id="pnumber" name="phonenumber" placeholder="Your phone number.."><br>
+    <input type="text" id="pnumber" name="phonenumber"  value='<?php echo$phone ?>' pattern="[0-9]{10}"><br>
     </div>
 
     <div class="formName">
     <label for="password">Password</label>
     </div>
     <div class="form">
-    <input type="password" id="password" name="pwd" placeholder="Enter password.."><br>
+    <input type="password" name="pwd" id="pwd" required onkeyup="showImg('pwd','pwdIco');" value='<?php echo$pwd ?>' minlength="8">
+    <div class="show" onclick="showPwd('pwd','pwdIco')"><img src="images/show.png" width="20px" height="20px" id="pwdIco"></div><br>
     </div>
 
     <div class="formName">
     <label for="address">Address</label>
     </div>
     <div class="form">
-    <textarea name="addrs" id="addrs" cols="46" rows="2" placeholder="Optional"></textarea>
+    <textarea name="addrs" id="addrs" cols="46" rows="2" placeholder="Optional"><?php echo $addrs ?></textarea>
     </div>
 
     <div class="formName">
@@ -221,18 +312,19 @@ div {
         </footer>
 
         <script src="js/script.js"></script>
+        <script src="js/loginScript.js"></script>
+        <script>
+            function loadFile(event){
+                var dp = document.getElementById('previewDp');
+                var source = URL.createObjectURL(event.target.files[0]);
+                dp.innerHTML = '<img src="'+source+'" class="profile1-img">';
+                    
+                dp.onload = function() {
+                    dp.src = "<?php echo $dp ?>";
+                } 
+            }
+                        
+                 
+        </script>
     </body>
 </html>
-<?php
-    if(isset($_SESSION['LoginStat'])){
-
-        if($logStat == true){
-        //if logged in
-            echo "<script>
-                    document.getElementById('log').style.display = 'none';
-                    document.getElementById('profile').style.display = 'block';
-                </script>";
-        }
-        
-    }
-?>

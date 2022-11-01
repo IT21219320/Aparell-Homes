@@ -54,7 +54,7 @@
 
             <!-- Profile icon -->
             <div id="profile">
-                <img src="images/<?php echo $dp ?>" height="50px" alt="profile" onmouseover="showDpNav();" onmouseout="hideDpNav();">
+                <img src="<?php echo $dp ?>" height="50px" alt="profile" onmouseover="showDpNav();" onmouseout="hideDpNav();" style="border-radius:50%";>
                 <div>
                     <ul id="dpNav" onmouseover="showDpNav();" onmouseout="hideDpNav();">
                         <a href="<?php echo $acc ?>Dash.php"><li style="margin-top: 35px; border-top-left-radius: 5px; border-top-right-radius: 5px;">Dashboard</li></a>
@@ -122,7 +122,7 @@
         
         <hr>
         <?php
-            $sql = "select * from apartments where approved = 1";
+            $sql = "select * from apartments where approved = '1'";
             $result = $conn->query($sql);
             $flag = True;
             if (isset($_POST["SearchSubmitbtn"])){
@@ -131,15 +131,15 @@
                 $noOfBaths = $_POST["noOfBaths"];
                 $flag = False;
                     
-                $sql2 = "select * from apartments where title like '%$SearchPhrase%' AND (beds = '{$noOfRooms}' OR beds = 0) AND (baths = '{$noOfBaths}' OR baths = 0 ) AND  approved = 1";
+                $sql2 = "select * from apartments where title like '%$SearchPhrase%' AND (beds = '{$noOfRooms}' OR beds = 0) AND (baths = '{$noOfBaths}' OR baths = 0 ) AND  approved = '1'";
                 if($noOfRooms == '-'){
-                    $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' AND baths = '{$noOfBaths}' AND  approved = 1";
+                    $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' AND baths = '{$noOfBaths}' AND  approved = '1'";
                     if($noOfBaths == '-'){
-                        $sql2 = "SELECT * FROM apartments WHERE title LIKE '%$SearchPhrase%' AND  approved = 1";
+                        $sql2 = "SELECT * FROM apartments WHERE title LIKE '%$SearchPhrase%' AND  approved = '1'";
                     }
                 }
                 elseif($noOfBaths == '-'){
-                    $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' AND beds = '{$noOfRooms}' AND  approved = 1";
+                    $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' AND beds = '{$noOfRooms}' AND  approved = '1'";
                 }
                 $result2 = $conn->query($sql2);
 

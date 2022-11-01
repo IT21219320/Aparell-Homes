@@ -52,12 +52,12 @@
     $nego = isset($_POST['nego']);
 
     //insert values
-    $sql = "INSERT INTO apartments(adType,beds,baths,size,country,city,town,addrs,title,description,price,negotiable,img1,img2,img3) VALUES('$adType','$beds','$baths','$size','$country','$city','$town','$addrs','$title','$description','$price','$nego','$target_file[0]','$target_file[1]','$target_file[2]');";
+    $sql = "INSERT INTO apartments(adType,beds,baths,size,country,city,town,addrs,title,description,price,negotiable,img1,img2,img3,approved) VALUES('$adType','$beds','$baths','$size','$country','$city','$town','$addrs','$title','$description','$price','$nego','$target_file[0]','$target_file[1]','$target_file[2]','NULL');";
 
     if(mysqli_query($conn,$sql)){
         echo "<script>
                 alert('Successfully Posted!');
-                window.location.replace('pendingAds.php');
+                window.location.replace('pendingAprovals.php');
               </script>";
         
     }

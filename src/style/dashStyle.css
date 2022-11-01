@@ -183,6 +183,8 @@ section li a{
 .ads{
     margin: 60px 40px 10px 60px;
     padding: 10px;
+    background: ghostwhite;
+    border-radius: 10px;
 }
 .adDisc {
     width: 72%;
@@ -211,7 +213,17 @@ section li a{
     color: white;
 }
 .adDisc button:hover{
-    background: #2e2d2dc7;
+    background:#5a5a5ac7;
+}
+.approve:hover{
+    background: #009688 !important;
+}
+.reject:hover{
+    background: #F44336 !important;
+}
+
+.rejected{
+    background: #ffd4d4;
 }
 
 #boost{

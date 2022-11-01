@@ -69,7 +69,7 @@
 
             <!-- Profile icon -->
             <div id="profile">
-                <img src="images/<?php echo $dp ?>" height="50px" alt="profile">
+                <img src="<?php echo $dp ?>" height="50px" alt="profile" style="border-radius:50%";>
             </div>
 
             <!-- Dark Mode toggle switch

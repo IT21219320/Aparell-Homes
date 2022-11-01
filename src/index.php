@@ -57,7 +57,7 @@
 
             <!-- Profile icon -->
             <div id="profile">
-                <img src="images/<?php echo $dp ?>" height="50px" alt="profile" onmouseover="showDpNav();" onmouseout="hideDpNav();">
+                <img src="<?php echo $dp ?>" height="50px" alt="profile" onmouseover="showDpNav();" onmouseout="hideDpNav();" style="border-radius:50%";>
                 <div>
                     <ul id="dpNav" onmouseover="showDpNav();" onmouseout="hideDpNav();">
                         <a href="<?php echo $acc ?>Dash.php"><li style="margin-top: 35px; border-top-left-radius: 5px; border-top-right-radius: 5px;">Dashboard</li></a>
@@ -101,15 +101,22 @@
             <?php
                 if($result->num_rows>0){
 
-                    $id1 = rand(1,$result->num_rows);
-                    $id2 = rand(1,$result->num_rows);
-                    while($id1 == $id2){
-                        $id2 = rand(1,$result->num_rows);
-                    } 
-                    $id3 = rand(1,$result->num_rows);
-                    while($id3 == $id1 || $id3 == $id2){
-                        $id3 = rand(1,$result->num_rows);
+                    if($result->num_rows <= 3){
+                        $id1 = 1;
+                        $id2 = 2;
+                        $id3 = 3;
                     }
+                    else{
+                        $id1 = rand(1,$result->num_rows);
+                        $id2 = rand(1,$result->num_rows);
+                        while($id1 == $id2){
+                            $id2 = rand(1,$result->num_rows);
+                        } 
+                        $id3 = rand(1,$result->num_rows);
+                        while($id3 == $id1 || $id3 == $id2){
+                            $id3 = rand(1,$result->num_rows);
+                        }
+                    }    
                     $sqlfeatured = "SELECT * FROM apartments WHERE aprtID = '$id1' OR aprtID = '$id2' OR aprtID = '$id3'";
             
                     $result2 = $conn->query($sqlfeatured);

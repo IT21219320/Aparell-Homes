@@ -69,7 +69,7 @@
 
             <!-- Profile icon -->
             <div id="profile">
-                <img src="images/<?php echo $dp ?>" height="50px" alt="profile">
+                <img src="<?php echo $dp ?>" height="50px" alt="profile" style="border-radius:50%";>
             </div>
 
             <!-- Dark Mode toggle switch
@@ -89,8 +89,6 @@
                 <a href="myAds.php"><button>My Ads</button></a>
                 <br>
                 <a href="pendingAprovals.php"><button>Pending Aprovals</button></a>
-                <br>
-                <a href="history.php"><button>History</button></a>
                 <br>
                 <a href="sellersettings.php"><button>Settings</button></a>
                 <br>
