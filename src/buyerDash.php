@@ -86,7 +86,7 @@
             <section id="dashboard">
                 <h2>Hello <?php echo $fname ?> <?php echo $lname ?>!</h2>
                 <hr>
-                <a href="myPurchases.php"><button>My Purchases</button></a>
+                <a href="favourites.php"><button>Favourites</button></a>
                 <br>
                 <a href="Buyersettings.php"><button>Settings</button></a>
                 <br>

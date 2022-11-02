@@ -9,10 +9,10 @@
             if($_SESSION['StaffSignedIn'] == true){
                 header('Location:staffDash.php');
             }
-            elseif($_SESSION['BuyerSignedIn'] == true){
+            elseif($_SESSION['SellerSignedIn'] == true){
                 header('Location:buyerDash.php');
             }
-            elseif($_SESSION['SellerSignedIn'] != true){
+            elseif($_SESSION['BuyerSignedIn'] != true){
                 echo "<script>
                         alert('Please login to proceed!');
                         window.location.replace('loginHTML.php');
