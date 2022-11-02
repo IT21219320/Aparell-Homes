@@ -27,7 +27,9 @@
     $imgName = basename($_FILES["dp"]["name"]);
    
     if($imgName != ''){
-        unlink("$target_file");
+        if($dp != "images/user.png"){
+            unlink("$target_file");
+        }
         $target_file = $target_dir . $email . "_" . $accType . "_" .$imgName;
         move_uploaded_file($_FILES["dp"]["tmp_name"],$target_file);
     }
