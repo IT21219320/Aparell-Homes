@@ -88,9 +88,9 @@
                 <hr>
                 <a href="toApprove.php"><button>To Approve</button></a>
                 <br>
-                <a href="manageUsers.php"><button>Manage Users</button></a>
+                <a href="ManageUsers.php"><button>Manage Users</button></a>
                 <br>
-                <a href="updateUser.php"><button>Settings</button></a>
+                <a href="Staffsettings.php"><button>Settings</button></a>
                 <br>
                 <a href="logout.php"><button id="logout">Log Out</button></a>
                 <br></br>

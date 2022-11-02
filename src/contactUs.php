@@ -16,11 +16,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Contact Us | Aparell</title>
+        <title>About Us | Aparell</title>
         <link rel="icon" type="image" href="images/Favicon.png">
-        <link rel="stylesheet" href="style/contactstyle.css">
+        <link rel="stylesheet" href="style/contactstyle.css" id="stylesheet">
     </head>
+
     <body>
+
         <!-- Navigation panel -->
         <nav>
 
@@ -32,26 +34,14 @@
                 <ul>
                     <li><a href="index.php"><font class="hov">Home</font></a></li>
                     <li><a href="searchApartment.php"><font class="hov">Apartments</font></a></li>
-                    <li><a href="aboutus.html"><font class="hov">About Us</font></a></li>
-                    <li><a href="contactUs.php"class="active"><font class="hov">Contact Us</font></a></li>
+                    <li><a href="aboutus.html"  ><font class="hov">About Us</font></a></li>
+                    <li><a href="contactUs.php" class="active"><font class="hov">Contact Us</font></a></li>
                 </ul>
             </div>
-
             <!-- Login & Signup -->
             <div id="log">
                 <a href="loginHTML.php"><button id="login">Login</button></a>
                 <a href="register.html"><button id="signup">Sign up</button></a>
-            </div>
-
-            <!-- Profile icon -->
-            <div id="profile">
-                <img src="<?php echo $dp ?>" height="50px" alt="profile" onmouseover="showDpNav();" onmouseout="hideDpNav();" style="border-radius:50%";>
-                <div>
-                    <ul id="dpNav" onmouseover="showDpNav();" onmouseout="hideDpNav();">
-                        <a href="<?php echo $acc ?>Dash.php"><li style="margin-top: 35px; border-top-left-radius: 5px; border-top-right-radius: 5px;">Dashboard</li></a>
-                        <a href="logout.php"><li>Log Out</li></a>
-                    </ul>
-                </div>
             </div>
 
             <!-- Dark Mode toggle switch
@@ -61,13 +51,18 @@
             </div> -->
 
         </nav>
+        <!--background image and text-->
+        <div class="pic">
+            <div class="pos70">
+            <h2 class="aboutus">Contact Us</h2>
+            <div style="width:70%">
+                <p class="aboutustext"><font class="textPadding"><br><br>If you have any questions or queries a member of staff will always be happy to help.Feel free to contact us by telephone or email and we will be sure to get back to you as soon possible.</font></p>
+                
+            </div>    
+        </div>
 
-        <div class="home">
-        <div class ="pos70">
-        <h1 class="Welcome">Contact Us<h1>
-        <p class="welcometxt">If you have any questions or queries a member of staff will always be happy to help.Feel free to contact us by telephone or email and we will be sure to get back to you as soon possible.</p>
         </div>
-        </div>
+
 
            <!-- Footer -->
            <footer>
