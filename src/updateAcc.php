@@ -14,18 +14,28 @@
     $phone = $_POST['phonenumber'];
     $pwd = $_POST['pwd'];
 
-    
+    $sql = "SELECT profile FROM users WHERE  email = '$email' AND accType = '$accType'";
+    $result = $conn -> query($sql);
+    While($row = $result -> fetch_assoc()){
+        $target_file = $row['profile'];
+    }
+
+
     //getting profile value
 
     $target_dir = "images/Profiles/";
-    $target_file = $target_dir . $email . "_" . $accType . "_" .basename($_FILES["dp"]["name"]);
+    $imgName = basename($_FILES["dp"]["name"]);
    
-    move_uploaded_file($_FILES["dp"]["tmp_name"],$target_file);
-
+    if($imgName != ''){
+        unlink("$target_file");
+        $target_file = $target_dir . $email . "_" . $accType . "_" .$imgName;
+        move_uploaded_file($_FILES["dp"]["tmp_name"],$target_file);
+    }
+    
     $_SESSION['profile'] = "$target_file";
 
     //update values
-    $sql = "UPDATE users
+    $sql2 = "UPDATE users
             SET fName = '$firstName',
                 lName = '$lastName',
                 addrs = '$address',
@@ -35,10 +45,10 @@
             WHERE email = '$email' AND accType = '$accType';";  
             
 
-    if(mysqli_query($conn,$sql)){
+    if(mysqli_query($conn,$sql2)){
         echo "<script>
                 var acctype = '$accType';
-                alert('Successfully Update!');
+                alert('Successfully Updated!');
                 window.location.replace(acctype+'Dash.php');
               </script>";
         
@@ -46,7 +56,7 @@
     else{
         echo "<script>
                 var acctype = '$accType';
-                alert('Registration Unsuccessful!');
+                alert('Update Unsuccessful!');
                 window.location.replace(acctype+'Dash.php');
               </script>";
     }

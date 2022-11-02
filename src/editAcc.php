@@ -1,4 +1,7 @@
 <?php
+    include_once 'config.php';
+?>
+<?php
     session_start();
 
     if(isset($_SESSION['LoginStat'])){
@@ -19,13 +22,6 @@
                     </script>";
             }
             else{
-                $email = $_SESSION['Email'];
-                $acc = $_SESSION['AccType'];
-                $fname = $_SESSION['fName'];
-                $lname = $_SESSION['lName'];
-                $addrs = $_SESSION['addrs'];
-                $phone = $_SESSION['mobile'];
-                $pwd = $_SESSION['Pwd'];
                 $dp = $_SESSION['profile'];
             }  
         }    
@@ -42,11 +38,28 @@
                         window.location.replace('loginHTML.php');
                     </script>";
     }
+
+    $email = $_GET['email'];
+    $acc = $_GET['accType'];
+    $_SESSION['ManageUserMail'] = $email;
+    $_SESSION['ManageUseraccType'] = $acc;
+
+    $sql = "SELECT * FROM users WHERE email = '$email' AND accType = '$acc'";
+    
+    $result = $conn -> query($sql);
+
+    while($row = $result -> fetch_assoc()){
+        $fname = $row['fName'];
+        $lname = $row['lName'];
+        $phone = $row['phoneNo'];
+        $pwd = $row['password'];
+        $addrs = $row['addrs'];
+    }
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Settings | Aparell</title>
+        <title>Edit User | Aparell</title>
         <link rel="icon" type="image" href="images/Favicon.png">
         <link rel="stylesheet" href="style/lightstyle.css" >
     </head>
@@ -185,18 +198,6 @@ div {
     margin-left: -35px;
     margin-top: 20px;
 }
-#delete{
-    padding: 14px 19%;
-    background: #f44336;
-    border: 0;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;    
-    margin: 140px 0px 70px 106px;
-}
-#delete:hover{
-    background: #ff5722;
-}
 </style>
 
     <body>
@@ -231,16 +232,10 @@ div {
 
 
 <div style="padding: 20px;">
-  <form action="updateAcc.php"  enctype="multipart/form-data" method="POST">
-  <div class="profiles" style="text-align:center">
-            <div class ="profile1">
-                <div id="previewDp">
-                    <img src="<?php echo $dp ?>" class="profile1-img">
-                </div>    
-                <input type="file" name = "dp" id="dp" accept="image/*"  onchange="loadFile(event)">
-                
-            </div>
-  </div>
+  <form action="updateUser.php"  enctype="multipart/form-data" method="POST">
+    <div style="text-align:center;">
+        <h1>Edit User Profile</h1>
+    </div>
     <div class="formName">
     <label for="fname">First Name</label>
     </div>
@@ -266,7 +261,7 @@ div {
     <label for="type">Account Type</label>
     </div>
     <div class="form">
-    <input type="text" id="type" name="type" disabled  value='<?php echo$acc ?>'><br>
+        <input type="text" id="type" name="type" disabled  value='<?php echo$acc ?>'><br>
     </div>
 
     <div class="formName">
@@ -292,11 +287,9 @@ div {
     </div>
 
     <div class="formName">
-    <input type="submit" value="Update">
+    <input type="submit" value="Submit">
     </div>
   </form>
-  
-  <a href="deletestaff.php"><button id="delete">Delete Account</button></a>
 </div>
 
 

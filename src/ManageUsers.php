@@ -100,8 +100,8 @@
             <hr>
             <nav id="nav2">
                 <ul>
-                    <li class="userType typeActive" onclick="changeTbl('buy')">Buyers</li>
-                    <li class="userType" onclick="changeTbl('sell')">Sellers</li>
+                    <li class="userType typeActive" onclick="changeTbl('buy')" id="buyli">Buyers</li>
+                    <li class="userType" onclick="changeTbl('sell')" id="sellli">Sellers</li>
                 </ul>
             </nav>
             <center>
@@ -113,9 +113,14 @@
                             <th>Last Name</th>
                             <th>Address</th>
                             <th>Phone No</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        <tr class ="accNull" id="buyAccNull">
+                            <td colspan = "7">No Accounts Available</td>
                         </tr>
                         <?php
-                            $sql1 = "SELECT * FROM users WHERE accType = 'seller'";
+                            $sql1 = "SELECT * FROM users WHERE accType = 'buyer' ORDER BY fName";
                             $result1 = $conn->query($sql1);
                     
                             if($result1->num_rows>0){
@@ -132,9 +137,14 @@
                                             <td>$fname</td>  
                                             <td>$lname</td>  
                                             <td>$addrs</td>  
-                                            <td>$phone</td>                                        
+                                            <td>$phone</td> 
+                                            <td><a href='editAcc.php?email=$email &accType=buyer'>Edit</a></td>
+                                            <td><a href='deleteAcc.php?email=$email &accType=buyer'>Delete</a></td>                                       
                                          </tr>";
                                 }
+                            }
+                            else{
+                                echo"<script>document.getElementById('buyAccNull').style.display = 'table-row';</script>";
                             }
                             
                         ?>
@@ -148,9 +158,14 @@
                             <th>Last Name</th>
                             <th>Address</th>
                             <th>Phone No</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        <tr class ="accNull" id="sellAccNull">
+                            <td colspan = "7">No Accounts Available</td>
                         </tr>
                         <?php
-                            $sql2 = "SELECT * FROM users WHERE accType = 'seller'";
+                            $sql2 = "SELECT * FROM users WHERE accType = 'seller' ORDER BY fName";
                             $result2 = $conn->query($sql2);
 
                             if($result2->num_rows>0){
@@ -167,15 +182,21 @@
                                             <td>$fname</td>  
                                             <td>$lname</td>  
                                             <td>$addrs</td>  
-                                            <td>$phone</td>                                        
+                                            <td>$phone</td>  
+                                            <td><a href='editAcc.php?email=$email &accType=seller'>Edit</a></td>
+                                            <td><a href='deleteAcc.php?email=$email &accType=seller'>Delete</a></td>                                      
                                         </tr>";
                                 }
+                            }
+                            else{
+                                echo"<script>document.getElementById('sellAccNull').style.display = 'table-row';</script>";
                             }
                             
                         ?>
                     </table>
-                </div>
-            </center>    
+                </div>   
+            </center>  
+            <a href="newUser.php"><button style="width:auto; padding: 10px; border-radius: 5px; margin:20px 0px 10px 50px; margin-left:50px;">Add New User</button></a>  
             
             <br><br> 
         </section> 
@@ -205,13 +226,20 @@
 
         <script src="js/script.js"></script>
         <script>
-            function decision(id){
-                var confirmation = confirm('This will permenantly delete your ad! Please Confirm.');
-                if(confirmation){
-                    window.location.replace('deleteAd.php?aprtID='+id);
+            function changeTbl(type){
+                if(type == 'buy'){
+                    document.getElementById('buyli').className = "userType typeActive";
+                    document.getElementById('sellli').className = "userType";
+                    document.getElementById('Buyers').style.display = "block";
+                    document.getElementById('Sellers').style.display = "none";
                 }
-            };
-
+                if(type == 'sell'){
+                    document.getElementById('buyli').className = "userType";
+                    document.getElementById('sellli').className = "userType typeActive";
+                    document.getElementById('Buyers').style.display = "none";
+                    document.getElementById('Sellers').style.display = "block";
+                }
+            }
         </script>
     </body>
 </html>

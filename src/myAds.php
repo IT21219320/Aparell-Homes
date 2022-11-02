@@ -130,7 +130,7 @@
                 
             ?>    
             <center>
-                <a href="postAd.php"><button id="postAd">Post Ad</button></a>
+                <a href="postAd.php"><button id="postAd1">Post Ad</button></a>
             </center>    
         </section> 
 

@@ -255,7 +255,7 @@ section li a{
     font-weight: bold;
 }
 
-#postAd{
+#postAd1{
     width: 20%;
     background: #000000ad;
     border-radius: 5px;
@@ -273,16 +273,13 @@ section li a{
     color: white;
     font-weight: bold;
 }
-
-.ads:hover {
-}
  
 #nav2{
     height:28px !important;
 }
 
 .userType{
-    padding:5px;
+    padding: 5px 50px;
     background : white;
     border-top-left-radius:10px;
     border-top-right-radius:10px;
@@ -295,10 +292,19 @@ section li a{
     background:whitesmoke;
 }
 
+#Sellers{
+    display: none;
+}
+
 .tbldiv{
     background:whitesmoke;
     margin: 0px 50px;
     padding:20px;
+    overflow: overlay;
+}
+
+.accNull{
+    display: none;
 }
 
 table{

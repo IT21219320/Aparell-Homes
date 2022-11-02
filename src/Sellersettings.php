@@ -185,6 +185,18 @@ div {
     margin-left: -35px;
     margin-top: 20px;
 }
+#delete{
+    padding: 14px 19%;
+    background: #f44336;
+    border: 0;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;    
+    margin: 140px 0px 70px 106px;
+}
+#delete:hover{
+    background: #ff5722;
+}
 </style>
 
     <body>
@@ -283,6 +295,7 @@ div {
     <input type="submit" value="Submit">
     </div>
   </form>
+    <a href="deleteSeller.php"><button id="delete">Delete Account</button></a>
 </div>
 
 

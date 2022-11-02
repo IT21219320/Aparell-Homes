@@ -88,9 +88,7 @@
                 <hr>
                 <a href="myPurchases.php"><button>My Purchases</button></a>
                 <br>
-                <a href="favourites.php"><button>Favourites</button></a>
-                <br>
-                <a href="updateUser.php"><button>Settings</button></a>
+                <a href="Buyersettings.php"><button>Settings</button></a>
                 <br>
                 <a href="logout.php"><button id="logout">Log Out</button></a>
                 <br></br>
