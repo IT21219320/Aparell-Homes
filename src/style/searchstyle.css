@@ -204,7 +204,7 @@ footer div{
     background-color: rgb(75, 140, 237);
     background-repeat: no-repeat;
     padding: 12px 20px 12px 20px;
-    margin:20px 5px 20px 10px;
+    margin:20px 5px 20px 5px;
 }
 .selectSearch{
     width:12%;
@@ -269,8 +269,9 @@ hr{
 .sortbyArea{
     width:10%;
     border-radius: 5px;
-    margin-top:10px;
-    margin-left: 90%;
+    display:inline-block;
+    margin-left:20px;
+    
 }
 .selectSortBy{
     Padding:10px;

@@ -4,6 +4,7 @@
     $SearchPhrase = $_POST["search"];
     $noOfRooms = $_POST["noOfRooms"];
     $noOfBaths = $_POST["noOfBaths"];
+
     }
 ?>
 <?php
@@ -100,8 +101,18 @@
                             <option value="3">3</option>
                             <option value="4">4</option>
                         </select>  
-                </div>   
+                </div>  
             </div>
+            <div class="sortbyArea">
+            
+                <select name="sortBy" id="sortBY" class="selectSortBy">
+                    <option>Sort By</option>
+                    <option value="Low Price">Low Price</option>
+                    <option value="High Price">High Price</option>
+                </select>
+    
+            
+            </div> 
                 <input name="SearchSubmitbtn" type="submit" value="Search" class="submitBtn"> 
             </form>
         </div>
@@ -109,22 +120,9 @@
             <h1>Property for Sale</h1>
             <p> Here are many aprtments that you can select as you want and as matched to your reqiurements</p>
             
-            <div class="sortbyArea">
-            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id = "filterForm">
-                <select name="sortBy" id="sortBY" class="selectSortBy">
-                    <option>Sort By</option>
-                    <option value="Low Price" onclick="filtersubmit()">Low Price</option>
-                    <option value="High Price" onclick="filtersubmit()">High Price</option>
-                </select>
-                <input type="submit" name="filterSub" style="display:none">
-            </form>
-            </div>
+            
         </div>
-        <script>
-            function filterSubmit(){
-                decument.getElementById("filterForm").submit();
-            }
-        </script>
+        
         
         <hr>
         <?php
@@ -135,20 +133,33 @@
                 $SearchPhrase = $_POST["search"];
                 $noOfRooms = $_POST["noOfRooms"];
                 $noOfBaths = $_POST["noOfBaths"];
+                $filter = $_POST["sortBy"];
                 $flag = False;
                     
                 $sql2 = "select * from apartments where (title like '%{$SearchPhrase}%') AND (beds = '{$noOfRooms}') AND (baths = '{$noOfBaths}') AND  approved = '1'";
                 if($noOfRooms == '-'){
                     $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' AND baths = '{$noOfBaths}' AND  approved = '1'";
-                    if(isset($_POST["filterSub"])){
-                        $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' AND baths = '{$noOfBaths}' AND  approved = '1' order by "
+                    if($filter=='Low Price'){
+                        $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' AND baths = '{$noOfBaths}' AND  approved = '1' order by price ASC";
+                    }
+                    elseif($filter=='High Price'){
+                        $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' AND baths = '{$noOfBaths}' AND  approved = '1' order by price DESC";
                     }
                     if($noOfBaths == '-'){
                         $sql2 = "SELECT * FROM apartments WHERE title LIKE '%$SearchPhrase%' AND  approved = '1'";
+                        if($filter=='Low Price'){
+                            $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' AND  approved = '1' order by price ASC";
+                        }
+                        elseif($filter=='High Price'){
+                            $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' AND  approved = '1' order by price DESC";
+                        }
                     }
                 }
                 elseif($noOfBaths == '-'){
                     $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' AND beds = '{$noOfRooms}' AND  approved = '1'";
+                    if(isset($_POST["filterSub"])){
+                        $sql2 = "select * from apartments where title like '%{$SearchPhrase}%' AND baths = '{$noOfBaths}' AND  approved = '1' order by price ASC";
+                    }
                 }
                 $result2 = $conn->query($sql2);
 

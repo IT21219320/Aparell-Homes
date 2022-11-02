@@ -19,7 +19,7 @@
     <head>
         <title>Search | Aparell</title>
         <link rel="icon" type="image" href="images/Favicon.png">
-        <link rel="stylesheet" href="style/searchstyle.css" id="stylesheet">
+        <link rel="stylesheet" href="style/viewApartment.css" id="stylesheet">
     </head>
 
     <body>
@@ -62,6 +62,15 @@
             </div> -->
 
         </nav>
+        <div class="viewAprtpcsArea">
+            <img src="images/homeImage2.jpg ">
+        </div>
+        <div class="viewdes">
+            <p id="viewTitle">Add Title</p>
+            <p id="viewAddress">Address</p>
+            <p id="viewBeds">Beds</P>
+            <p id="viewBaths">Baths</P>
+        </div>
          
 
         <!-- Footer -->
