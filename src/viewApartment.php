@@ -1,5 +1,8 @@
 
 <?php
+require_once "config.php";
+?>
+<?php
     session_start();
 
     if(isset($_SESSION['LoginStat'])){
@@ -62,15 +65,36 @@
             </div> -->
 
         </nav>
-        <div class="viewAprtpcsArea">
-            <img src="images/homeImage2.jpg ">
-        </div>
-        <div class="viewdes">
-            <p id="viewTitle">Add Title</p>
-            <p id="viewAddress">Address</p>
-            <p id="viewBeds">Beds</P>
-            <p id="viewBaths">Baths</P>
-        </div>
+        <?php
+            $apartmentID=$_GET["apartmentID"];
+
+            $sql = "select * from apartments where aprtID={$apartmentID}";
+            
+            $result = $conn->query($sql);
+            if($result -> num_rows>0){
+                while($row = $result->fetch_assoc()){
+                    echo "<div class='viewAprtpcsArea'>
+                        <img src='{$row['img1']}'>
+                    </div>
+                    <div class='viewdes'>
+                        <p id='viewTitle'>{$row['title']}</p>
+                        <p id='viewAddress'>Address   {$row['addrs']}</p>
+                        <p id='viewBeds'>Beds   {$row['beds']}</P>
+                        <p id='viewBaths'>Baths   {$row['baths']}</P>
+                        <br>
+                        <p id='viewDescription'><h2>Description</h2></P>
+                        <p id='viewDescription2'>{$row['description']}</p>
+                    </div>
+                    <div class='priceArea'>
+                        <p id='price'>Rs. {$row['price']}</p>
+                        <button id='viewcontactSeller'>Contact Seller</button>
+                    </div>";
+
+                }
+            }
+            
+        ?>
+        
          
 
         <!-- Footer -->

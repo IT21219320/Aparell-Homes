@@ -165,8 +165,8 @@
 
                 if($result2 -> num_rows>0){
                     while($row = $result2 -> fetch_assoc()){
-                        
-                        echo "<a href='viewApartment.php' style='color:black'>
+                        $id = $row['aprtID'];
+                        echo "<a href='viewApartment.php?apartmentID=$id' style='color:black'>
                         <div class='DisplayedAds'>
                             <div class='AdPictures'>
                                 <img src='{$row['img1']}' class='pics'>
@@ -192,24 +192,25 @@
                 if ($result->num_rows > 0) {
                     // output data of each row
                     while($row = $result->fetch_assoc()) {
-                    echo "<a href='viewApartment.php' style='color:black'>
-                    <div class='DisplayedAds'>
-                        <div class='AdPictures'>
-                            <img src='{$row['img1']}' class='pics'>
-                        </div>
-                        <div class='Adsdis'>
-                            <p id='title'>{$row['title']}</p>
-                            <p id='address'>{$row['addrs']}</p>
-                        </div>
-                        <div class='price'>
-                            <p id='price'>Rs. {$row['price']}</p>
-                            <p id='noOfBeds'>Beds {$row['beds']}</p>
-                            <p id='baths'>Baths {$row['baths']}</p>
-                        </div>
-                        <div class= 'contactbtn'>
-                            <button name='contact' id='contact'>Contact Seller</button>
-                        </div>
-                    </div></a>";
+                        $id = $row['aprtID'];
+                        echo "<a href='viewApartment.php?apartmentID=$id' style='color:black'>
+                        <div class='DisplayedAds'>
+                            <div class='AdPictures'>
+                                <img src='{$row['img1']}' class='pics'>
+                            </div>
+                            <div class='Adsdis'>
+                                <p id='title'>{$row['title']}</p>
+                                <p id='address'>{$row['addrs']}</p>
+                            </div>
+                            <div class='price'>
+                                <p id='price'>Rs. {$row['price']}</p>
+                                <p id='noOfBeds'>Beds {$row['beds']}</p>
+                                <p id='baths'>Baths {$row['baths']}</p>
+                            </div>
+                            <div class= 'contactbtn'>
+                                <button name='contact' id='contact'>Contact Seller</button>
+                            </div>
+                        </div></a>";
                     }
                 }
             }

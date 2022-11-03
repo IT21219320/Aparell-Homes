@@ -28,7 +28,6 @@ ul{
     overflow:hidden;
     display: inline-block;
     position: absolute;
-   
     height:80px;
     left: 33%;
 }  
@@ -176,9 +175,11 @@ footer div{
 }
 /* End of Footer */
 .viewAprtpcsArea{
-    margin:2px auto;
-    width:50%;
+    
+    margin:40px 30% 5px 30%;
+    width:40%;
     height:300px;
+    
     
 }
 .viewAprtpcsArea img{
@@ -188,11 +189,13 @@ footer div{
 .viewdes{
     margin-left:8%;
     width:45%;
-
+    display: inline-block;
+    overflow-wrap: break-word;
 }
 #viewTitle{
-    font-size:4vw;
+    font-size:2vw;
     margin:1px 1px;
+    font-weight: bold;
 }
 #viewAddress{
     margin-left:2%;
@@ -205,4 +208,23 @@ footer div{
 #viewBaths{
     margin-left:2%;
     font-size:20px;
+}
+.priceArea{
+    padding:2%;
+    width:25%;
+   float:right;
+}
+#price{
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#viewDescription{
+    margin-left:2%;
+    font-size:15px;
+}
+#viewcontactSeller{
+    padding:10px;
+    background-color:rgb(118, 204, 118);
+    border:none;
+    border-radius:5px;
 }

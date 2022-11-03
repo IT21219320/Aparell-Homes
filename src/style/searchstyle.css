@@ -176,7 +176,7 @@ footer div{
 .searchArea{
     background-color:#5f6894;
     padding-left:7%;
-    margin: 0% 2%;
+    margin: 2% 2%;
     border-radius: 10px;
     
 } 
@@ -281,7 +281,7 @@ hr{
 .DisplayedAds{
     width:80%;
     height:200px;
-    margin: 1% 8% 2% 8%;
+    margin: 1% 10% 2% 10%;
 }
 .DisplayedAds:hover{
     background-color: rgba(237, 237, 237, 0.814);
