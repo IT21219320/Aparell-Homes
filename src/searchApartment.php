@@ -210,6 +210,9 @@
                             <div class= 'contactbtn'>
                                 <button name='contact' id='contact'>Contact Seller</button>
                             </div>
+                            <div id='like'>
+                                <img src = 'images/like.png' style='float: right;margin: 10px;width: 30px;'>
+                            </div>
                         </div></a>";
                     }
                 }
