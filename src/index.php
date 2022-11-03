@@ -129,7 +129,7 @@
                         $beds = $row['beds'];
                         $img = $row['img1'];
             
-                        echo "<a href='viewApartment.php?id=$id'>
+                        echo "<a href='viewApartment.php?apartmentID=$id'>
                                 <div class='ad'>
                                     <img src='$img' alt='image' width='100%' class='adpic'>
                                     <div class='ad_description'>
