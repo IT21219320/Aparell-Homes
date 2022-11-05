@@ -65,9 +65,7 @@ require_once "config.php";
             </div> -->
 
         </nav>
-        <div class="imageArea">
-            <img src="images/payment.jpg" width="100%" style="opacity:50%">
-        </div>
+        <div class="pic">
       
         <div class="paymentArea">
             <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
@@ -76,14 +74,14 @@ require_once "config.php";
                 <div class="pack">
                 <input type="radio" name="subcription" value="3000">
                 
-                <label><font class="headings">Rs 3000 </font><br> <p class="subDes">To boost for the top<p> </label>
+                <label><font class="headings">Rs 3000 </font> <p class="subDes">To boost for the top<p>  </label>
                 </div>
                 <div class="pack">
                 <input type="radio" name="subcription" value="1500">
                 <label><font class="headings">Rs 1500 </font><br> <p class="subDes">To boost upto 10 ads<p> </label>
                 </div><br>
                 <label><font class="headings">Email</font></label><br>
-                <input type="text" name="email" id="email"><br>
+                <input type="email" name="email" id="email" value="Email"><br>
                 <label><font class="headings">Payment Type</font></label><br>
                 <select name="payType">
                     <option value="Mater card">Master card</option>
@@ -93,6 +91,7 @@ require_once "config.php";
                 <input type="submit" name="submitbtnPay" value="Pay" id="paybtn">
             </form>
         </div>
+</div>
         <?php
         require_once "config.php";
         if(isset($_POST['submitbtnPay'])){
@@ -103,15 +102,15 @@ require_once "config.php";
             $sqlContact = " insert into payment values('', '$typePay', '$package', '$email')";
             if(mysqli_query($conn,$sqlContact)){
                 echo "<script>
-                        alert('Successfully sent!');
-                        window.location.replace('contactUs.php');
+                        alert('Payment Successfully!');
+                        window.location.replace('payment.php');
                       </script>";
                 
             }
             else{
                 echo "<script>
-                        alert('Message Unsuccessfully!');
-                        window.location.replace('contactUs.php');
+                        alert('Payment Unsuccessfully!');
+                        window.location.replace('payment.php');
                       </script>";
             }
         

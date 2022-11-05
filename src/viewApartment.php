@@ -23,6 +23,7 @@ require_once "config.php";
         <title>Search | Aparell</title>
         <link rel="icon" type="image" href="images/Favicon.png">
         <link rel="stylesheet" href="style/viewApartment.css" id="stylesheet">
+
     </head>
 
     <body>
@@ -65,7 +66,9 @@ require_once "config.php";
             </div> -->
 
         </nav>
+       
         <?php
+             /* selected apartment details*/ 
             $apartmentID=$_GET["apartmentID"];
 
             $sql = "select * from apartments where aprtID={$apartmentID}";
@@ -89,13 +92,14 @@ require_once "config.php";
                     </div>
                     <div class='priceArea'>
                         <p id='price'>Rs. {$row['price']}</p>
-                        <button id='viewcontactSeller'>Contact Seller</button>
+                        <button type='submit' onclick='showcontact();' id='viewcontactSeller'>Contact Seller</button>
+                        <p id='contactno'>0715647800</p>
                     </div>";
 
                 }
                 
             }
-            
+            /* Similar aprtment details */
             $sql2 = "select * from apartments where city='{$city}' and aprtID != '{$apartmentID}'";
             $result2 = $conn->query($sql2);
             echo "<center><h1>Similar Ads</h1></center><center>";
