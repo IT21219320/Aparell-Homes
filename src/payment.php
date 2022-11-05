@@ -20,9 +20,9 @@ require_once "config.php";
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Search | Aparell</title>
+        <title>Payment | Aparell</title>
         <link rel="icon" type="image" href="images/Favicon.png">
-        <link rel="stylesheet" href="style/viewApartment.css" id="stylesheet">
+        <link rel="stylesheet" href="style/payment.css" id="stylesheet">
     </head>
 
     <body>
@@ -38,7 +38,7 @@ require_once "config.php";
                 <li><a href="index.php" ><font class="hov">Home</font></a></li>
                 <li><a href="searchApartment.php" class="active"><font class="hov">Apartments</font></a></li>
                 <li><a href="aboutus.html"><font class="hov">About Us</font></a></li>
-                <li><a href="contactUs.php" ><font class="hov">Contact Us</font></a></li>
+                <li><a href="contactUs.html" ><font class="hov">Contact Us</font></a></li>
             </ul>
 
             <!-- Login & Signup -->
@@ -65,58 +65,47 @@ require_once "config.php";
             </div> -->
 
         </nav>
-        <?php
-            $apartmentID=$_GET["apartmentID"];
-
-            $sql = "select * from apartments where aprtID={$apartmentID}";
-            $city = "";
-            $result = $conn->query($sql);
+        <div class="imageArea">
+            <img src="images/payment.jpg" width="100%" style="opacity:50%">
+        </div>
+      
+        <div class="paymentArea">
+            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
             
-            if($result -> num_rows>0){
-                while($row = $result->fetch_assoc()){
-                    $city = $row['city'];
-                    echo "<div class='viewAprtpcsArea'>
-                        <img src='{$row['img1']}'>
-                    </div>
-                    <div class='viewdes'>
-                        <p id='viewTitle'>{$row['title']}</p>
-                        <p id='viewAddress'>Address   {$row['addrs']}</p>
-                        <p id='viewBeds'>Beds   {$row['beds']}</P>
-                        <p id='viewBaths'>Baths   {$row['baths']}</P>
-                        <br>
-                        <p id='viewDescription'><h2>Description</h2></P>
-                        <p id='viewDescription2'>{$row['description']}</p>
-                    </div>
-                    <div class='priceArea'>
-                        <p id='price'>Rs. {$row['price']}</p>
-                        <button id='viewcontactSeller'>Contact Seller</button>
-                    </div>";
-
-                }
+                <label><h1 id="chooseSub">Choose Subcription</h1></label>
+                <div class="pack">
+                <input type="radio" name="subcription" value="3000">
                 
-            }
-            
-            $sql2 = "select * from apartments where city='{$city}' and aprtID != '{$apartmentID}'";
-            $result2 = $conn->query($sql2);
-            echo "<center><h1>Similar Ads</h1></center><center>";
-            if($result -> num_rows>0){
-                while($row2 = $result2->fetch_assoc()){
-                    echo"<a href='viewApartment.php?apartmentID={$row2['aprtID']}'>
-                    <div class='ad'>
-                        <img src='{$row2['img1']}' alt='image' width='100%' class='adpic'>
-                        <div class='ad_description'>
-                            <h2 id='title'>{$row2['title']}</h2>
-                            <p id='Address'>{$row2['addrs']}</p>
-                            <span id='noOfBeds'>{$row2['beds']} Bedroom(s)</span>
-                            <span id='baths'>{$row2['baths']} Bathroom(s)</span>
-                        </div>
-                    </div>
-                </a>";
-                }
-                echo"</center>";
-            }
-            
+                <label><font class="headings">Rs 3000 </font><br> <p class="subDes">To boost for the top<p> </label>
+                </div>
+                <div class="pack">
+                <input type="radio" name="subcription" value="1500">
+                <label><font class="headings">Rs 1500 </font><br> <p class="subDes">To boost upto 10 ads<p> </label>
+                </div><br>
+                <label><font class="headings">Email</font></label><br>
+                <input type="text" name="email" id="email"><br>
+                <label><font class="headings">Payment Type</font></label><br>
+                <select name="payType">
+                    <option value="Mater card">Master card</option>
+                    <option value="credit card">Credit card</option>
+                    <option value="Paypal">Paypal</option>
+                </select><br>
+                <input type="submit" name="submitbtnPay" value="Pay" id="paybtn">
+            </form>
+        </div>
+        <?php
+        require_once "config.php";
+        if(isset($_POST['submitbtnPay'])){
+            $package = $_POST['subcription'];
+            $email = $_POST['email'];
+            $typePay = $_POST['payType'];
+
+            $sql = " insert into payment values('')"
+        }
+
         ?>
+
+
         
         
          
