@@ -182,8 +182,7 @@ footer div{
 }
 .pos70{
     width:70%;
-
-
+     
 }
 .Welcome{
     margin-top:60px;
@@ -198,6 +197,8 @@ footer div{
     font-size:18px;
     text-align: justify;
 }
+
+<--Background-->
 .AUFBButton{
     margin-left:15%;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -351,3 +352,24 @@ footer div{
 @media only screen and (max-width:900px){
     .container
 }
+
+ 
+
+.container5 {
+    border-radius: 5px;
+    background-color: lightblue;
+    padding: 20px;
+    margin-top:5%;
+    margin-bottom:10%;
+    margin-right:60%;
+    margin-left: 15%; 
+    width:500px;
+       
+  }
+
+  input[type=text],textarea,input[type=email]{
+    width:100%;
+    padding:12px 20px;
+    margin: 8px 0;
+    box-sizing:border-box;
+  }

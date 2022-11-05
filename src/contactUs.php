@@ -59,8 +59,21 @@
                 <p class="aboutustext"><font class="textPadding"><br><br>If you have any questions or queries a member of staff will always be happy to help.Feel free to contact us by telephone or email and we will be sure to get back to you as soon possible.</font></p>
                 
             </div>    
-        </div>
+            </div>
 
+        </div>
+        <div class="container5">
+            <form action ="">
+            <input type="text" id="fname" name="firstname" placeholder="First Name">
+            <br><br><br>
+            <input type="text" id="lname" name="lastname" placeholder="Last Name">
+            <br><br><br>
+            <textarea  name="Message" placeholder="Message" style="height:200px" ></textarea>
+            <br><br><br>
+            <input type="email" id="email" name="email" placeholder="Email">
+            <br><br><br><br>
+            <input name="btnsubmit" type="submit" value="Send Message">
+            </form>
         </div>
 
 
