@@ -88,9 +88,9 @@ require_once "config.php";
             <br><br>
             <input type="text" id="lname" name="lname" placeholder="Last Name" required>
             <br><br>
-            <textarea  name="Message" placeholder="Message" style="height:200px" required></textarea>
+            <input type="email" id="email" name="email" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
             <br><br>
-            <input type="email" id="email" name="email" placeholder="Email" required>
+            <textarea  name="Message" placeholder="Message" style="height:200px" required></textarea>
             <br><br><br>
             <button class="sellButton" name="submit">Send Message</button>
             </form>
@@ -106,7 +106,7 @@ require_once "config.php";
         $Message=htmlspecialchars($_POST['Message']);
         $email=htmlspecialchars($_POST['email']);
 
-        $sqlInsert = "INSERT INTO contactus VALUES('','$fname','$lname','$Message','$email');";
+        $sqlInsert = "INSERT INTO contactus(firstName,lastName,message,email) VALUES('$fname','$lname','$Message','$email');";
         if(mysqli_query($conn,$sqlInsert)){
             echo "<script>
                     alert('Massege Successfully Sent!');

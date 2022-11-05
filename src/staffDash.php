@@ -1,47 +1,5 @@
 <?php
-    session_start();
-
-    if(isset($_SESSION['LoginStat'])){
-        $logStat = $_SESSION['LoginStat'];
-        
-        if($_SESSION['LoginStat'] == true){
-
-            if($_SESSION['SellerSignedIn'] == true){
-                header('Location:staffDash.php');
-            }
-            elseif($_SESSION['BuyerSignedIn'] == true){
-                header('Location:buyerDash.php');
-            }
-            elseif($_SESSION['StaffSignedIn'] != true){
-                echo "<script>
-                        alert('Please login to proceed!');
-                        window.location.replace('loginHTML.php');
-                    </script>";
-            }
-            else{
-                $email = $_SESSION['Email'];
-                $acc = $_SESSION['AccType'];
-                $fname = $_SESSION['fName'];
-                $lname = $_SESSION['lName'];
-                $addrs = $_SESSION['addrs'];
-                $phone = $_SESSION['mobile'];
-                $pwd = $_SESSION['Pwd'];
-                $dp = $_SESSION['profile'];
-            }  
-        }    
-        else{
-            echo "<script>
-                            alert('Please login to proceed!');
-                            window.location.replace('loginHTML.php');
-                        </script>";
-        }        
-    }
-    else{
-        echo "<script>
-                        alert('Please login to proceed!');
-                        window.location.replace('loginHTML.php');
-                    </script>";
-    }
+require "checkAccTypeStaff.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -87,6 +45,8 @@
                 <h2>Hello <?php echo $fname ?> <?php echo $lname ?>!</h2>
                 <hr>
                 <a href="toApprove.php"><button>To Approve</button></a>
+                <br>
+                <a href="messages.php"><button>Customer Support</button></a>
                 <br>
                 <a href="ManageUsers.php"><button>Manage Users</button></a>
                 <br>

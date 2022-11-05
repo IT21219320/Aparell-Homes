@@ -4,10 +4,7 @@
 <?php
 require "checkAccTypeStaff.php";
 
-    $sql = "SELECT * FROM apartments WHERE approved = 'NULL'";
-
-    $result = $conn->query($sql);
-
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,41 +50,54 @@ require "checkAccTypeStaff.php";
             <nav>
                 <ul>
                     <li><a href="staffDash.php" class="hover">Dashboard</a></li>
-                    <li><a href="toApprove.php" class="hover activeNav">To Approve</a></li>
-                    <li><a href="messages.php" class="hover">Customer Support</a></li>
+                    <li><a href="toApprove.php" class="hover">To Approve</a></li>
+                    <li><a href="messages.php" class="hover activeNav">Customer Support</a></li>
                     <li><a href="manageUsers.php" class="hover">Manage Users</a></li>
                     <li><a href="staffsettings.php" class="hover">Settings</a></li>
                 </ul>
             </nav>
             <hr>
-            <?php
-                if($result->num_rows>0){
-                    while($row = $result->fetch_assoc()){
-                        $id = $row['aprtID'];
-                        $title = $row['title'];
-                        $description = $row['description'];
-                        $addrs = $row['addrs'];
-                        $price = $row['price'];
-                        $img = $row['img1'];
+            <br><br> 
+            
+            <center>
+                <div id="Buyers" class="tbldiv">
+                    <table class="Tbl" border=1>
+                        <tr>
+                            <th>Email</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Message</th>
+                        </tr>
+                        <tr class ="accNull" id="buyAccNull">
+                            <td colspan = "7">No Accounts Available</td>
+                        </tr>
+                        <?php
+                            $sql1 = "SELECT * FROM contactus";
+                            $result1 = $conn->query($sql1);
+                    
+                            if($result1->num_rows>0){
+                                while($row1 = $result1->fetch_assoc()){
 
-                        echo"
-                            <div class='ads'>
-                                <img src='$img' width='25%' height='215px'>
-                                <div class='adDisc'>
-                                    <h2>$title</h2>
-                                    <p>$addrs<br><br>$description<br><br><br>Rs.$price</p>
-                                    <div>
-                                    <a href='approve.php?aprtID=$id'><button class='approve'>Approve</button></a><a href='reject.php?aprtID=$id'><button class='reject'>Reject</button></a>
-                                    </div>
-                                </div>
-                            </div>";
-                    }
-                }
-                else{
-                    echo "<center><img src='images/allDone.jpg' style='margin:50px 0px' width='300px'></center>";
-                }
-                
-            ?>
+                                    $email = $row1['email'];
+                                    $fname = $row1['firstName'];
+                                    $lname = $row1['lastName'];
+                                    $msg = $row1['message'];
+
+                                    echo"<tr>
+                                            <td>$email</td>  
+                                            <td>$fname</td>  
+                                            <td>$lname</td>  
+                                            <td>$msg</td>                                        
+                                         </tr>";
+                                }
+                            }
+                            else{
+                                echo"<script>document.getElementById('buyAccNull').style.display = 'table-row';</script>";
+                            }
+                            
+                        ?>
+                    </table>
+                </div>
             <br><br> 
         </section> 
 
@@ -116,13 +126,20 @@ require "checkAccTypeStaff.php";
 
         <script src="js/script.js"></script>
         <script>
-            function decision(id){
-                var confirmation = confirm('This will permenantly delete your ad! Please Confirm.');
-                if(confirmation){
-                    window.location.replace('deleteAd.php?aprtID='+id);
+            function changeTbl(type){
+                if(type == 'buy'){
+                    document.getElementById('buyli').className = "userType typeActive";
+                    document.getElementById('sellli').className = "userType";
+                    document.getElementById('Buyers').style.display = "block";
+                    document.getElementById('Sellers').style.display = "none";
                 }
-            };
-
+                if(type == 'sell'){
+                    document.getElementById('buyli').className = "userType";
+                    document.getElementById('sellli').className = "userType typeActive";
+                    document.getElementById('Buyers').style.display = "none";
+                    document.getElementById('Sellers').style.display = "block";
+                }
+            }
         </script>
     </body>
 </html>
