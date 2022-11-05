@@ -72,7 +72,7 @@
             <br><br><br>
             <input type="email" id="email" name="email" placeholder="Email">
             <br><br><br><br>
-            <input name="btnsubmit" type="submit" value="Send Message">
+            <button class="sellButton">Send Message</button>
             </form>
         </div>
 

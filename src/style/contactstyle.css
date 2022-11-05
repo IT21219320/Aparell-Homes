@@ -373,3 +373,13 @@ footer div{
     margin: 8px 0;
     box-sizing:border-box;
   }
+ 
+.sellButton:hover{
+    color:white;
+    border:2px solid white;
+    background-color:#0741ad;
+}
+.sellButton{
+    background-color: lightblue;
+    border:solid white;
+}
