@@ -1,3 +1,7 @@
+
+<?php
+require_once "config.php";
+?>
 <?php
     session_start();
 
@@ -14,12 +18,6 @@
     }
 
 
-?>
-<?php
-require_once "config.php";
-?>
-<?php
-require_once "config.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,6 +49,17 @@ require_once "config.php";
                 <a href="loginHTML.php"><button id="login">Login</button></a>
                 <a href="register.html"><button id="signup">Sign up</button></a>
             </div>
+            
+            <!-- Profile icon -->
+            <div id="profile">
+                <img src="<?php echo $dp ?>" height="50px" alt="profile" onmouseover="showDpNav();" onmouseout="hideDpNav();" style="border-radius:50%";>
+                <div>
+                    <ul id="dpNav" onmouseover="showDpNav();" onmouseout="hideDpNav();">
+                        <a href="<?php echo $acc ?>Dash.php"><li style="margin-top: 35px; border-top-left-radius: 5px; border-top-right-radius: 5px;">Dashboard</li></a>
+                        <a href="logout.php"><li>Log Out</li></a>
+                    </ul>
+                </div>
+            </div>
 
             <!-- Dark Mode toggle switch
             <div id="drkmode">
@@ -65,7 +74,10 @@ require_once "config.php";
             <h2 class="aboutus">Contact Us</h2>
             <div style="width:70%">
                 <p class="aboutustext"><font class="textPadding"><br><br>If you have any questions or queries a member of staff will always be happy to help.Feel free to contact us by telephone or email and we will be sure to get back to you as soon possible.</font></p>
-                </div>
+                <p class="abc">228/10,<br> Rockland place,<br> Colombo 07<br>
+                +94 11 2 485823<br>aparell@gmail.com</p>
+    
+            </div>
                 </div></div>
         <div class="map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d33007.13503196978!2d79.95921982827926!3d6.920117390160202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25715a39b7545%3A0xf53f96ad77a67685!2sAparell%20Homes!5e0!3m2!1sen!2slk!4v1667638275026!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -94,7 +106,7 @@ require_once "config.php";
         $Message=htmlspecialchars($_POST['Message']);
         $email=htmlspecialchars($_POST['email']);
 
-        $sqlInsert = "INSERT INTO contact VALUES('','$fname','$lname','$Message','$email');";
+        $sqlInsert = "INSERT INTO contactus VALUES('','$fname','$lname','$Message','$email');";
         if(mysqli_query($conn,$sqlInsert)){
             echo "<script>
                     alert('Massege Successfully Sent!');

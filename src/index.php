@@ -16,7 +16,7 @@
 
     }
     
-    $sql = "SELECT * FROM apartments";
+    $sql = "SELECT * FROM apartments WHERE approved = '1'";
 
     $result = $conn->query($sql);
 
