@@ -1,3 +1,7 @@
+
+<?php
+require_once "config.php";
+?>
 <?php
     session_start();
 
@@ -14,12 +18,6 @@
     }
 
 
-?>
-<?php
-require_once "config.php";
-?>
-<?php
-require_once "config.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -50,6 +48,17 @@ require_once "config.php";
             <div id="log">
                 <a href="loginHTML.php"><button id="login">Login</button></a>
                 <a href="register.html"><button id="signup">Sign up</button></a>
+            </div>
+            
+            <!-- Profile icon -->
+            <div id="profile">
+                <img src="<?php echo $dp ?>" height="50px" alt="profile" onmouseover="showDpNav();" onmouseout="hideDpNav();" style="border-radius:50%";>
+                <div>
+                    <ul id="dpNav" onmouseover="showDpNav();" onmouseout="hideDpNav();">
+                        <a href="<?php echo $acc ?>Dash.php"><li style="margin-top: 35px; border-top-left-radius: 5px; border-top-right-radius: 5px;">Dashboard</li></a>
+                        <a href="logout.php"><li>Log Out</li></a>
+                    </ul>
+                </div>
             </div>
 
             <!-- Dark Mode toggle switch
@@ -97,7 +106,7 @@ require_once "config.php";
         $Message=htmlspecialchars($_POST['Message']);
         $email=htmlspecialchars($_POST['email']);
 
-        $sqlInsert = "INSERT INTO contact VALUES('','$fname','$lname','$Message','$email');";
+        $sqlInsert = "INSERT INTO contactus VALUES('','$fname','$lname','$Message','$email');";
         if(mysqli_query($conn,$sqlInsert)){
             echo "<script>
                     alert('Massege Successfully Sent!');
