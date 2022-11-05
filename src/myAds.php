@@ -46,7 +46,7 @@
                     </script>";
     }
 
-    $sql = "SELECT * FROM apartments WHERE approved = '1'";
+    $sql = "SELECT * FROM apartments WHERE sellerMail='$email' AND approved = '1'";
 
     $result = $conn->query($sql);
 

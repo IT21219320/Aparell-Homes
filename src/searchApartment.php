@@ -1,10 +1,9 @@
 <?php
     require_once "config.php";
     if(isset($_POST["SearchSubmitbtn"])){
-    $SearchPhrase = $_POST["search"];
-    $noOfRooms = $_POST["noOfRooms"];
-    $noOfBaths = $_POST["noOfBaths"];
-
+        $SearchPhrase = $_POST["search"];
+        $noOfRooms = $_POST["noOfRooms"];
+        $noOfBaths = $_POST["noOfBaths"];
     }
 ?>
 <?php
@@ -16,11 +15,15 @@
         if($_SESSION['LoginStat'] == true){
 
             $acc = $_SESSION['AccType'];
+            $email = $_SESSION['Email'];
             $dp = $_SESSION['profile'];
             
+           
         }   
 
     }
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -193,27 +196,62 @@
                     // output data of each row
                     while($row = $result->fetch_assoc()) {
                         $id = $row['aprtID'];
-                        echo "<a href='viewApartment.php?apartmentID=$id' style='color:black'>
-                        <div class='DisplayedAds'>
-                            <div class='AdPictures'>
-                                <img src='{$row['img1']}' class='pics'>
-                            </div>
-                            <div class='Adsdis'>
-                                <p id='title'>{$row['title']}</p>
-                                <p id='address'>{$row['addrs']}</p>
-                            </div>
-                            <div class='price'>
-                                <p id='price'>Rs. {$row['price']}</p>
-                                <p id='noOfBeds'>Beds {$row['beds']}</p>
-                                <p id='baths'>Baths {$row['baths']}</p>
-                            </div>
-                            <div class= 'contactbtn'>
-                                <button name='contact' id='contact'>Contact Seller</button>
-                            </div>
-                            <div id='like'>
-                                <img src = 'images/like.png' style='float: right;margin: 10px;width: 30px;'>
-                            </div>
-                        </div></a>";
+                        echo "<a href='viewApartment.php?apartmentID=$id' id='Ad$id' style='color:black; text-decoration:none;'>
+                                <div class='DisplayedAds'>
+                                    <div class='AdPictures'>
+                                        <img src='{$row['img1']}' class='pics'>
+                                    </div>
+                                    <div class='Adsdis'>
+                                        <p class='title'>{$row['title']}</p>
+                                        <p class='address'>{$row['addrs']}</p>
+                                    </div>
+                                    <div class='price'>
+                                        <p class='pPrice'>Rs. {$row['price']}</p>
+                                        <p class='noOfBeds'>Beds {$row['beds']}</p>
+                                        <p class='baths'>Baths {$row['baths']}</p>
+                                    </div>
+                                    <div class= 'contactbtn'>
+                                        <button name='contact' class='contact'>Contact Seller</button>
+                                    </div>
+                                </div>
+                                <div class='like'>
+                                    <a href='likeAprt.php?id=$id &email=$email &accType=$acc' style='text-decoration:none;'><p class = 'heart' id='heart$id' style='margin: 0'>&#10084;</p>
+                                </div>
+                            </a>";
+
+                        if(isset($_SESSION['LoginStat'])){
+                            if($logStat == true){
+                            //if logged in
+                                echo "<script>document.getElementById('heart$id').style.display = 'block';</script>";
+
+                                 // to chk if ad is liked
+                                $sqlFav = "SELECT aprtID FROM userfavs WHERE email = '$email' AND accType = '$acc' AND aprtID='$id'";
+                                $favResult = $conn -> query($sqlFav);
+            
+                                while($favRow = $favResult -> fetch_assoc()){
+                                    $favId = $favRow['aprtID'];
+
+                                    if($id == $favId){ //check if already liked
+                                        echo "<script>
+                                                document.getElementById('heart$id').style.color = 'red';
+                                            </script>";
+                                        
+                                        
+                                    }      
+                                    else{
+
+                                        echo "<script>
+                                                document.getElementById('heart$id').style.color = '#ccc';
+                                            </script>";
+                                        
+                                        continue;    
+
+                                    }  
+                                }
+                                   
+                            }
+                        }
+                             
                     }
                 }
             }
@@ -255,6 +293,7 @@
                     document.getElementById('log').style.display = 'none';
                     document.getElementById('profile').style.display = 'block';
                 </script>";
+            
         }
     }
 ?>

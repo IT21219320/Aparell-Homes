@@ -16,11 +16,15 @@
     }  
 
     $sqlDelete = "DELETE FROM users WHERE email = '$email' AND accType = '$acc'";
+    $sqlDeleteAprt = "DELETE FROM apartments WHERE sellerMail = '$email'";
+    $sqlDeletefav = "DELETE FROM userfavs WHERE email = '$email' AND accType = 'seller'";
 
     if(mysqli_query($conn,$sqlDelete)){
         if($dp != "images/user.png"){
             unlink("$dp");
         }
+        mysqli_query($conn,$sqlDeleteAprt);
+        mysqli_query($conn,$sqlDeletefav);
 
         $_SESSION['SellerSignedIn'] = false;
         $_SESSION['LoginStat'] = false;

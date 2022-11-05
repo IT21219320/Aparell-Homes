@@ -15,11 +15,19 @@
     }  
 
     $sql2 = "DELETE FROM users WHERE email = '$email' AND accType = '$acc'";
+    $sqlDeleteAprt = "DELETE FROM apartments WHERE sellerMail = '$email'";
+    $sqlDeletefav = "DELETE FROM userfavs WHERE email = '$email' AND accType = '$acc'";
 
     if(mysqli_query($conn,$sql2)){
         if($dp != "images/user.png"){
             unlink("$dp");
         }
+        if($acc == 'seller'){
+            mysqli_query($conn,$sqlDeleteAprt);
+        }
+        
+        mysqli_query($conn,$sqlDeletefav);
+
         echo "<script>
                 alert('Successfully deleted!');
                 window.location.replace('ManageUsers.php');

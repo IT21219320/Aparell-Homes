@@ -46,7 +46,7 @@
                     </script>";
     }
 
-    $sql = "SELECT * FROM apartments";
+    $sql = "SELECT * FROM apartments WHERE sellerMail='$email'";
 
     $result = $conn->query($sql);
 

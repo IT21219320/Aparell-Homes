@@ -27,7 +27,7 @@
     $imgName = basename($_FILES["dp"]["name"]);
    
     if($imgName != ''){
-        if($dp != "images/user.png"){
+        if($target_file != "images/user.png"){
             unlink("$target_file");
         }
         $target_file = $target_dir . $email . "_" . $accType . "_" .$imgName;

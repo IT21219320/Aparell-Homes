@@ -9,6 +9,7 @@ nav{
     background-color:whitesmoke;
     height: 80px;
     box-shadow: 0px 3px 20px 1px #84818154;
+    z-index: 1;
 }
 
 /*Logo*/
@@ -283,6 +284,8 @@ hr{
     height:200px;
     margin: 1% 10% 2% 10%;
     padding: 10px;
+    background: aliceblue;
+    border-radius: 5px;
 }
 .DisplayedAds:hover{
     background-color: rgba(237, 237, 237, 0.814);
@@ -305,7 +308,7 @@ hr{
     overflow-wrap: break-word;
     
 }
-#title{
+.title{
     font-size: 20px;
     font-weight:700;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -318,7 +321,7 @@ hr{
     float:left;
 }
 
-#price{
+.pPrice{
     margin-top:4px;
     font-size: large;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -327,13 +330,27 @@ hr{
     margin:20px 20px;
     float:left;
 }
-#contact{
+.contact{
     padding:10px;
     background-color:rgb(118, 204, 118);
     border:none;
     border-radius:5px;
 }
 
-#noOfRooms, #noOfBaths{
+.noOfRooms, .noOfBaths{
     margin-bottom: 10px;
+}
+
+.like{
+    width: fit-content;
+    position: absolute;
+    margin-top: -245px;
+    right: 142px;
+}
+
+.heart{
+    color:#ccc;
+    font-size: 25px;
+    cursor:pointer;
+    display: none;
 }

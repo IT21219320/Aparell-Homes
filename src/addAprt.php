@@ -50,9 +50,10 @@
     $description = htmlspecialchars($_POST['description']);
     $price = $_POST['price'];
     $nego = isset($_POST['nego']);
+    $sellerMail = $_SESSION['Email'];
 
     //insert values
-    $sql = "INSERT INTO apartments(adType,beds,baths,size,country,city,town,addrs,title,description,price,negotiable,img1,img2,img3,approved) VALUES('$adType','$beds','$baths','$size','$country','$city','$town','$addrs','$title','$description','$price','$nego','$target_file[0]','$target_file[1]','$target_file[2]','NULL');";
+    $sql = "INSERT INTO apartments(adType,beds,baths,size,country,city,town,addrs,title,description,price,negotiable,img1,img2,img3,approved,sellerMail) VALUES('$adType','$beds','$baths','$size','$country','$city','$town','$addrs','$title','$description','$price','$nego','$target_file[0]','$target_file[1]','$target_file[2]','NULL','$sellerMail');";
 
     if(mysqli_query($conn,$sql)){
         echo "<script>

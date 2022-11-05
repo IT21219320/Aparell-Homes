@@ -19,12 +19,14 @@
     }  
 
     $sqlDeleteBuyer = "DELETE FROM users WHERE email = '$email' AND accType = '$acc'";
+    $sqlDeletefav = "DELETE FROM userfavs WHERE email = '$email' AND accType = '$acc'";
 
     if(mysqli_query($conn,$sqlDeleteBuyer)){
 
         if($dp != "images/user.png"){
             unlink("$dp");
         }
+        mysqli_query($conn,$sqlDeletefav);
         $_SESSION['BuyerSignedIn'] = false;
         $_SESSION['LoginStat'] = false;
 
