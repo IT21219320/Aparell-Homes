@@ -288,7 +288,7 @@ footer div{
 }
 .profile1 .profile1-img{
     height: 260px;
-    width:260;
+    width:260px;
     border-radius: 50%;
     filter:gryscale(100%);
     cursor:pointer;
@@ -373,3 +373,13 @@ footer div{
     margin: 8px 0;
     box-sizing:border-box;
   }
+ 
+.sellButton:hover{
+    color:white;
+    border:2px solid white;
+    background-color:#0741ad;
+}
+.sellButton{
+    background-color: lightblue;
+    border:solid white;
+}

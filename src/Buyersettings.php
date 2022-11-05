@@ -128,7 +128,7 @@ div {
 }
 .profile1 .profile1-img{
     height: 260px;
-    width:260;
+    width:260px;
     border-radius: 50%;
     transition: 400ms;
 }
