@@ -69,10 +69,12 @@ require_once "config.php";
             $apartmentID=$_GET["apartmentID"];
 
             $sql = "select * from apartments where aprtID={$apartmentID}";
-            
+            $city = "";
             $result = $conn->query($sql);
+            
             if($result -> num_rows>0){
                 while($row = $result->fetch_assoc()){
+                    $city = $row['city'];
                     echo "<div class='viewAprtpcsArea'>
                         <img src='{$row['img1']}'>
                     </div>
@@ -91,9 +93,31 @@ require_once "config.php";
                     </div>";
 
                 }
+                
+            }
+            
+            $sql2 = "select * from apartments where city='{$city}' and aprtID != '{$apartmentID}'";
+            $result2 = $conn->query($sql2);
+            echo "<center><h1>Similar Ads</h1></center><center>";
+            if($result -> num_rows>0){
+                while($row2 = $result2->fetch_assoc()){
+                    echo"<a href='viewApartment.php?apartmentID={$row2['aprtID']}'>
+                    <div class='ad'>
+                        <img src='{$row2['img1']}' alt='image' width='100%' class='adpic'>
+                        <div class='ad_description'>
+                            <h2 id='title'>{$row2['title']}</h2>
+                            <p id='Address'>{$row2['addrs']}</p>
+                            <span id='noOfBeds'>{$row2['beds']} Bedroom(s)</span>
+                            <span id='baths'>{$row2['baths']} Bathroom(s)</span>
+                        </div>
+                    </div>
+                </a>";
+                }
+                echo"</center>";
             }
             
         ?>
+        
         
          
 
