@@ -202,34 +202,36 @@
                         if(isset($_SESSION['LoginStat'])){
                             if($logStat == true){
                             //if logged in
-                                echo "<script>document.getElementById('heart$id').style.display = 'block';</script>";
+                                if($buyerLoginStat == true){
+                                    echo "<script>document.getElementById('heart$id').style.display = 'block';</script>";
 
-                                 // to chk if ad is liked
-                                $sqlFav = "SELECT aprtID FROM userfavs WHERE email = '$email' AND accType = '$acc' AND aprtID='$id'";
-                                $favResult = $conn -> query($sqlFav);
-            
-                                while($favRow = $favResult -> fetch_assoc()){
-                                    $favId = $favRow['aprtID'];
+                                    // to chk if ad is liked
+                                    $sqlFav = "SELECT aprtID FROM userfavs WHERE email = '$email' AND accType = '$acc' AND aprtID='$id'";
+                                    $favResult = $conn -> query($sqlFav);
+                
+                                    while($favRow = $favResult -> fetch_assoc()){
+                                        $favId = $favRow['aprtID'];
 
-                                    if($id == $favId){ //check if already liked
-                                        echo "<script>
-                                                document.getElementById('heart$id').style.color = 'red';
-                                            </script>";
-                                        
-                                        
-                                    }      
-                                    else{
+                                        if($id == $favId){ //check if already liked
+                                            echo "<script>
+                                                    document.getElementById('heart$id').style.color = 'red';
+                                                </script>";
+                                            
+                                            
+                                        }      
+                                        else{
 
-                                        echo "<script>
-                                                document.getElementById('heart$id').style.color = '#ccc';
-                                            </script>";
-                                        
-                                        continue;    
+                                            echo "<script>
+                                                    document.getElementById('heart$id').style.color = '#ccc';
+                                                </script>";
+                                            
+                                            continue;    
 
-                                    }  
+                                        }  
+                                    }
+                                    
                                 }
-                                   
-                            }
+                            }    
                         }
                         
                     }

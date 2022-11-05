@@ -124,7 +124,7 @@
                 <label for="country">Location</label><br>
                 <input type="text" name="country" id="country" placeholder="Country" required>
                 <input type="text" name="city" id="city" placeholder="City" required>
-                <input type="text" name="town" id="town" placeholder="Town" required>
+                <input type="text" name="town" id="town" placeholder="Town">
                 
                 <br>
 

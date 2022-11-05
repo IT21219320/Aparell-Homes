@@ -18,6 +18,9 @@
 <?php
 require_once "config.php";
 ?>
+<?php
+require_once "config.php";
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -63,8 +66,15 @@ require_once "config.php";
             <div style="width:70%">
                 <p class="aboutustext"><font class="textPadding"><br><br>If you have any questions or queries a member of staff will always be happy to help.Feel free to contact us by telephone or email and we will be sure to get back to you as soon possible.</font></p>
                 
+<<<<<<< Updated upstream
             </div>    
             </div>
+=======
+            </div>
+
+        </div>
+        
+>>>>>>> Stashed changes
 
         </div>
         <div class="map">
