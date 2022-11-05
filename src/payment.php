@@ -100,7 +100,23 @@ require_once "config.php";
             $email = $_POST['email'];
             $typePay = $_POST['payType'];
 
-            $sql = " insert into payment values('')"
+            $sqlContact = " insert into payment values('', '$typePay', '$package', '$email')";
+            if(mysqli_query($conn,$sqlContact)){
+                echo "<script>
+                        alert('Successfully sent!');
+                        window.location.replace('contactUs.php');
+                      </script>";
+                
+            }
+            else{
+                echo "<script>
+                        alert('Message Unsuccessfully!');
+                        window.location.replace('contactUs.php');
+                      </script>";
+            }
+        
+        
+            mysqli_close($conn);
         }
 
         ?>
