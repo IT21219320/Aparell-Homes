@@ -65,18 +65,8 @@ require_once "config.php";
             <h2 class="aboutus">Contact Us</h2>
             <div style="width:70%">
                 <p class="aboutustext"><font class="textPadding"><br><br>If you have any questions or queries a member of staff will always be happy to help.Feel free to contact us by telephone or email and we will be sure to get back to you as soon possible.</font></p>
-                
-<<<<<<< Updated upstream
-            </div>    
-            </div>
-=======
-            </div>
-
-        </div>
-        
->>>>>>> Stashed changes
-
-        </div>
+                </div>
+                </div></div>
         <div class="map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d33007.13503196978!2d79.95921982827926!3d6.920117390160202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25715a39b7545%3A0xf53f96ad77a67685!2sAparell%20Homes!5e0!3m2!1sen!2slk!4v1667638275026!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
@@ -93,6 +83,10 @@ require_once "config.php";
             <button class="sellButton" name="submit">Send Message</button>
             </form>
         </div>
+        
+
+        
+        
         <?php
         if(isset($_POST["submit"])){
         $fname=htmlspecialchars($_POST['fname']);
