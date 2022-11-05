@@ -6,6 +6,7 @@
 $email = $_GET['email'];
 $acc = $_GET['accType'];
 $id = $_GET['id'];
+$url = $_GET['bkpg'];
 
 $sqlFav = "SELECT aprtID FROM userfavs WHERE email = '$email' AND accType = '$acc' AND aprtID = '$id'";
 $favResult = $conn -> query($sqlFav);
@@ -18,8 +19,8 @@ if($favResult -> num_rows >0){
                 mysqli_query($conn,$sqlDeleteLike);
     
                 echo "<script>
-                        var linkid = 'Ad'+$id;
-                        window.location.replace('searchApartment.php#'+linkid);
+                        var linkid = '$url'+'.php#Ad'+$id;
+                        window.location.replace(linkid);
                     </script>";
              
     }
@@ -30,8 +31,8 @@ else{
         mysqli_query($conn,$sqlAddLike);
 
         echo "<script>
-                var linkid = 'Ad'+$id;
-                window.location.replace('searchApartment.php#'+linkid);
+                var linkid = '$url'+'.php#Ad'+$id;
+                window.location.replace(linkid);
             </script>";                    
     
 } 
