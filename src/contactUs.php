@@ -12,6 +12,11 @@
         }   
 
     }
+
+
+?>
+<?php
+require_once "config.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -62,20 +67,47 @@
             </div>
 
         </div>
+        <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d33007.13503196978!2d79.95921982827926!3d6.920117390160202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25715a39b7545%3A0xf53f96ad77a67685!2sAparell%20Homes!5e0!3m2!1sen!2slk!4v1667638275026!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
         <div class="container5">
-            <form action ="">
-            <input type="text" id="fname" name="firstname" placeholder="First Name">
+            <form action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+            <input type="text" id="fname" name="fname" placeholder="First Name" required>
+            <br><br>
+            <input type="text" id="lname" name="lname" placeholder="Last Name" required>
+            <br><br>
+            <textarea  name="Message" placeholder="Message" style="height:200px" required></textarea>
+            <br><br>
+            <input type="email" id="email" name="email" placeholder="Email" required>
             <br><br><br>
-            <input type="text" id="lname" name="lastname" placeholder="Last Name">
-            <br><br><br>
-            <textarea  name="Message" placeholder="Message" style="height:200px" ></textarea>
-            <br><br><br>
-            <input type="email" id="email" name="email" placeholder="Email">
-            <br><br><br><br>
-            <button class="sellButton">Send Message</button>
+            <button class="sellButton" name="submit">Send Message</button>
             </form>
         </div>
+        <?php
+        if(isset($_POST["submit"])){
+        $fname=htmlspecialchars($_POST['fname']);
+        $lname=htmlspecialchars($_POST['lname']);
+        $Message=htmlspecialchars($_POST['Message']);
+        $email=htmlspecialchars($_POST['email']);
 
+        $sqlInsert = "INSERT INTO contact VALUES('','$fname','$lname','$Message','$email');";
+        if(mysqli_query($conn,$sqlInsert)){
+            echo "<script>
+                    alert('Massege Successfully Sent!');
+                    window.location.href=('contactUs.php');
+                  </script>";
+            
+        }
+        else{
+            echo "<script>
+                    alert('Massege Not Delivered!');
+                    window.location.href=('contactUs.php');
+                  </script>";
+        }
+    }
+    
+        mysqli_close($conn);
+        ?>
 
            <!-- Footer -->
            <footer>
