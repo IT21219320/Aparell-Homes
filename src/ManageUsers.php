@@ -97,8 +97,8 @@ require "checkAccTypeStaff.php";
                                             <td>$lname</td>  
                                             <td>$addrs</td>  
                                             <td>$phone</td> 
-                                            <td><a href='editAcc.php?email=$email &accType=buyer'>Edit</a></td>
-                                            <td><a href='deleteAcc.php?email=$email &accType=buyer'>Delete</a></td>                                       
+                                            <td><a href='editAcc.php?email=$email &accType=buyer' style='padding:5px; text-decoration:none; background-color:gray; color:black; border-radius:5px; margin:2px; width:40px;' >Edit</a></td>
+                                            <td><a href='deleteAcc.php?email=$email &accType=buyer' style='padding:5px; text-decoration:none; background-color:red; color:black;border-radius:5px; margin:2px;'>Delete</a></td>                                       
                                          </tr>";
                                 }
                             }
@@ -142,8 +142,8 @@ require "checkAccTypeStaff.php";
                                             <td>$lname</td>  
                                             <td>$addrs</td>  
                                             <td>$phone</td>  
-                                            <td><a href='editAcc.php?email=$email &accType=seller'>Edit</a></td>
-                                            <td><a href='deleteAcc.php?email=$email &accType=seller'>Delete</a></td>                                      
+                                            <td><a href='editAcc.php?email=$email &accType=seller' style='padding:5px; text-decoration:none; background-color:gray; color:black; border-radius:5px; margin:2px; width:40px;'>Edit</a></td>
+                                            <td><a href='deleteAcc.php?email=$email &accType=seller' style='padding:5px; text-decoration:none; background-color:red; color:black; border-radius:5px; margin:2px; width:40px;'>Delete</a></td>                                      
                                         </tr>";
                                 }
                             }

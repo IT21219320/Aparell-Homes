@@ -4,7 +4,7 @@ require_once "config.php";
 ?>
 <?php
     require "checkAccTypeSeller.php";
-    session_start();
+    /*session_start();
 
     if(isset($_SESSION['LoginStat'])){
         $logStat = $_SESSION['LoginStat'];
@@ -16,7 +16,7 @@ require_once "config.php";
             
         }   
 
-    }
+    }*/
 ?>
 <!DOCTYPE html>
 <html>
