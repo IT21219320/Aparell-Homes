@@ -2,15 +2,15 @@
     include_once 'config.php';
 ?>
 <?php
-
+    //start the session
     session_start();
     $email = $_SESSION['Email'];
     $accType = $_SESSION['AccType'];
     
     //put the values from the reg form into variables
-    $firstName = htmlspecialchars($_POST['firstname']);
-    $lastName = htmlspecialchars($_POST['lastname']);
-    $address = htmlspecialchars($_POST['addrs']);
+    $firstN = htmlspecialchars($_POST['firstname']);
+    $lastN = htmlspecialchars($_POST['lastname']);
+    $addr = htmlspecialchars($_POST['addrs']);
     $phone = $_POST['phonenumber'];
     $pwd = $_POST['pwd'];
 
@@ -38,15 +38,16 @@
 
     //update values
     $sql2 = "UPDATE users
-            SET fName = '$firstName',
-                lName = '$lastName',
-                addrs = '$address',
+            SET fName = '$firstN',
+                lName = '$lastN',
+                addrs = '$addr',
                 phoneNo = $phone,
                 password = '$pwd',
                 profile = '$target_file'
             WHERE email = '$email' AND accType = '$accType';";  
-            
-
+    
+    //check connection        
+    //display sccessful message
     if(mysqli_query($conn,$sql2)){
         echo "<script>
                 var acctype = '$accType';
@@ -55,6 +56,7 @@
               </script>";
         
     }
+    //display unsuccessful message
     else{
         echo "<script>
                 var acctype = '$accType';
