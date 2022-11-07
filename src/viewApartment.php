@@ -92,8 +92,7 @@ require_once "config.php";
                     </div>
                     <div class='priceArea'>
                         <p id='price'>Rs. {$row['price']}</p>
-                        <button type='submit' onclick='showcontact();' id='viewcontactSeller'>Contact Seller</button>
-                        <p id='contactno'>0715647800</p>
+                        <button  onclick='showcontact();' id='viewcontactSeller'>Contact Seller</button>
                     </div>";
 
                 }
@@ -120,6 +119,7 @@ require_once "config.php";
                 echo"</center>";
             }
             
+            
         ?>
         
         
@@ -138,7 +138,7 @@ require_once "config.php";
                 </div>
                 <!-- Links -->
                 <div id="links">
-                    <a href="aboutus.html">Info</a> &#x2022 <a href="contactus.html">Support</a> &#x2022 <a href="contactus.html">Marketing</a><br>
+                    <a href="aboutus.html">Info</a> &#x2022 <a href="contactUs.html">Support</a> &#x2022 <a href="contactUs.html">Marketing</a><br>
                     <a href="terms.html">Terms of Use</a> &#x2022 <a href="privacy.html">Privacy Policy</a>
                 </div>
                 <!-- Copyrights -->
@@ -163,3 +163,8 @@ require_once "config.php";
         }
     }
 ?>
+<script>
+    function showcontact(){
+    document.getElementById('contactno').style.display="block";
+}
+</script>

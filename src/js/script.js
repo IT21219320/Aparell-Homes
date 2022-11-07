@@ -108,5 +108,5 @@ function runNum(){
     }
 }
 function showcontact(){
-    document.getElementById('contactno').style.display=block;
+    document.getElementById('contactno').style.display="block";
 }
