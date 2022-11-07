@@ -3,6 +3,7 @@
 require_once "config.php";
 ?>
 <?php
+    require "checkAccTypeSeller.php";
     session_start();
 
     if(isset($_SESSION['LoginStat'])){
@@ -72,13 +73,12 @@ require_once "config.php";
             
                 <label><h1 id="chooseSub">Choose Subcription</h1></label>
                 <div class="pack">
-                <input type="radio" name="subcription" value="3000">
-                
-                <label><font class="headings">Rs 3000 </font> <p class="subDes">To boost for the top<p>  </label>
+                <input type="radio" name="subcription" id="sub1" value="3000">
+                <label for="sub1"><font class="headings">Rs 3000 </font> <p class="subDes">To boost for the top<p>  </label>
                 </div>
                 <div class="pack">
-                <input type="radio" name="subcription" value="1500">
-                <label><font class="headings">Rs 1500 </font><br> <p class="subDes">To boost upto 10 ads<p> </label>
+                <input type="radio" name="subcription" id="sub2" value="1500">
+                <label for="sub2"><font class="headings">Rs 1500 </font><br> <p class="subDes">To boost upto 10 ads<p> </label>
                 </div><br>
                 <label><font class="headings">Email</font></label><br>
                 <input type="email" name="email" id="email" value="Email"><br>

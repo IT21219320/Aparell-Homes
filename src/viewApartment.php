@@ -71,7 +71,7 @@ require_once "config.php";
              /* selected apartment details*/ 
             $apartmentID=$_GET["apartmentID"];
 
-            $sql = "select * from apartments where aprtID={$apartmentID}";
+            $sql = "select * from apartments A, users U where A.sellerMail = U.email AND U.accType = 'seller' AND aprtID={$apartmentID}";
             $city = "";
             $result = $conn->query($sql);
             
@@ -92,7 +92,10 @@ require_once "config.php";
                     </div>
                     <div class='priceArea'>
                         <p id='price'>Rs. {$row['price']}</p>
-                        <button  onclick='showcontact();' id='viewcontactSeller'>Contact Seller</button>
+                        <button onclick='showcontact();' id='viewcontactSeller'>Contact Seller</button>
+                    </div>
+                    <div id='contactno'>
+                        <p>{$row['sellerMail']}<br><a href='tel:0{$row['phoneNo']}'>{$row['phoneNo']}</p>
                     </div>";
 
                 }
@@ -165,6 +168,6 @@ require_once "config.php";
 ?>
 <script>
     function showcontact(){
-    document.getElementById('contactno').style.display="block";
+        document.getElementById('contactno').style.display="block";
 }
 </script>

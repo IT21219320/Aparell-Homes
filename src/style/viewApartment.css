@@ -276,6 +276,9 @@ footer div{
     border-radius: 8px 8px 0px 0px;
     height: 180px;
 }
+#viewcontactSeller{
+    cursor: pointer;
+}
 #contactno{
     display:none;
 }
