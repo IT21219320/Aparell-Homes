@@ -198,7 +198,7 @@ footer div{
     text-align: justify;
 }
 
-<--Background-->
+/*Background*/
 .AUFBButton{
     margin-left:15%;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -357,9 +357,6 @@ footer div{
     }
 }
 
-@media only screen and (max-width:900px){
-    .container
-}
 
  
 

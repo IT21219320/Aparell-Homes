@@ -94,7 +94,7 @@ require_once "config.php";
                         <p id='price'>Rs. {$row['price']}</p>
                         <button onclick='showcontact();' id='viewcontactSeller'>Contact Seller</button>
                         <div id='contactno'>
-                            <p class='conDetails'>{$row['sellerMail']}<br><a href='tel:0{$row['phoneNo']}' class='no'>{$row['phoneNo']}</a></p>
+                            <p class='conDetails'>{$row['sellerMail']}<br><a href='tel:0{$row['phoneNo']}' class='no'>0{$row['phoneNo']}</a></p>
                         </div>
                     </div>"
                     ;
