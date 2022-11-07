@@ -138,7 +138,7 @@ li a{
     color:black;
 }
 
-
+/*footer*/
 footer{
     background-color: #4db8ff;
     width: 100%;
@@ -303,7 +303,7 @@ footer div{
     margin-top:20px;
     text-align:justify;
 }
-
+/*minimize window*/
 @media only screen and (max-width:1150px){
     .profiles{
         flex-direction: column;
