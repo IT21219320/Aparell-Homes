@@ -71,30 +71,32 @@ require_once "config.php";
         <!--background image and text-->
         <div class="pic">
             <div class="pos70">
-            <h2 class="aboutus">Contact Us</h2>
-            <div style="width:70%">
-                <p class="aboutustext"><font class="textPadding"><br><br>If you have any questions or queries a member of staff will always be happy to help.Feel free to contact us by telephone or email and we will be sure to get back to you as soon possible.</font></p>
-                <p class="abc">228/10,<br> Rockland place,<br> Colombo 07<br>
-                +94 11 2 485823<br>aparell@gmail.com</p>
-    
+                <h2 class="aboutus">Contact Us</h2>
+                <div style="width:70%">
+                    <p class="aboutustext"><font class="textPadding"><br><br>If you have any questions or queries a member of staff will always be happy to help.Feel free to contact us by telephone or email and we will be sure to get back to you as soon possible.</font></p>
+                    <p class="abc">228/10,<br> Rockland place,<br> Colombo 07<br>
+                    +94 11 2 485823<br>aparell@gmail.com</p>
+                </div>
             </div>
-                </div></div>
-        <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d33007.13503196978!2d79.95921982827926!3d6.920117390160202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25715a39b7545%3A0xf53f96ad77a67685!2sAparell%20Homes!5e0!3m2!1sen!2slk!4v1667638275026!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        <div class="container5">
-            <form action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
-            <input type="text" id="fname" name="fname" placeholder="First Name" required>
-            <br><br>
-            <input type="text" id="lname" name="lname" placeholder="Last Name" required>
-            <br><br>
-            <input type="email" id="email" name="email" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
-            <br><br>
-            <textarea  name="Message" placeholder="Message" style="height:200px" required></textarea>
-            <br><br><br>
-            <button class="sellButton" name="submit">Send Message</button>
-            </form>
-        </div>
+        <div id="contactDivs">
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d33007.13503196978!2d79.95921982827926!3d6.920117390160202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25715a39b7545%3A0xf53f96ad77a67685!2sAparell%20Homes!5e0!3m2!1sen!2slk!4v1667638275026!5m2!1sen!2slk" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="container5">
+                <form action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+                <input type="text" id="fname" name="fname" placeholder="First Name" required>
+                <br><br>
+                <input type="text" id="lname" name="lname" placeholder="Last Name" required>
+                <br><br>
+                <input type="email" id="email" name="email" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                <br><br>
+                <textarea  name="Message" placeholder="Message" style="height:200px" required></textarea>
+                <br><br><br>
+                <button class="sellButton" name="submit">Send Message</button>
+                </form>
+            </div>
+        </div>    
         
 
         

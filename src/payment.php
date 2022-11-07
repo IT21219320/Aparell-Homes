@@ -39,7 +39,7 @@ require_once "config.php";
                 <li><a href="index.php" ><font class="hov">Home</font></a></li>
                 <li><a href="searchApartment.php" class="active"><font class="hov">Apartments</font></a></li>
                 <li><a href="aboutus.html"><font class="hov">About Us</font></a></li>
-                <li><a href="contactUs.html" ><font class="hov">Contact Us</font></a></li>
+                <li><a href="contactUs.php" ><font class="hov">Contact Us</font></a></li>
             </ul>
 
             <!-- Login & Signup -->
@@ -138,7 +138,7 @@ require_once "config.php";
                 </div>
                 <!-- Links -->
                 <div id="links">
-                    <a href="aboutus.html">Info</a> &#x2022 <a href="contactUs.html">Support</a> &#x2022 <a href="contactUs.html">Marketing</a><br>
+                    <a href="aboutus.html">Info</a> &#x2022 <a href="contactUs.php">Support</a> &#x2022 <a href="contactUs.php">Marketing</a><br>
                     <a href="terms.html">Terms of Use</a> &#x2022 <a href="privacy.html">Privacy Policy</a>
                 </div>
                 <!-- Copyrights -->

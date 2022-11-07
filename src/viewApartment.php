@@ -83,7 +83,7 @@ require_once "config.php";
                     </div>
                     <div class='viewdes'>
                         <p id='viewTitle'>{$row['title']}</p>
-                        <p id='viewAddress'>Address   {$row['addrs']}</p>
+                        <p id='viewAddress'>Address :   {$row['addrs']}</p>
                         <p id='viewBeds'>Beds   {$row['beds']}</P>
                         <p id='viewBaths'>Baths   {$row['baths']}</P>
                         <br>
@@ -93,10 +93,11 @@ require_once "config.php";
                     <div class='priceArea'>
                         <p id='price'>Rs. {$row['price']}</p>
                         <button onclick='showcontact();' id='viewcontactSeller'>Contact Seller</button>
-                    </div>
-                    <div id='contactno'>
-                        <p>{$row['sellerMail']}<br><a href='tel:0{$row['phoneNo']}'>{$row['phoneNo']}</p>
-                    </div>";
+                        <div id='contactno'>
+                            <p class='conDetails'>{$row['sellerMail']}<br><a href='tel:0{$row['phoneNo']}' class='no'>{$row['phoneNo']}</a></p>
+                        </div>
+                    </div>"
+                    ;
 
                 }
                 
@@ -104,8 +105,9 @@ require_once "config.php";
             /* Similar aprtment details */
             $sql2 = "select * from apartments where city='{$city}' and aprtID != '{$apartmentID}'";
             $result2 = $conn->query($sql2);
-            echo "<center><h1>Similar Ads</h1></center><center>";
+            
             if($result -> num_rows>0){
+                echo "<center><h1>Similar Ads</h1></center><center>";
                 while($row2 = $result2->fetch_assoc()){
                     echo"<a href='viewApartment.php?apartmentID={$row2['aprtID']}'>
                     <div class='ad'>
@@ -141,7 +143,7 @@ require_once "config.php";
                 </div>
                 <!-- Links -->
                 <div id="links">
-                    <a href="aboutus.html">Info</a> &#x2022 <a href="contactUs.html">Support</a> &#x2022 <a href="contactUs.html">Marketing</a><br>
+                    <a href="aboutus.html">Info</a> &#x2022 <a href="contactUs.php">Support</a> &#x2022 <a href="contactUs.php">Marketing</a><br>
                     <a href="terms.html">Terms of Use</a> &#x2022 <a href="privacy.html">Privacy Policy</a>
                 </div>
                 <!-- Copyrights -->

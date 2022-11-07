@@ -367,11 +367,8 @@ footer div{
     border-radius: 5px;
     background-color: lightblue;
     padding: 20px;
-    margin-top:5%;
-    margin-bottom:10%;
-    margin-right:60%;
-    margin-left: 10%; 
-    width:500px;
+    margin:5% 10% 2% 5%;
+    width:40%;
        
   }
 
@@ -412,9 +409,11 @@ footer div{
     padding-bottom: 10px;
 }
 .map{
-    position:absolute;
-    margin-left:53%; 
-    margin-top:9rem;
+    margin-right: 5%;
     border-style: double;
     border-color: #4873df;
+    float: right;
+    width: 45%;
+    height: 583px;
+    border-radius: 5px;
 }
