@@ -81,13 +81,21 @@ require_once "config.php";
                 <label for="sub2"><font class="headings">Rs 1500 </font><br> <p class="subDes">To boost upto 10 ads<p> </label>
                 </div><br>
                 <label><font class="headings">Email</font></label><br>
-                <input type="email" name="email" id="email" value="Email"><br>
+                <input type="email" name="email" id="email" placeholder="Email"><br>
                 <label><font class="headings">Payment Type</font></label><br>
                 <select name="payType">
                     <option value="Mater card">Master card</option>
                     <option value="credit card">Credit card</option>
                     <option value="Paypal">Paypal</option>
                 </select><br>
+                <label><font class="headings">Card Number</font></label><br>
+                <input type="text" name="cardNo" id="cardNo" placeholder="Card Number XXXXXXXXXXXX"><br>
+                <label><font class="headings">Name on Card</font></label><br>
+                <input type="text" name="cardName" id="cardName" placeholder="Name on Card"><br>
+                <label><font class="headings">Expiery Date</font></label><br>
+                
+                <input type="text" name="ExDate" id="ExDate" placeholder="MM/YY"><br>
+
                 <input type="submit" name="submitbtnPay" value="Pay" id="paybtn">
             </form>
         </div>
@@ -98,8 +106,11 @@ require_once "config.php";
             $package = $_POST['subcription'];
             $email = $_POST['email'];
             $typePay = $_POST['payType'];
+            $cardno = $_POST['cardNo'];
+            $name = $_POST['cardName'];
+            $expDate = $_POST['ExDate'];
 
-            $sqlContact = " insert into payment values('', '$typePay', '$package', '$email')";
+            $sqlContact = " insert into payment(paymentType,package,email,cardNo,name,expiryDate) values('$typePay', '$package', '$email','$cardno','$name','$expDate')";
             if(mysqli_query($conn,$sqlContact)){
                 echo "<script>
                         alert('Payment Successfully!');
