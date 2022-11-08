@@ -7,10 +7,16 @@ if(isset($_SESSION['LoginStat'])){
     if($_SESSION['LoginStat'] == true){
 
         if($_SESSION['StaffSignedIn'] == true){
-            header('Location:staffDash.php');
+            echo "<script>
+                    alert('Please login as an Admin!');
+                    window.location.replace('staffDash.php');
+                </script>";
         }
         elseif($_SESSION['SellerSignedIn'] == true){
-            header('Location:sellerDash.php');
+            echo "<script>
+                    alert('Please login as a seller!');
+                    window.location.replace('sellerDash.php');
+                </script>";
         }
         elseif($_SESSION['BuyerSignedIn'] != true){
             echo "<script>

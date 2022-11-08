@@ -231,7 +231,7 @@ div {
 
 
 <div style="padding: 20px;">
-  <form action="updateAcc.php"  enctype="multipart/form-data" method="POST">
+  <form action="updateBuyerAcc.php"  enctype="multipart/form-data" method="POST">
   <div class="profiles" style="text-align:center">
             <div class ="profile1">
                 <div id="previewDp">

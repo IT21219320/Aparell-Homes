@@ -169,6 +169,17 @@ footer{
     box-shadow: 0 -2px 20px 0px #8080804d;
 }    
 
+@media only screen and (max-width:470px) {
+    footer{
+        background-color: #4db8ff;
+        width: 100%;
+        color: #323031;
+        box-shadow: 0 -2px 20px 0px #8080804d;
+        position: fixed;
+        bottom: 0;
+    }   
+}
+
 footer div{
     padding: 10px 0px;
 }
@@ -293,7 +304,7 @@ footer div{
     transform:scale(1.02);
 }
 .ad_description{
-    width:100%;
+    width:90%;
     padding-left:15px;
     text-align: left;
     padding-bottom: 10px;
