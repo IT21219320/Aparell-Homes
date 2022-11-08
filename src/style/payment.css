@@ -229,6 +229,13 @@ input[type=email], select{
     margin:2% 4%;
 
 }
+input[type=text]{
+    padding:10px;
+    border-radius:10px;
+    width:80%;
+    margin:2% 4%;
+
+}
 .headings{
     font-size: 1.8vw;
 }
