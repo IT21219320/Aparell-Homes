@@ -67,6 +67,10 @@ li a{
     border-bottom: 2px solid #289abe;
 }
 
+#buyli,#sellli{
+    cursor: pointer;
+}
+
 /*Profile icon*/
 #profile{
     margin: 15px;
