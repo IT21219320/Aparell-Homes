@@ -180,6 +180,7 @@ require "checkAccTypeSeller.php";
                         output.innerHTML = "";
                     } 
                 }
+
                         
             }      
         </script>

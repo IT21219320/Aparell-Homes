@@ -273,13 +273,13 @@ footer div{
 .profile1{
     flex-basis: 260px;
 }
+/*team images*/
 .profile1 .profile1-img{
     height: 260px;
     width:260px;
     border-radius: 50%;
     filter:gryscale(100%);
-    cursor:pointer;
-    transition: 400ms;
+    
 }
 .profile1:hover .profile1-img{
     filter:grayscale(0);
