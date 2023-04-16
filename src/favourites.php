@@ -3,6 +3,8 @@
 ?>
 <?php
 require "checkAccTypeBuyer.php";
+
+$email = $_SESSION['Email'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -133,7 +135,7 @@ require "checkAccTypeBuyer.php";
             </nav>
             <hr>
             <?php
-                $sql = "SELECT * FROM apartments A, userfavs B WHERE A.aprtID = B.aprtID";
+                $sql = "SELECT * FROM apartments A, userfavs B WHERE A.aprtID = B.aprtID AND B.email = '$email' AND B.accType = 'buyer'";
                 $result = $conn -> query($sql);
                 if($result->num_rows>0){
                     while($row = $result->fetch_assoc()){
