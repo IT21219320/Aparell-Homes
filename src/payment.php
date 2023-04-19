@@ -89,12 +89,12 @@ require_once "config.php";
                     <option value="Paypal">Paypal</option>
                 </select><br>
                 <label><font class="headings">Card Number</font></label><br>
-                <input type="text" name="cardNo" id="cardNo" placeholder="Card Number XXXXXXXXXXXX"><br>
+                <input type="number" name="cardNo" id="cardNo" placeholder="Card Number XXXXXXXXXXXX" maxlenth="16" minlenth="16"><br>
                 <label><font class="headings">Name on Card</font></label><br>
                 <input type="text" name="cardName" id="cardName" placeholder="Name on Card"><br>
                 <label><font class="headings">Expiery Date</font></label><br>
                 
-                <input type="text" name="ExDate" id="ExDate" placeholder="MM/YY"><br>
+                <input type="text" name="ExDate" id="ExDate" placeholder="MM/YY" pattern="[0-1][0-2]/[0-9][0-9]"><br>
 
                 <input type="submit" name="submitbtnPay" value="Pay" id="paybtn">
             </form>
